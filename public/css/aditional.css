@@ -1,0 +1,70 @@
+/************** MENU *****************/
+
+#app  a:link, #app a:visited{
+    color: rgba(0,65,134);
+}
+
+#app  a:hover, #app a:active{
+    color: rgba(7,165,209);
+}
+
+/************** ACCUEIL *****************/
+
+.home-image{
+    padding-top: 40px;
+    width: 80%;
+    margin: 0 auto;
+    position :relative;
+}
+
+.animated {
+    background-color: #ffffff;
+    opacity: 0.6;
+}
+
+.animated h1{
+    color: black;
+}
+
+/************** SERVICES *****************/
+
+.services-container{
+    padding-top: 40px;
+    width: 80%; 
+    margin: 0 auto;
+    position :relative;
+}
+
+.services-container .content{
+    background:white;
+}
+
+/************** MATTERS *****************/
+
+.matieres-container{
+    padding-top: 40px;
+    width: 80%; 
+    margin: 0 auto;
+    position :relative;
+    height: 100%;
+}
+  
+.matieres-container .content{
+    background: white;
+}
+
+/************** ABOUT *****************/
+
+.about-history{
+  padding-top: 80px;
+  width: 80%; 
+  margin: 0 auto;
+}
+
+.about-equipe .container{
+  background:white;
+}
+
+.about-testimonials .container{
+  background:white;
+}
