@@ -44,7 +44,8 @@
                         <li class="nav-item"><a class="nav-link" href="{{ route('frontend_matters') }}">Matières</a></li> 
                         <li class="nav-item"><a class="nav-link" href="{{ route('frontend_about') }}">A propos</a></li>
                         @if(Auth::guest())
-                            <li class="nav-item"><a class="nav-link" href="{{route('register')}}">Recrutement</a></li>
+                            <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Recrutement</a>
+                            <!-- <li class="nav-item"><a class="nav-link" href="{{route('register')}}">Recrutement</a></li> -->
                         @else
                             <li class="nav-item"><a class="nav-link" href="{{asset('recrutement')}}">Recrutement</a></li>
                         @endif 
@@ -57,7 +58,7 @@
                         <!-------------------------------------------------------------------------------------->
                         @guest
                             <li class="nav-item">
-                                {{-- <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a> --}}
+                                <!-- <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a> -->
                                 <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">{{ __('Login') }}</a>
                             </li>
                             @if (Route::has('register'))
