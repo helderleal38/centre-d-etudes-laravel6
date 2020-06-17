@@ -7,7 +7,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <!--<title>{{ config('app.name', 'Vasco Soares') }}</title>-->
+    <title>Vasco Soares</title>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
@@ -97,7 +98,7 @@
     {{----------------------------------------------- LOGIN MODAL ----------------------------------------------------}}
     {{----------------------------------------------------------------------------------------------------------------}}
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg">
+        <div class="modal-dialog modal-md">
             <div class="modal-content ">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">Veuillez vous connecter ou inscrire avant de remplir le formulaire de pré-inscription</h5>
@@ -154,13 +155,14 @@
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
                                         {{ __('Forgot Your Password?') }}
                                     </a>
-                                    <a class="btn btn-link" data-toggle="modal" data-target="#registerModal">Nouveau sur le site ?  Inscrivez-vous</a>
+                                    
                                 @endif
                             </div>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
+                    <a class="btn btn-link" id="nouveau_sur_le_site_link" data-toggle="modal" data-target="#registerModal" >Nouveau sur le site ?  Inscrivez-vous</a>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
                 </div>
             </div>
