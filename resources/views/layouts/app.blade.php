@@ -43,6 +43,7 @@
                         <li class="nav-item"><a class="nav-link" href="{{ route('frontend_services') }}">Services</a></li>
                         <li class="nav-item"><a class="nav-link" href="{{ route('frontend_matters') }}">Matières</a></li> 
                         <li class="nav-item"><a class="nav-link" href="{{ route('frontend_about') }}">A propos</a></li>
+                        <!--Si l'utilisateur n'est pas connecte afiche le loginModal-->
                         @if(Auth::guest())
                             <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Recrutement</a>
                             <!-- <li class="nav-item"><a class="nav-link" href="{{route('register')}}">Recrutement</a></li> -->
@@ -63,7 +64,8 @@
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                                    <!-- <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a> -->
+                                    <a class="nav-link" href="#" data-toggle="modal" data-target="#registerModal">{{ __('Register') }}</a>
                                 </li>
                             @endif
                         @else
@@ -95,9 +97,9 @@
             </div>     
         </main>
     </div>
-    {{----------------------------------------------------------------------------------------------------------------}}
-    {{----------------------------------------------- LOGIN MODAL ----------------------------------------------------}}
-    {{----------------------------------------------------------------------------------------------------------------}}
+    <!---------------------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------- LOGIN MODAL ---------------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------------------->
     <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-md">
             <div class="modal-content ">
@@ -115,52 +117,54 @@
                                 <div class="form-group row">
                                     <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
                                     <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                    <label class="form-check-label" for="remember">
-                                        {{ __('Remember Me') }}
-                                    </label>
+                                      <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                      @error('email')
+                                        <span class="invalid-feedback" role="alert">
+                                          <strong>{{ $message }}</strong>
+                                        </span>
+                                      @enderror
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
+                                <div class="form-group row">
+                                    <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                    <div class="col-md-6">
+                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                        @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
 
-                        <div class="form-group row mb-0">
-                            <div class="col-md-8 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Login') }}
-                                </button>
+                                <div class="form-group row">
+                                    <div class="col-md-6 offset-md-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" name="remember" id="remember" 
+                                            {{ old('remember') ? 'checked' : '' }}>
+                                            <label class="form-check-label" for="remember">
+                                                {{ __('Remember Me') }}
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
 
-                                @if (Route::has('password.request'))
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                    
-                                @endif
-                            </div>
+                                <div class="form-group row mb-0">
+                                    <div class="col-md-8 offset-md-4">
+                                        <button type="submit" class="btn btn-primary">
+                                            {{ __('Login') }}
+                                        </button>
+
+                                        @if (Route::has('password.request'))
+                                            <a class="btn btn-link" href="{{ route('password.request') }}">
+                                                {{ __('Forgot Your Password?') }}
+                                            </a>
+                                            
+                                        @endif
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                    </form>
                 </div>
                 <div class="modal-footer">
                     <a class="btn btn-link" id="nouveau_sur_le_site_link" data-toggle="modal" data-target="#registerModal" >Nouveau sur le site ?  Inscrivez-vous</a>
@@ -169,9 +173,9 @@
             </div>
         </div>
     </div>
-    {{----------------------------------------------------------------------------------------------------------------}}
-    {{----------------------------------------------- REGISTER MODAL -------------------------------------------------}}
-    {{----------------------------------------------------------------------------------------------------------------}}
+    <!---------------------------------------------------------------------------------------------------------------->
+    <!----------------------------------------------- REGISTER MODAL ------------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------------------->
     <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg">
             <div class="modal-content ">
@@ -181,97 +185,89 @@
                     </button>
                 </div>
                 <div class="modal-body">
-
                     <div class="card-header" text='centered'>{{ __('REGISTER') }}</div>
                         <div class="card-body">
                             <form method="POST" action="{{ route('register') }}">
-                            @csrf
-                            <div class="form-group row">
-                                <label for="firstname" class="col-md-4 col-form-label text-md-right">Firstname</label>
-                                <div class="col-md-6">
-                                    <input id="firstname" type="text" class="form-control @error('firstname') is-invalid @enderror" name="firstname" value="{{ old('firstname') }}" required autocomplete="firstname" autofocus> 
-                                @error('firstname')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+                                @csrf
+                                <div class="form-group row">
+                                    <label for="firstname" class="col-md-4 col-form-label text-md-right">Firstname</label>
+                                    <div class="col-md-6">
+                                        <input id="firstname" type="text" class="form-control @error('firstname') is-invalid @enderror" name="firstname" value="{{ old('firstname') }}" required autocomplete="firstname" autofocus> 
+                                        @error('firstname')
+                                          <span class="invalid-feedback" role="alert">
+                                            <strong>{{ $message }}</strong>
+                                          </span>
+                                        @enderror
+                                    </div>
+                                </div>
 
-                        <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">LastName</label>
+                                <div class="form-group row">
+                                    <label for="name" class="col-md-4 col-form-label text-md-right">LastName</label>
+                                    <div class="col-md-6">
+                                        <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                        @error('name')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
 
-                            <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <div class="form-group row">
+                                    <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                                    <div class="col-md-6">
+                                        <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                        @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
 
-                                @error('name')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
+                                <div class="form-group row">
+                                    <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                                    <div class="col-md-6">
+                                        <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
+                                        @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                        @enderror
+                                    </div>
+                                </div>
 
-                        <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                            </div>
-                        </div>
-                        
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Votre statut</label>
-
-                            <div class="col-md-6">
-                                <select name="state" class="form-control">
-                                    <option>---</option>
-                                    <option value="eleve">Eleve/parent</option>
-                                    <option value="professeur">Professeur</option>
-                                </select>
-                            </div>
+                                <div class="form-group row">
+                                    <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                                    <div class="col-md-6">
+                                        <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
+                                    </div>
+                                </div>
                             
+                                <div class="form-group row">
+                                    <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Votre statut</label>
+                                    <div class="col-md-6">
+                                        <select name="state" class="form-control">
+                                            <option>---</option>
+                                            <option value="eleve">Eleve/parent</option>
+                                            <option value="professeur">Professeur</option>
+                                        </select>
+                                    </div>  
+                                </div>
+
+                                <div class="form-group row mb-0">
+                                    <div class="col-md-6 offset-md-4">
+                                        <button type="submit" class="btn btn-primary">
+                                            {{ __('Register') }}
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
                         </div>
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                </div>
             </div>
         </div>
     </div>
