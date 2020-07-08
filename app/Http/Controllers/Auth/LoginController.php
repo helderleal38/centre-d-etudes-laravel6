@@ -55,7 +55,8 @@ class LoginController extends Controller
         } 
         else if($state== "eleve")
         {
-            return "administration/students/index";
+            /*return "administration/students/index";*/
+            return "/";
         } else {
             return "login";
         }

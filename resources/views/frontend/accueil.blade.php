@@ -8,16 +8,16 @@
                 <!--Verification de l'authentification avant la pré-inscription-->
                 @if(Auth::guest())
                 <div class="animated fadeInDown">
-                    <h1 class="h3-responsive">Notre interet c'est votre reussite</h1>
-                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#loginModal">
-                        Pré-inscription
+                    <h1 class="h3-responsive">A deux on apprend mieux</h1>
+                    <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#loginModal">
+                        Commencez dès maintenant !
                     </button>
                     {{-- <a class="btn btn-primary" href="{{route('register')}}">Pre-inscription</a> --}}
                 </div>              
                 @else
                 <div class="animated fadeInDown">
-                    <h1 class="h3-responsive">Notre interet c'est votre reussite</h1>
-                    <a class="btn btn-primary" href="{{route('students_index')}}">Pré-inscription</a>
+                    <h1 class="h3-responsive">A deux on apprend mieux</h1>
+                    <a class="btn btn-warning" href="{{route('students_index')}}">Commencez dès maintenant !</a>
                 </div>
                 @endif
             </div>

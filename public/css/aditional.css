@@ -1,4 +1,4 @@
-/************** MENU *****************/
+/************** NAV BAR *****************/
 
 #app  a:link, #app a:visited{
     color: rgba(0,65,134);
@@ -8,22 +8,29 @@
     color: rgba(7,165,209);
 }
 
+
+
 /************** ACCUEIL *****************/
 
 .home-image{
-    padding-top: 40px;
-    width: 80%;
+    padding-top: 80px;
+    width: 70%;
     margin: 0 auto;
     position :relative;
 }
 
 .animated {
-    background-color: #ffffff;
-    opacity: 0.6;
+   width:50%;
+   padding: 20px;
+    border-radius: 20px;
+    background-color: rgba(120,124,135,1);
+    opacity: 0.7;
+
 }
 
 .animated h1{
-    color: black;
+    /* color: #d8dd07; */
+    color: rgba(7,165,209);
 }
 
 /************** SERVICES *****************/
@@ -67,4 +74,49 @@
 
 .about-testimonials .container{
   background:white;
+}
+
+/*************Admin-index.blade*********/
+.vertical-nav {
+  min-width: 17rem;
+  width: 17rem;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s;
+}
+.page-content {
+  width: calc(100% - 17rem);
+  margin-left: 17rem;
+  transition: all 0.4s;
+}
+
+/* for toggle behavior */
+
+#sidebar.active {
+  margin-left: -17rem;
+}
+
+#content.active {
+  width: 100%;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  #sidebar {
+    margin-left: -17rem;
+  }
+  #sidebar.active {
+    margin-left: 0;
+  }
+  #content {
+    width: 100%;
+    margin: 0;
+  }
+  #content.active {
+    margin-left: 17rem;
+    width: calc(100% - 17rem);
+  }
 }

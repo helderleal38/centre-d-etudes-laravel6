@@ -24,7 +24,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{-- {{ config('app.name', 'Laravel') }} --}}
@@ -60,12 +60,12 @@
                         @guest
                             <li class="nav-item">
                                 <!-- <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a> -->
-                                <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">{{ __('Login') }}</a>
+                                <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">{{ __('Connexion') }}</a>
                             </li>
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <!-- <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a> -->
-                                    <a class="nav-link" href="#" data-toggle="modal" data-target="#registerModal">{{ __('Register') }}</a>
+                                    <a class="nav-link" href="#" data-toggle="modal" data-target="#registerModal">{{ __('Inscription') }}</a>
                                 </li>
                             @endif
                         @else
@@ -112,7 +112,7 @@
                 <div class="modal-body">
                     <div class="card-header" text='centered'>{{ __('LOGIN') }}</div>
                         <div class="card-body">
-                            <form method="POST" action="{{ route('login') }}">
+                            <form method="POST" action="{{route('login')}}">
                                 @csrf
                                 <div class="form-group row">
                                     <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
@@ -151,7 +151,7 @@
 
                                 <div class="form-group row mb-0">
                                     <div class="col-md-8 offset-md-4">
-                                        <button type="submit" class="btn btn-primary">
+                                        <button type="submit" class="btn btn-primary "data-toggle="modal" data-target="#preInscriptionModal">
                                             {{ __('Login') }}
                                         </button>
 
@@ -173,6 +173,7 @@
             </div>
         </div>
     </div>
+
     <!---------------------------------------------------------------------------------------------------------------->
     <!----------------------------------------------- REGISTER MODAL ------------------------------------------------->
     <!---------------------------------------------------------------------------------------------------------------->
@@ -266,6 +267,32 @@
                         </div>
                 </div>
                 <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!---------------------------------------------------------------------------------------------------------------->
+    <!-----------------------------------------PRE-INSCRIPTION MODAL ------------------------------------------------->
+    <!---------------------------------------------------------------------------------------------------------------->
+    <div class="modal fade" id="preInscriptionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content ">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Veuillez vous connecter ou inscrire avant de remplir le formulaire de pré-inscription</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="card-header" text='centered'>{{ __('LOGIN') }}</div>
+                        <div class="card-body">
+                         
+                         </div>
+                </div>
+                <div class="modal-footer">
+                    <a class="btn btn-link" id="nouveau_sur_le_site_link" data-toggle="modal" data-target="#registerModal" >Nouveau sur le site ?  Inscrivez-vous</a>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
                 </div>
             </div>
