@@ -3,7 +3,7 @@
 @section('content')
 <section class="matieres-container">
 <div class="row">
-<div class="col-4 ">
+<div class="col-lg-4 col-sm-12">
     <div class="list-group z-depth-1" id="list-tab" role="tablist">
     <a class="list-group-item list-group-item-action active" id="list-home-list" data-toggle="list" href="#list-home"
         role="tab" aria-controls="home">Mathématique</a>
@@ -15,7 +15,7 @@
         role="tab" aria-controls="settings">Physique-chimie</a>
     </div>
 </div>
-<div class="content col-8 z-depth-1">
+<div class="content col-lg-8 col-sm-12 z-depth-1">
     <div class="tab-content" id="nav-tabContent">
     <div class="tab-pane fade show active " id="list-home" role="tabpanel" aria-labelledby="list-home-list">
     <h1>Mathématique</h1>
