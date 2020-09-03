@@ -9,14 +9,21 @@
 
     <!--<title>{{ config('app.name', 'Vasco Soares') }}</title>-->
     <title>Vasco Soares</title>
-
+    <!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/aditional.js') }}" defer></script>
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <!-- <link rel="dns-prefetch" href="//fonts.gstatic.com"> -->
+    <!-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> -->
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -96,7 +103,9 @@
                 @yield('content')
             </div>     
         </main>
+
     </div>
+    @include('footer')
     <!---------------------------------------------------------------------------------------------------------------->
     <!----------------------------------------------- LOGIN MODAL ---------------------------------------------------->
     <!---------------------------------------------------------------------------------------------------------------->
@@ -104,13 +113,13 @@
         <div class="modal-dialog modal-md">
             <div class="modal-content ">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Veuillez vous connecter ou inscrire avant de remplir le formulaire de pré-inscription</h5>
+                    <img class ="navbar-brand" src="{{asset('./assets/logo.png')}}" alt="Vasco Soares logo">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="card-header" text='centered'>{{ __('LOGIN') }}</div>
+                    
                         <div class="card-body">
                             <form method="POST" action="{{route('login')}}">
                                 @csrf
@@ -167,7 +176,8 @@
                         </div>
                 </div>
                 <div class="modal-footer">
-                    <a class="btn btn-link" id="nouveau_sur_le_site_link" data-toggle="modal" data-target="#registerModal" >Nouveau sur le site ?  Inscrivez-vous</a>
+                    <p>Nouveau sur le site ?</p>
+                    <a class="btn btn-link" id="nouveau_sur_le_site_link" data-toggle="modal" data-target="#registerModal" style="color: red;">Inscrivez-vous</a>
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
                 </div>
             </div>
@@ -187,8 +197,6 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <!-- <div class="card-header" text='centered'>{{ __('REGISTER') }}</div> -->
-                    <div class="header" text='centered'>Formulaire d'inscription</div>
                         <div class="card-body">
                             <form method="POST" action="{{ route('register') }}">
                                 @csrf
@@ -300,5 +308,13 @@
             </div>
         </div>
     </div>
+<!-- JQuery -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<!-- Bootstrap tooltips -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+<!-- Bootstrap core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+<!-- MDB core JavaScript -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
 </body>
 </html>
