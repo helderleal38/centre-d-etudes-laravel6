@@ -181,12 +181,14 @@
         <div class="modal-dialog modal-lg">
             <div class="modal-content ">
                 <div class="modal-header">
+                    <img class ="navbar-brand" src="{{asset('./assets/logo.png')}}" alt="Vasco Soares logo">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <div class="card-header" text='centered'>{{ __('REGISTER') }}</div>
+                    <!-- <div class="card-header" text='centered'>{{ __('REGISTER') }}</div> -->
+                    <div class="header" text='centered'>Formulaire d'inscription</div>
                         <div class="card-body">
                             <form method="POST" action="{{ route('register') }}">
                                 @csrf
