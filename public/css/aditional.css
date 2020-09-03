@@ -47,14 +47,10 @@
 
 .matieres-container{
     padding-top: 80px;
-    width: 80%; 
+    /*width: 60%;*/ 
     margin: 0 auto;
-    position :relative;
+    /*position :relative;*/
     height: 100%;
-}
-  
-.matieres-container .content{
-    background: white;
 }
 
 /************** ABOUT *****************/
@@ -73,6 +69,12 @@
   background:white;
 }
 
+/************** students_index.blade *****************/
+
+.jumbotron{
+  margin-top: 90px;
+
+}
 /*************Admin-index.blade*********/
 .vertical-nav {
   min-width: 17rem;
@@ -116,4 +118,7 @@
     margin-left: 17rem;
     width: calc(100% - 17rem);
   }
+}
+.page-footer{
+  background-color: 
 }
