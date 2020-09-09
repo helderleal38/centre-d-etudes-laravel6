@@ -14,7 +14,11 @@ class StudentsController extends Controller
      */
     public function index()
     {
-        return view('administration.students.index');
+
+        $students = Student::all();//je stock dans la variable $students "all" students
+        return view('administration.students.students_list', array('students' => $students));//return la vue avec les students 
+
+        // return view('administration.students.students_list');
     }
 
     /**
