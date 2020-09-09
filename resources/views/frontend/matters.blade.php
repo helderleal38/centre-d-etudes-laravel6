@@ -110,7 +110,5 @@
         dolor quis ex labore id nostrud deserunt dolor eiusmod eu pariatur culpa mollit in irure.
     </div>
     </div>
-</div>
-</div>
-</section>
-@endsection
+</div> 
+</div>-->

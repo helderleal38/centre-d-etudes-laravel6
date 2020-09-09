@@ -1,3 +1,5 @@
+
+
 /************** NAV BAR *****************/
 
 #app  a:link, #app a:visited{
@@ -28,6 +30,13 @@
 .carousel-caption h1{
     /* color: #d8dd07; */
     color: rgba(7,165,209);
+}
+
+.why_choose_us{
+  background: white;
+}
+.why_choose_us h1{
+  color:color: rgba(0,65,134);
 }
 
 /************** SERVICES *****************/
@@ -120,5 +129,5 @@
   }
 }
 .page-footer{
-  background-color: 
+  /*background-color:rgba(0,65,134);*/ 
 }
