@@ -26,9 +26,14 @@ class FrontendController extends Controller
         return view('frontend.matters');
     }
 
-     public function about()
+    public function about()
     {
         return view('frontend.about');
+    }
+
+    public function contact()
+    {
+        return view('frontend.contact');
     }
     
     /**

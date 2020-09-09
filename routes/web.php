@@ -19,6 +19,7 @@ Route::group([], function(){
 	Route::get('/services', "FrontendController@services")->name('frontend_services');
 	Route::get('/matters', "FrontendController@matters")->name('frontend_matters');
 	Route::get('/about', "FrontendController@about")->name('frontend_about');
+	Route::get('/contact', "FrontendController@contact")->name('frontend_contact');
 
 });
 
