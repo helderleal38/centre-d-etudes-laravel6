@@ -47,7 +47,7 @@ class LoginController extends Controller
         $state = trim(Auth::user()->state); //TRIM pour eviter les erreurs des espaces
         if($state == "administrateur")
         {
-            return "administration/administrateur/index";
+            return "administration/administrateur/admin";
         } 
         else if($state== "professeur")
         {
@@ -55,8 +55,8 @@ class LoginController extends Controller
         } 
         else if($state== "eleve")
         {
-            /*return "administration/students/index";*/
-            return "/";
+            return "administration/students/index";
+            /*return "/";*/
         } else {
             return "login";
         }

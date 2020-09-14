@@ -83,7 +83,7 @@ class RegisterController extends Controller
 
         if(Auth::user()->state == "administrateur")
         {
-            return "administration/administrateur/index";
+            return "administration/administrateur/admin";
         } 
         else if(Auth::user()->state == "professeur")
         {
