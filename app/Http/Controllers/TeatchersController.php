@@ -107,8 +107,10 @@ class TeatchersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Teatcher $teatcher)
     {
-        //
+        $teatcher->delete();
+        return back()->with('info', "Le professeur a bien été supprimé dans la table des professeurs, mais sont compte est toujours active sur le site.");
+
     }
 }
