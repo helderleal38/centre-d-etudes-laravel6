@@ -18,6 +18,19 @@ class TeatchersController extends Controller
     }
 
     /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function teatchersList()
+    {
+        $teatchers = Teatcher::join('users', 'teatchers.user_id', '=', 'users.id')
+        ->select('teatchers.*', 'users.firstname', 'users.name', 'users.email')     
+        ->get();
+        return view('administration.administrateur.teatchers.teatchers_list', array('teatchers' => $teatchers));//return la vue avec les students 
+    }
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
