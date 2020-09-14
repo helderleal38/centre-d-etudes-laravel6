@@ -5,7 +5,7 @@
 <div class="container">
   <div class="jumbotron">
     <h1>Bienvenue {{ Auth::user()->firstname }}</h1>      
-    <p>Tu est a quelques secondes de nous regoindre et nous sommes tres heureux.<br>Envoye nous t'a pre-inscription et nous te contacterons au plus vite.</p>
+    <p>Tu est a quelques secondes de regoindre notre centre et nous sommes trés heureux.<br>Envoye nous t'a pré-inscription et nous te contacterons au plus vite.</p>
   </div>
   <div class="row">
     <div class="col-md-12">
