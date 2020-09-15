@@ -13,12 +13,22 @@ class StudentsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+    {      
+        return view('administration.students.index');
+    }
+
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function studentsList()
     {
-
-        $students = Student::all();//je stock dans la variable $students "all" students
-        return view('administration.students.students_list', array('students' => $students));//return la vue avec les students 
-
-        // return view('administration.students.students_list');
+        $students = Student::join('users', 'students.user_id', '=', 'users.id')
+        ->select('students.*', 'users.firstname', 'users.name', 'users.email')     
+        ->get();
+        return view('administration.administrateur.students.students_list', array('students' => $students)); 
+        
     }
 
     /**
@@ -91,8 +101,9 @@ class StudentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Student $student)
     {
-        //
+        $student->delete();
+        return back()->with('info', "L'élève a bien été supprimé dans la table des élèves, mais sont compte est toujours active sur le site.");
     }
 }

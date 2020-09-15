@@ -14,7 +14,7 @@
         </div>
       </section>
       @if(session()->has('info'))
-        <div class="alert alert-success">
+        <div class="alert alert-info">
             {{ session('info') }}
         </div>
       @endif
@@ -40,7 +40,7 @@
               <tbody>  
                 @foreach ($students as $student)               
                 <tr>
-                  <th scope="row">{{$student->user_id}}</th>                 
+                  <th scope="row">{{$student->id}}</th>                 
                   <td>{{$student->firstname}}</td>
                   <td>{{$student->name}}</td>
                   <td>{{$student->scoolName}}</td>
@@ -52,7 +52,6 @@
                   <td>{{$student->phoneNumber}}</td>
                   <td class="text-right py-0 align-middle">
                     <div class="btn-group btn-group-sm">
-                      <button class="btn btn-info" type="submit"><i class="fas fa-pencil-alt"></i></button>                                                      
                       <form action="{{route('student_delete', $student)}}" method="post">
                         @method('DELETE')
                         @csrf
