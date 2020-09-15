@@ -13,11 +13,11 @@
           </div>
         </div>
       </section>
-      {{-- @if(session()->has('info'))
-        <div class="notification is-success">
+      @if(session()->has('info'))
+        <div class="alert alert-info">
             {{ session('info') }}
         </div>
-      @endif --}}
+      @endif
       <div class="card mt-3">
         <div class="card-body">
           <div class="table-responsive">
@@ -36,26 +36,21 @@
                 </tr>
               </thead>             
               <tbody>  
-
-                @foreach ($teatchers as $student)               
+                @foreach ($teatchers as $teatcher)               
                 <tr>
-                  <th scope="row">{{$student->id}}</th>                 
-                  <td>{{$student->firstname}}</td>
-                  <td>{{$student->name}}</td>
-                  <td>{{$student->matter}}</td>
-                  <td>{{$student->scoolLevel}}</td>
-                  <td>{{$student->phoneNumber}}</td>
-                  <td>{{$student->email}}</td>
-                  <td><img src="{{asset('uploads/files/' . $student->cv)}}"></td>
+                  <th scope="row">{{$teatcher->id}}</th>                 
+                  <td>{{$teatcher->firstname}}</td>
+                  <td>{{$teatcher->name}}</td>
+                  <td>{{$teatcher->matter}}</td>
+                  <td>{{$teatcher->scoolLevel}}</td>
+                  <td>{{$teatcher->phoneNumber}}</td>
+                  <td>{{$teatcher->email}}</td>
+                <td><a href="{{asset($teatcher->cv)}}" target="_blank"><i class="far fa-file-pdf"></i></td>
                   <td class="text-right py-0 align-middle">
-                    <div class="btn-group btn-group-sm">
-                      <form action="" method="">
-                        <button class="btn btn-info" type="submit"><i class="fas fa-pencil-alt"></i></button>              
-                      </form>                    
-                      <form action="{{--route('student_delete', $student)--}}" method="post">
+                    <div class="btn-group btn-group-sm">              
+                      <form action="{{route('teatcher_delete', $teatcher)}}" method="post">
                         @method('DELETE')
                         @csrf
-                        <!-- <input type="submit" value="ELIMINAR" class = "btn btn-outline-danger mt-2">  -->
                         <button class="btn btn-danger" type="submit"><i class="fas fa-trash"></i></button>               
                       </form>
                     </div>
