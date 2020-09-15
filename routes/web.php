@@ -25,10 +25,18 @@ Route::group([], function(){
 
 Auth::routes(); 
 
+/*middleware('auth') --> seules les personnes authentifiés peuvent acceder*/
+
 /* Administrateur */
 
 Route::middleware('auth')->prefix('administration/administrateur')->group(function () {
-	Route::get('/index', "AdministrateurController@index")->name('administrateur_index');
+	Route::get('/admin', "AdministrateurController@index")->name('administrateur_index');
+
+	Route::get('/students/students_list', "StudentsController@studentsList")->name('students_list');
+	Route::delete('/students/delete/{student}', "StudentsController@destroy")->name('student_delete');
+
+	Route::get('/teatchers/teatchers_list', "TeatchersController@teatchersList")->name('teatchers_list');
+	Route::delete('/teatchers/delete/{teatcher}', "TeatchersController@destroy")->name('teatcher_delete');
 });
 
 
@@ -44,6 +52,6 @@ Route::middleware('auth')->prefix('administration/teatchers')->group(function ()
 
 Route::middleware('auth')->prefix('administration/students')->group(function () {
 	Route::get('/index', "StudentsController@index")->name('students_index');
-	Route::post('/store', "StudentsController@store")->name('students_store'); 
+	Route::post('/store', "StudentsController@store")->name('students_store');  
 });
 
