@@ -13,8 +13,12 @@ class StudentsController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {      
-        return view('administration.students.index');
+    {   
+        $auth = auth()->user()->id;
+        $studentId = Student::where('students.user_id', '=', $auth)
+        ->select('students.*')  
+        ->get();
+        return view('administration.students.index', compact('studentId'));
     }
 
     /**
@@ -78,7 +82,7 @@ class StudentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit()
     {
         //
     }
@@ -90,9 +94,10 @@ class StudentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Student $studentId)
     {
-        //
+        $studentId->update($request->all());
+        return "Utilisateur modifié !";
     }
 
     /**

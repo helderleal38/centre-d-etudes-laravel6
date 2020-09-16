@@ -53,5 +53,7 @@ Route::middleware('auth')->prefix('administration/teatchers')->group(function ()
 Route::middleware('auth')->prefix('administration/students')->group(function () {
 	Route::get('/index', "StudentsController@index")->name('students_index');
 	Route::post('/store', "StudentsController@store")->name('students_store');  
+	Route::put('/update/{studentId}', "StudentsController@update")->name('student_update');  
+
 });
 
