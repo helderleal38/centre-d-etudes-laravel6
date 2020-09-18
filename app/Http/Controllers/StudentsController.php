@@ -18,7 +18,7 @@ class StudentsController extends Controller
         $studentId = Student::where('students.user_id', '=', $auth)
         ->select('students.*')  
         ->get();
-        return view('administration.students.index', compact('studentId'));
+        return view('administration.students.student', compact('studentId'));
     }
 
     /**
@@ -42,7 +42,7 @@ class StudentsController extends Controller
      */
     public function create()
     {
-        //
+        return view('administration.students.actions.newStudent');
     }
 
     /**
@@ -82,9 +82,14 @@ class StudentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit()
+    public function edit(Student $studentId)
     {
-        //
+        
+        $auth = auth()->user()->id;
+        $studentId = Student::where('students.user_id', '=', $auth)
+        ->select('students.*')  
+        ->get();
+        return view('administration.students.actions.editStudent', compact('studentId'));
     }
 
     /**
@@ -97,7 +102,8 @@ class StudentsController extends Controller
     public function update(Request $request, Student $studentId)
     {
         $studentId->update($request->all());
-        return "Utilisateur modifié !";
+        return back()->with('info', "Fiche de pré-inscription modifié avec success !");
+
     }
 
     /**
