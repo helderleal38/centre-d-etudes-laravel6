@@ -73,4 +73,13 @@ class User extends Authenticatable
     public function teatchers(){
         return $this->belongsTo(Teatcher::class);
         }
+    
+
+    /**
+    * Relation ONE to MANY
+    */
+    
+    public function comments(){
+        return $this->hasMany(Comment::class);
+        }
 }
