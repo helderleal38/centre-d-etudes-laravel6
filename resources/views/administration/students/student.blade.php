@@ -19,6 +19,11 @@
                     {{ session('info') }}
                 </div>
             @endif
+            @if(session()->has('success'))
+                <div class="alert alert-success mt-2">
+                    {{ session('success') }}
+                </div>
+            @endif
         </div>
         <div class="col-lg-8">
             <div class="tab-content" id="nav-tabContent">

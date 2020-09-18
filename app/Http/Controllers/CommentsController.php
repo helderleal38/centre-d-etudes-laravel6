@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use Illuminate\Http\Request;
 
 class CommentsController extends Controller
@@ -34,7 +35,19 @@ class CommentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'avatar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+        $avatar = $request->avatar;
+        $avatar_name = time() .'_'.$avatar->getClientOriginalExtension();
+        $avatar->move('uploads/avatars/', $avatar_name);
+        Comment::create([
+            'comment' => Request('comment'),
+            'avatar' => "uploads/avatars/" . $avatar_name,
+            'user_id' => auth()->id()
+        ]);
+        return back()
+        ->with('success','Votre commentaire a bien étè envoyé.');
     }
 
     /**

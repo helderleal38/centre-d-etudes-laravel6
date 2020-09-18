@@ -59,6 +59,8 @@ Route::middleware('auth')->prefix('administration/students')->group(function () 
 	/* comments */
 
 	Route::get('/actions/comment/create', "CommentsController@create")->name('student_comment');
+	Route::post('/actions/comment/store', "CommentsController@store")->name('comment_store');
+
 });
 
 
