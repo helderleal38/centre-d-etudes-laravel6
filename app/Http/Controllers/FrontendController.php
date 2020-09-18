@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
 use Illuminate\Http\Request;
 
 class FrontendController extends Controller
@@ -13,7 +14,10 @@ class FrontendController extends Controller
      */
     public function index()
     {
-        return view('frontend.accueil');
+        $comments = Comment::join('users', 'comments.user_id', '=', 'users.id')
+        ->select('comments.*', 'users.firstname', 'users.name')     
+        ->get();
+        return view('frontend.accueil', compact('comments'));
     }
 
     public function services()
