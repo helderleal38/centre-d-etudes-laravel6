@@ -20,7 +20,6 @@ Route::group([], function(){
 	Route::get('/matters', "FrontendController@matters")->name('frontend_matters');
 	Route::get('/about', "FrontendController@about")->name('frontend_about');
 	Route::get('/contact', "FrontendController@contact")->name('frontend_contact');
-
 });
 
 Auth::routes(); 
@@ -51,9 +50,15 @@ Route::middleware('auth')->prefix('administration/teatchers')->group(function ()
 /* Students */
 
 Route::middleware('auth')->prefix('administration/students')->group(function () {
-	Route::get('/index', "StudentsController@index")->name('students_index');
-	Route::post('/store', "StudentsController@store")->name('students_store');  
-	Route::put('/update/{studentId}', "StudentsController@update")->name('student_update');  
+	Route::get('/student', "StudentsController@index")->name('students_index');
+	Route::get('/actions/create', "StudentsController@create")->name('student_create');
+	Route::post('/store', "StudentsController@store")->name('students_store'); 
+	Route::get('/actions/edit', "StudentsController@edit")->name('student_edit'); 
+	Route::put('/actions/update/{studentId}', "StudentsController@update")->name('student_update'); 
+	
+	/* comments */
 
+	Route::get('/actions/comment/create', "CommentsController@create")->name('student_comment');
 });
+
 
