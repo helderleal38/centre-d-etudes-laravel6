@@ -91,7 +91,7 @@
       <h1 class="font-weight-bold mb-4 pb-4">Ce qu'ils disent de nous</h1>
       <div class="wrapper-carousel-fix">
         <!-- Carousel Wrapper -->      
-        <div id="carousel-comments" class="carousel slide carousel-fade" data-ride="carousel">
+        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
           <!--Slides-->        
             <div class="carousel-inner">
               @foreach($comments as $key => $comment)
@@ -119,12 +119,12 @@
             </div>
             <!--Slides-->
             <!--Controls-->
-            <a class="carousel-control-prev left carousel-control" href="#carousel-comments" role="button"
+            <a class="carousel-control-prev left carousel-control" href="#carouselExampleControls" role="button"
               data-slide="prev">
               <span class="icon-prev" aria-hidden="true"></span>
               <span class="sr-only">Previous</span>
             </a>
-            <a class="carousel-control-next right carousel-control" href="#carousel-comments" role="button"
+            <a class="carousel-control-next right carousel-control" href="#carouselExampleControls" role="button"
               data-slide="next">
               <span class="icon-next" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
