@@ -14,7 +14,10 @@ class CommentsController extends Controller
      */
     public function index()
     {
-        //
+        $comments = Comment::join('users', 'comments.user_id', '=', 'users.id')
+        ->select('comments.*', 'users.firstname', 'users.name')     
+        ->get();
+        return view('administration.administrateur.comments.index', compact('comments'));
     }
 
     /**
@@ -47,7 +50,7 @@ class CommentsController extends Controller
             'user_id' => auth()->id()
         ]);
         return back()
-        ->with('success','Votre commentaire a bien étè envoyé.');
+        ->with('success','Votre commentaire a bien étè envoyé. Il va etre visible sur le site aprés la validation de l\'administrateur');
     }
 
     /**

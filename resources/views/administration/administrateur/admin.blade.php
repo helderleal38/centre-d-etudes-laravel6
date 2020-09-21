@@ -149,7 +149,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/mailbox/read-mail.html" class="nav-link">
+                <a href="{{route('comments_index')}}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Ce qu'ils disent de nous</p>
                 </a>
