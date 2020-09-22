@@ -76,9 +76,9 @@ class MattersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Matter $matter)
     {
-        //
+        return view('administration.administrateur.matters.edit', compact('matter'));
     }
 
     /**

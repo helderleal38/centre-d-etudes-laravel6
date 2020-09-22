@@ -14,7 +14,7 @@
                   </h5>
                 </div>
                 <div class="col col-1">
-                  <a href="" class="btn btn-info"><i class="fas fa-pencil-alt"></i></a>
+                  <a href="{{route('matter_edit', $matter)}}" class="btn btn-info"><i class="fas fa-pencil-alt"></i></a>
                 </div>
                 <div class="col col-1">
                   <form action="" method="post">

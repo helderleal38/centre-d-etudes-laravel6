@@ -42,6 +42,8 @@ Route::middleware('auth')->prefix('administration/administrateur')->group(functi
 	Route::get('/matters/list', "MattersController@index")->name('matters_list');
 	Route::get('/matters/create', "MattersController@create")->name('matter_create');
 	Route::post('/matters/store', "MattersController@store")->name('matter_store');
+	Route::get('/matters/edit/{matter}', "MattersController@edit")->name('matter_edit');
+
 });
 
 
