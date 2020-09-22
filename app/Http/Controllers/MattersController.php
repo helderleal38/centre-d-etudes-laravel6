@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Matter;
 use Illuminate\Http\Request;
 
 class MattersController extends Controller
@@ -23,7 +24,8 @@ class MattersController extends Controller
      */
     public function create()
     {
-        //
+        return view('administration.administrateur.matters.create');
+
     }
 
     /**
@@ -34,7 +36,26 @@ class MattersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+        
+        $image = $request->image;
+        $image_name = time() .'_'.$image->getClientOriginalExtension();
+        $image->move('uploads/matters/', $image_name);
+        Matter::create([
+            'matter' => Request('matter'),
+            'title' => Request('title'),
+            'content' => Request('content'),
+            'image' => "uploads/matters/" . $image_name,
+            'hourPrice' => Request('hourPrice'),
+            'yearReduction' => Request('yearReduction'),
+            'extraReduction' => Request('extraReduction')
+        ]);
+        
+        return back()
+        ->with('success','Votre matiére à bien étè ajouté');
+
     }
 
     /**

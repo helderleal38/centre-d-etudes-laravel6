@@ -15,6 +15,7 @@ class CreateMattersTable extends Migration
     {
         Schema::create('matters', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('matter');
             $table->string('title');
             $table->text('content');
             $table->string('image');

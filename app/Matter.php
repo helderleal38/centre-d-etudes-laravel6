@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 class Matter extends Model
 {
@@ -14,7 +15,7 @@ class Matter extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'content', 'image', 'hourPrice', 'yearReduction', 'extraReduction'
+        'matter', 'title', 'content', 'image', 'hourPrice', 'yearReduction', 'extraReduction'
     ];
 
 }

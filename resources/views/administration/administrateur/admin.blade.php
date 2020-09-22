@@ -180,7 +180,7 @@
             </ul>
           </li>
           <li class="nav-item has-treeview">
-            <a href="{{ route('matters_index') }}" class="nav-link">
+            <a href="#" class="nav-link">
               <i class="nav-icon fas fa-book-open"></i>
               <p>
                 Matiéres
@@ -189,15 +189,15 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/examples/invoice.html" class="nav-link">
+                <a href="{{ route('matter_create') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p></p>
+                  <p>New matiére</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/examples/profile.html" class="nav-link">
+                <a href="{{ route('matters_index') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Profile</p>
+                  <p>Voir les matiéres</p>
                 </a>
               </li>
             </ul>
