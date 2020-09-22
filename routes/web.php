@@ -38,6 +38,8 @@ Route::middleware('auth')->prefix('administration/administrateur')->group(functi
 	Route::delete('/teatchers/delete/{teatcher}', "TeatchersController@destroy")->name('teatcher_delete');
 
 	Route::get('/comments', "CommentsController@index")->name('comments_index');
+
+	Route::get('/matters', "MattersController@index")->name('matters_index');
 });
 
 

@@ -180,7 +180,7 @@
             </ul>
           </li>
           <li class="nav-item has-treeview">
-            <a href="#" class="nav-link">
+            <a href="{{ route('matters_index') }}" class="nav-link">
               <i class="nav-icon fas fa-book-open"></i>
               <p>
                 Matiéres
@@ -189,20 +189,20 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="pages/examples/login.html" class="nav-link">
+                <a href="pages/examples/invoice.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Login</p>
+                  <p></p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="pages/examples/register.html" class="nav-link">
+                <a href="pages/examples/profile.html" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Register</p>
+                  <p>Profile</p>
                 </a>
               </li>
             </ul>
           </li>
-          
+
           <li class="nav-header">LABELS</li>
           <li class="nav-item">
             <a class="nav-link" href="{{ route('logout') }}"
