@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Matter;
 use App\Comment;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,8 @@ class FrontendController extends Controller
 
     public function matters()
     {
-        return view('frontend.matters');
+        $matters = Matter::All();
+        return view('frontend.matters', compact('matters'));
     }
 
     public function about()
