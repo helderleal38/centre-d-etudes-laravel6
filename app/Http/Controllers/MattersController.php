@@ -14,7 +14,8 @@ class MattersController extends Controller
      */
     public function index()
     {
-        return view('administration.administrateur.matters.index');
+        $matters = Matter::All();
+        return view('administration.administrateur.matters.mattersList', compact('matters'));
     }
 
     /**

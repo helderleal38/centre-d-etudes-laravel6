@@ -189,20 +189,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
+                <a href="{{ route('matters_list') }}" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Voir les matiéres</p>
+                </a>
+              </li>
+              <li class="nav-item">
                 <a href="{{ route('matter_create') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>New matiére</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="{{ route('matters_index') }}" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Voir les matiéres</p>
-                </a>
-              </li>
             </ul>
           </li>
-
           <li class="nav-header">LABELS</li>
           <li class="nav-item">
             <a class="nav-link" href="{{ route('logout') }}"

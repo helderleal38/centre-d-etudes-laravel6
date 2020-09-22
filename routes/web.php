@@ -39,7 +39,7 @@ Route::middleware('auth')->prefix('administration/administrateur')->group(functi
 
 	Route::get('/comments', "CommentsController@index")->name('comments_index');
 
-	Route::get('/matters', "MattersController@index")->name('matters_index');
+	Route::get('/matters/list', "MattersController@index")->name('matters_list');
 	Route::get('/matters/create', "MattersController@create")->name('matter_create');
 	Route::post('/matters/store', "MattersController@store")->name('matter_store');
 });
