@@ -44,6 +44,7 @@ Route::middleware('auth')->prefix('administration/administrateur')->group(functi
 	Route::post('/matters/store', "MattersController@store")->name('matter_store');
 	Route::get('/matters/edit/{matter}', "MattersController@edit")->name('matter_edit');
 	Route::put('/matters/update/{matter}', "MattersController@update")->name('matter_update');
+	Route::delete('/matters/delete/{matter}', "MattersController@destroy")->name('matter_delete');
 });
 
 

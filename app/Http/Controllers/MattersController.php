@@ -100,8 +100,10 @@ class MattersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Matter $matter)
     {
-        //
+        $matter->delete();
+        return back()->with('success', "L'article a bien étè suprimmé !");
+
     }
 }

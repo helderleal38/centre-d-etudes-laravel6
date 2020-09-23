@@ -4,6 +4,11 @@
   <div class="container-fluid">
     <div class="row justify-content-center">
       <div class="col-md-8">
+        @if(session()->has('success'))
+          <div class="alert alert-success mt-2">
+            {{ session('success') }}
+          </div>
+        @endif
         @foreach($matters as $matter)        
           <div class="card mt-4">
             <div class="card-header" id="headingOne">
@@ -17,7 +22,7 @@
                   <a href="{{route('matter_edit', $matter)}}" class="btn btn-info"><i class="fas fa-pencil-alt"></i></a>
                 </div>
                 <div class="col col-1">
-                  <form action="" method="post">
+                  <form action="{{route('matter_delete', $matter)}}" method="post">
                     @method('DELETE')
                     @csrf
                     <button class="btn btn-danger" type="submit"><i class="fas fa-trash"></i></button>               
