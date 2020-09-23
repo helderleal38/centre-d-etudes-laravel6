@@ -8,11 +8,15 @@
         <div class="box-header with-border text-center p-4">
           <h3 class="box-title">Modifier les données de la matiére</h3>
         </div>
-        {{--dd($matter)--}}
-        <!-- /.box-header -->
+        @if(session()->has('success'))
+          <div class="alert alert-success mt-2">
+            {{ session('success') }}
+          </div>
+        @endif
         <!-- form start -->
-        <form action="{{ route('matter_store')}} " method="post" enctype="multipart/form-data">
+        <form action="{{ route('matter_update', $matter)}} " method="post">
           @csrf
+          @method('PUT')
           <div class="box-body">
             <div class="form-group">
               <label>Matiére</label>
@@ -27,10 +31,13 @@
               <input type="text" class="form-control" name="content" id="content" rows="3" value="{{$matter->content}}" required>
             </div>
             <div class="form-group">
-              <img src="{{asset($matter->image)}}" class="img-fluid" width="50" height="50"
-							alt="image">
-              <label for="image">Changer d'image ?</label>
-              <input type="file" name="image" id="image" value="{{$matter->image}}">
+              <label><img src="{{asset($matter->image)}}" class="img-fluid" width="50" height="50"
+							alt="image"></label>
+              <input type="text" class="form-control" name="image" id="image" value="{{$matter->image}}">
+            </div>
+            <div class="form-group">
+              <label for="newImage">Changer d'image ?</label>
+              <input type="file" name="newImage" id="newImage">
             </div>
             <div class="form-group">
               <label>Prix/heure</label>

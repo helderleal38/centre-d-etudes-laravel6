@@ -88,9 +88,10 @@ class MattersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Matter $matter)
     {
-        //
+        $matter->update($request->all());
+        return back()->with('success', "Article modifié avec success");
     }
 
     /**

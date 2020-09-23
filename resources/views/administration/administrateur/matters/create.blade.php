@@ -16,15 +16,15 @@
           <div class="box-body">
             <div class="form-group">
               <label>Matiére</label>
-              <input type="text" class="form-control" name="matter" required>
+              <input type="text" class="form-control" name="matter" id="matter" required>
             </div>
             <div class="form-group">
               <label>Titre</label>
-              <input type="text" class="form-control" name="title" required>
+              <input type="text" class="form-control" name="title" id="title" required>
             </div>
             <div class="form-group">
               <label>Contenu</label>
-              <textarea class="form-control" rows="3" name="content" required></textarea>
+              <textarea class="form-control" rows="3" name="content" id="content" required></textarea>
             </div>
             <div class="form-group">
               <label for="exampleInputFile">Image</label>
