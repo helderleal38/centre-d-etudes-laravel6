@@ -36,20 +36,49 @@
   background: white;
 }
 .why_choose_us h1{
-  color:color: rgba(0,65,134);
+  color: rgba(0,65,134);
 }
 
 /************** SERVICES *****************/
-
-.services-container{
-    padding-top: 80px;
-    width: 80%; 
-    margin: 0 auto;
-    position :relative;
+.content{
+  padding-top: 20px;
 }
 
-.services-container .content{
-    background:white;
+.services h3{
+  text-align: center;
+  
+}
+.services h5{
+  color:blue;
+  font-family: cursive;
+  font-size: 2em;
+}
+.services button{
+  display: block;
+  margin: 0 auto;
+}
+
+#div1, #div2 {
+  display: inline-block;
+}
+/* MOBILE iPAD CSS */
+/*cible les écrans de largeur inférieure à 80px grace à la régle max-width*/
+
+@media only screen and (max-width: 800px) {
+
+  #change_order_div {
+    display: flex;
+    flex-direction: column;
+  }
+
+  #div2 {
+    display: block;
+    order: 1;
+  }
+  #div1 {
+    display: block;
+    order: 2;
+  }
 }
 
 /************** MATTERS *****************/
@@ -77,6 +106,9 @@
 .about-testimonials .container{
   background:white;
 }
+
+/************** CONTACT *****************/
+
 
 /************** students_index.blade *****************/
 
