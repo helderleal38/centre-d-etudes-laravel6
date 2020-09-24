@@ -50,25 +50,25 @@
                 <!--First slide-->
                 <div class=" carousel-item active text-center">
                     <figure class="col-md-3 d-md-inline-block">
-                        <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(2).jpg"
+                        <a href="{{asset('assets/spaces/room1.jpg')}}"
                             data-size="1600x1067">
-                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(2).jpg"
+                        <img src="{{asset('assets/spaces/room1.jpg')}}"
                             class="img-fluid">
                         </a>
                     </figure>
 
                     <figure class="col-md-3 d-md-inline-block">
-                        <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(4).jpg"
+                        <a href="{{asset('assets/spaces/room2.jpg')}}"
                             data-size="1600x1067">
-                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(4).jpg"
+                        <img src="{{asset('assets/spaces/room2.jpg')}}"
                             class="img-fluid">
                         </a>
                     </figure>
 
                     <figure class="col-md-3 d-md-inline-block">
-                        <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(6).jpg"
+                        <a href="{{asset('assets/spaces/room3.jpg')}}"
                           data-size="1600x1067">
-                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(6).jpg"
+                        <img src="{{asset('assets/spaces/room3.jpg')}}"
                             class="img-fluid">
                         </a>
                     </figure>
@@ -76,55 +76,30 @@
                 <!--Second slide-->
                 <div class="carousel-item text-center">
                     <figure class="col-md-3 d-md-inline-block">
-                        <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(22).jpg"
+                        <a href="{{asset('assets/spaces/living-room.jpg')}}"
                             data-size="1600x1067">
-                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(22).jpg"
+                        <img src="{{asset('assets/spaces/living-room.jpg')}}"
                             class="img-fluid">
                         </a>
                     </figure>
 
                     <figure class="col-md-3 d-md-inline-block">
-                        <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(25).jpg"
+                        <a href="{{asset('assets/spaces/kitchen.jpg')}}"
                             data-size="1600x1067">
-                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(25).jpg"
+                        <img src="{{asset('assets/spaces/kitchen.jpg')}}"
                             class="img-fluid">
                         </a>
                     </figure>
 
                     <figure class="col-md-3 d-md-inline-block">
-                        <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(29).jpg"
+                        <a href="{{asset('assets/spaces/bathroom.jpg')}}"
                             data-size="1600x1067">
-                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(29).jpg"
+                        <img src="{{asset('assets/spaces/bathroom.jpg')}}"
                             class="img-fluid">
                         </a>
                     </figure>
                 </div>
-                <!--Third slide-->
-                <div class="carousel-item text-center">
-                    <figure class="col-md-3 d-md-inline-block">
-                        <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(44).jpg"
-                            data-size="1600x1067">
-                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(44).jpg"
-                            class="img-fluid">
-                        </a>
-                    </figure>
-
-                    <figure class="col-md-3 d-md-inline-block">
-                        <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(45).jpg"
-                            data-size="1600x1067">
-                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(45).jpg"
-                            class="img-fluid">
-                        </a>
-                    </figure>
-
-                    <figure class="col-md-3 d-md-inline-block">
-                        <a href="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(66).jpg"
-                            data-size="1600x1067">
-                        <img src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(66).jpg"
-                            class="img-fluid">
-                        </a>
-                    </figure>
-                </div>
+            
         </div>
         <!--/.Slides-->
     </div>
