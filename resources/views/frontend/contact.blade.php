@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container z-depth-1 my-5 px-0">
+<div class="container z-depth-1 my-5 px-0 pt-3">
 
   <!--Section: Content-->
   <section class="p-5 my-md-5 text-center" 
@@ -16,13 +16,13 @@
         <div class="col-md-4 mb-4">
 
           <!-- Name -->
-          <input type="text" id="name" class="form-control" placeholder="Nom">
+          <input type="text" id="name" class="form-control" placeholder="{{Auth::user()->name}}" readonly>
 
         </div>
         <div class="col-md-4 mb-4">
 
           <!-- Email -->
-          <input type="email" id="email" class="form-control" placeholder="Email">
+          <input type="email" id="email" class="form-control" placeholder="{{Auth::user()->email}}" readonly>
 
         </div>
         <div class="col-md-4 mb-4">
