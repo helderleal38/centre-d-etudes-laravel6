@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Matter;
 use App\Student;
 use Illuminate\Http\Request;
 
@@ -42,7 +43,8 @@ class StudentsController extends Controller
      */
     public function create()
     {
-        return view('administration.students.actions.newStudent');
+        $matters = Matter::all();
+        return view('administration.students.actions.newStudent', compact('matters'));
     }
 
     /**
