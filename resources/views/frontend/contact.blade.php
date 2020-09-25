@@ -7,7 +7,7 @@
   <section class="p-5 my-md-5 text-center" 
     style="background-image: url({{asset('assets/page_contact.jpg')}}); background-size: cover; background-position: center center;">
     <!-- Section heading -->
-    <h1 class="text-center font-weight-bold text-white mt-5 mb-3">Contactez nous</h3>
+    <h1 class="text-center font-weight-bold text-white mt-5 mb-5">Contactez nous</h3>
     <!-- Section description -->
       
     <form class="mb-5 mx-md-5" action="">
