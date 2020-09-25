@@ -51,7 +51,8 @@ Route::middleware('auth')->prefix('administration/administrateur')->group(functi
 /* Teatchers */
 
 Route::middleware('auth')->prefix('administration/teatchers')->group(function () {
-	Route::get('/index', "TeatchersController@index")->name('teatchers_index');
+	Route::get('/teatcher', "TeatchersController@index")->name('teatchers_index');
+	Route::get('/actions/create', "TeatchersController@create")->name('teatcher_create');
 	Route::post('/store', "TeatchersController@store")->name('teatchers_store');
 });
 

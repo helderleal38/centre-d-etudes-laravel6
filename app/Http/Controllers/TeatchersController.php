@@ -14,7 +14,7 @@ class TeatchersController extends Controller
      */
     public function index()
     {
-        return view('administration.teatchers.index');
+        return view('administration.teatchers.teatcher');
     }
 
     /**
@@ -37,7 +37,7 @@ class TeatchersController extends Controller
      */
     public function create()
     {
-        //
+        return view('administration.teatchers.actions.newTeatcher');
     }
 
     /**

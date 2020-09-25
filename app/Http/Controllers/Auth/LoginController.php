@@ -50,7 +50,7 @@ class LoginController extends Controller
         } 
         else if($state== "professeur")
         {
-            return "administration/teatchers/index";
+            return "administration/teatchers/teatcher";
         } 
         else if($state== "eleve")
         {
