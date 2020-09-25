@@ -23,7 +23,7 @@
                 <h2 class="title text-center pb-2">{{$matter->title}}</h2>
                 <h5 class="content pb-2">{{$matter->content}}</h5>
                 <div class="col-md-6 offset-md-4">
-                  <button type="button" class="btn btn-warning btn-md" data-toggle="modal" data-target="#loginModal">
+                  <button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#loginModal">
                     Commencez dès maintenant !
                   </button>
                 </div>
