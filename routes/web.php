@@ -54,6 +54,10 @@ Route::middleware('auth')->prefix('administration/teatchers')->group(function ()
 	Route::get('/teatcher', "TeatchersController@index")->name('teatchers_index');
 	Route::get('/actions/create', "TeatchersController@create")->name('teatcher_create');
 	Route::post('/store', "TeatchersController@store")->name('teatchers_store');
+
+	/* comments */
+	Route::get('/actions/comment/create', "CommentsController@create")->name('teatcher_comment');
+	Route::post('/actions/comment/store', "CommentsController@store")->name('teatcher_comment_store');
 });
 
 

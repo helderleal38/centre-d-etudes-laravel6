@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Comment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CommentsController extends Controller
 {
@@ -27,7 +28,12 @@ class CommentsController extends Controller
      */
     public function create()
     {
-        return view('administration.students.actions.commentStudent');
+        //dd(Auth::user()->state);
+        if(Auth::user()->state === 'eleve'){
+            return view('administration.students.actions.commentStudent');
+        }else{
+            return view('administration.teatchers.actions.commentTeatcher');
+        }
     }
 
     /**
