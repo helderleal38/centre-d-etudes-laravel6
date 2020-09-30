@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Matter;
 use App\Teatcher;
 use Illuminate\Http\Request;
 
@@ -37,7 +38,8 @@ class TeatchersController extends Controller
      */
     public function create()
     {
-        return view('administration.teatchers.actions.newTeatcher');
+        $matters = Matter::all();
+        return view('administration.teatchers.actions.newTeatcher', compact('matters'));
     }
 
     /**

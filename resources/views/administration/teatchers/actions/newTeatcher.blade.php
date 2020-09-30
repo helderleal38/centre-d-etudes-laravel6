@@ -54,8 +54,13 @@
               <div class="form-group row">
                 <label for="matter" class="col-md-4 col-form-label text-md-right">{{ __('Matière à enseigner') }}</label>
                 <div class="col-md-6">
-                    <input id="matter" type="text" class="form-control @error('matter') is-invalid @enderror" name="matter" value="{{ old('matter') }}" required autocomplete="matter" autofocus>
-                </div>
+                  {{-- <input id="matter" type="text" class="form-control @error('matter') is-invalid @enderror" name="matter" value="{{ old('matter') }}" required autocomplete="matter" autofocus> --}}
+                  <select class="form-control" id="matter" type="text" name="matter" value="{{ old('matter') }}">
+                    @foreach($matters as $matter)
+                        <option>{{$matter->matter}}</option>
+                    @endforeach
+                  </select>
+                  </div>
               </div>
               
               <!-- <form action="{{ Route('teatchers_store') }}" method="POST" enctype="multipart/form-data"> -->
