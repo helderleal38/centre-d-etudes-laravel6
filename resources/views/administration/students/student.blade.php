@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container">
-    <div class="jumbotron bg-dark text-white">
+    <div class="jumbotron eleve bg-dark text-white">
         <h1>Bienvenue {{ Auth::user()->firstname }}</h1>      
     </div>
     <h4>Tu est dans t'on espace client.<br>Ici tu peut :</h4>
