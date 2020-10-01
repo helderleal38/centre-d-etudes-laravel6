@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <section class="home-image">
+  <section class="home-image mb-5">
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-caption">
@@ -45,9 +45,10 @@
   </section>
 
   <!-----------------Pouquoi nous choisir------------------>
-  <div class="container-fluid py-5 my-5 z-depth-1">
-    <h1 class="font-weight-bold text-center mb-5 pb-3">Pourquoi nous choisir</h2>
-    <section class="why_choose_us p-md-3 mx-md-5 text-lg-left">
+  <h1 class="font-weight-bold text-center">Pourquoi nous choisir</h1>
+  <div class="container-fluid why_choose_us py-5 my-5 z-depth-1">
+    
+    <section class="p-md-3 mx-md-5 text-lg-left">
       
       <div class="row text-center d-flex justify-content-center">
         <div class="col-lg-3 col-md-6 mb-lg-0 mb-5">
