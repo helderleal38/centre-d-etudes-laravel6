@@ -20,6 +20,7 @@ Route::group([], function(){
 	Route::get('/matters', "FrontendController@matters")->name('frontend_matters');
 	Route::get('/about', "FrontendController@about")->name('frontend_about');
 	Route::get('/contact', "FrontendController@contact")->name('frontend_contact');
+	Route::post('/contact.store', "ContactController@store")->name('contact.store');
 });
 
 Auth::routes(); 
