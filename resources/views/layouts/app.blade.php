@@ -9,16 +9,16 @@
 
     <!--<title>{{ config('app.name', 'Vasco Soares') }}</title>-->
     <title>Vasco Soares</title>
-    {{-- <!-- Font Awesome -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <!-- Google Fonts -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
     <!-- Bootstrap core CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet"> --}}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
         <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
     <script src="{{ asset('js/aditional.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -26,7 +26,7 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
     <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
     <link href ="{{ asset('css/aditional.css') }}" rel="stylesheet">
 </head>
 <body>
@@ -34,8 +34,7 @@
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top">
       <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            {{-- {{ config('app.name', 'Laravel') }} --}}
-            <img class ="navbar-brand" src="{{asset('./assets/logo.png')}}" alt="Vasco Soares logo">
+          <img class ="navbar-brand" src="{{asset('./assets/logo.png')}}" alt="Vasco Soares logo">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
@@ -50,10 +49,10 @@
             <li class="nav-item"><a class="nav-link" href="{{ route('frontend_services') }}">Services</a></li>
             <li class="nav-item"><a class="nav-link" href="{{ route('frontend_matters') }}">Matières</a></li> 
             <li class="nav-item"><a class="nav-link" href="{{ route('frontend_about') }}">A propos</a></li>
-            <!--Si l'utilisateur n'est pas connecte afiche le loginModal-->
+            <!--Si l'utilisateur n'est pas connecte affiche l'alert Modal-->
             @if(Auth::guest())
-              <li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Recrutement</a></li>
-              <li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">Contact</a></li>
+              <li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#alertModal">Recrutement</a></li>
+              <li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#alertModal">Contact</a></li>
                 <!-- <li class="nav-item"><a class="nav-link" href="{{route('register')}}">Recrutement</a></li> -->
             @else
                 <li class="nav-item"><a class="nav-link" href="{{asset('recrutement')}}">Recrutement</a></li>
@@ -68,13 +67,11 @@
             <!-------------------------------------------------------------------------------------->
             @guest
               <li class="nav-item">
-                  <!-- <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a> -->
-                  <a class="nav-link" href="#" data-toggle="modal" data-target="#loginModal">{{ __('Connexion') }}</a>
-              </li>
+                  <a class="nav-link" href="{{ route('login') }}">Connection</a>       
+                </li>
               @if (Route::has('register'))
                   <li class="nav-item">
-                      <!-- <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a> -->
-                      <a class="nav-link" href="#" data-toggle="modal" data-target="#registerModal">{{ __('Inscription') }}</a>
+                      <a class="nav-link" href="{{ route('register') }}">Inscription</a>
                   </li>
               @endif
             @else
@@ -82,7 +79,6 @@
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                     {{ Auth::user()->name }} <span class="caret"></span>
                 </a>
-
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                   <a class="dropdown-item" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
@@ -91,6 +87,9 @@
                   </a>
                   @if(Auth::user()->state == "eleve")
                     <a class="dropdown-item" href="{{ route('students_index') }}">Mon espace</a>
+                  @endif
+                  @if(Auth::user()->state == "professeur")
+                    <a class="dropdown-item" href="{{ route('teatchers_index') }}">Mon espace</a>
                   @endif
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                       @csrf
@@ -109,215 +108,41 @@
     </main>
   </div>
   @include('footer')
-  {{-- <!-- JQuery -->
+  <!-- JQuery -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <!-- Bootstrap tooltips -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
 <!-- Bootstrap core JavaScript -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <!-- MDB core JavaScript -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script> --}}
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+
 </body>
+
+  
+
   <!---------------------------------------------------------------------------------------------------------------->
-  <!----------------------------------------------- LOGIN MODAL ---------------------------------------------------->
+  <!-----------------------------------------ALERT MODAL ------------------------------------------------->
   <!---------------------------------------------------------------------------------------------------------------->
-  <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-md">
       <div class="modal-content ">
-        
         <div class="modal-header">
           <img class ="navbar-brand" src="{{asset('./assets/logo.png')}}" alt="Vasco Soares logo">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
           </button>
         </div>
-
-        <div class="modal-body">            
-          <div class="card-body">
-            <form method="POST" action="{{route('login')}}">
-              @csrf
-              <div class="form-group row">
-                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-                <div class="col-md-6">
-                  <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                  @error('email')
-                    <span class="invalid-feedback" role="alert">
-                      <strong>{{ $message }}</strong>
-                    </span>
-                  @enderror
-                </div>
-              </div>
-              <div class="form-group row">
-                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-                <div class="col-md-6">
-                  <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-                  @error('password')
-                      <span class="invalid-feedback" role="alert">
-                          <strong>{{ $message }}</strong>
-                      </span>
-                  @enderror
-                </div>
-              </div>
-              <div class="form-group row">
-                <div class="col-md-6 offset-md-4">
-                  <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="remember" id="remember" 
-                    {{ old('remember') ? 'checked' : '' }}>
-                    <label class="form-check-label" for="remember">
-                        {{ __('Remember Me') }}
-                    </label>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group row mb-0">
-                <div class="col-md-8 offset-md-4">
-                  <button type="submit" class="btn btn-primary "data-toggle="modal" data-target="#preInscriptionModal">
-                      {{ __('Login') }}
-                  </button>
-
-                  @if (Route::has('password.request'))
-                      <a class="btn btn-link" href="{{ route('password.request') }}">
-                          {{ __('Forgot Your Password?') }}
-                      </a>                      
-                  @endif
-                </div>
-              </div>
-            </form>
-          </div>
+        <div class="modal-body">
+            <div class="card-body" text='centered'>Pour pouvoir acceder à cette page veuiller vous inscrire ou connecter d'abord !</div>
         </div>
-
         <div class="modal-footer">
-          <p>Nouveau sur le site ?</p>
-          <a class="btn btn-link" id="nouveau_sur_le_site_link" data-toggle="modal" data-target="#registerModal" style="color: red;">Inscrivez-vous</a>
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+           <a class="btn btn-link" href="{{ route('login') }}" data-toggle="modal" style="color: green;">Connection</a>
+            <a class="btn btn-link" href="{{ route('register') }}" data-toggle="modal" style="color: red;">Inscription</a>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
         </div>
       </div>
     </div>
   </div>
-
-  <!---------------------------------------------------------------------------------------------------------------->
-  <!----------------------------------------------- REGISTER MODAL ------------------------------------------------->
-  <!---------------------------------------------------------------------------------------------------------------->
-  <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-lg">
-          <div class="modal-content ">
-              <div class="modal-header">
-                  <img class ="navbar-brand" src="{{asset('./assets/logo.png')}}" alt="Vasco Soares logo">
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                  </button>
-              </div>
-              <div class="modal-body">
-                      <div class="card-body">
-                          <form method="POST" action="{{ route('register') }}">
-                              @csrf
-                              <div class="form-group row">
-                                  <label for="firstname" class="col-md-4 col-form-label text-md-right">Firstname</label>
-                                  <div class="col-md-6">
-                                      <input id="firstname" type="text" class="form-control @error('firstname') is-invalid @enderror" name="firstname" value="{{ old('firstname') }}" required autocomplete="firstname" autofocus> 
-                                      @error('firstname')
-                                        <span class="invalid-feedback" role="alert">
-                                          <strong>{{ $message }}</strong>
-                                        </span>
-                                      @enderror
-                                  </div>
-                              </div>
-
-                              <div class="form-group row">
-                                  <label for="name" class="col-md-4 col-form-label text-md-right">LastName</label>
-                                  <div class="col-md-6">
-                                      <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-                                      @error('name')
-                                          <span class="invalid-feedback" role="alert">
-                                              <strong>{{ $message }}</strong>
-                                          </span>
-                                      @enderror
-                                  </div>
-                              </div>
-
-                              <div class="form-group row">
-                                  <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
-                                  <div class="col-md-6">
-                                      <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-                                      @error('email')
-                                          <span class="invalid-feedback" role="alert">
-                                              <strong>{{ $message }}</strong>
-                                          </span>
-                                      @enderror
-                                  </div>
-                              </div>
-
-                              <div class="form-group row">
-                                  <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
-                                  <div class="col-md-6">
-                                      <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="new-password">
-                                      @error('password')
-                                          <span class="invalid-feedback" role="alert">
-                                              <strong>{{ $message }}</strong>
-                                          </span>
-                                      @enderror
-                                  </div>
-                              </div>
-
-                              <div class="form-group row">
-                                  <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-                                  <div class="col-md-6">
-                                      <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
-                                  </div>
-                              </div>
-                          
-                              <div class="form-group row">
-                                  <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Votre statut</label>
-                                  <div class="col-md-6">
-                                      <select name="state" class="form-control">
-                                          <option>---</option>
-                                          <option value="eleve">Eleve/parent</option>
-                                          <option value="professeur">Professeur</option>
-                                      </select>
-                                  </div>  
-                              </div>
-
-                              <div class="form-group row mb-0">
-                                  <div class="col-md-6 offset-md-4">
-                                      <button type="submit" class="btn btn-primary">
-                                          {{ __('Register') }}
-                                      </button>
-                                  </div>
-                              </div>
-                          </form>
-                      </div>
-              </div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-              </div>
-          </div>
-      </div>
-  </div>
-
-  <!---------------------------------------------------------------------------------------------------------------->
-  <!-----------------------------------------PRE-INSCRIPTION MODAL ------------------------------------------------->
-  <!---------------------------------------------------------------------------------------------------------------->
-  {{-- <div class="modal fade" id="preInscriptionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-md">
-          <div class="modal-content ">
-              <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Veuillez vous connecter ou inscrire avant de remplir le formulaire de pré-inscription</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                  </button>
-              </div>
-              <div class="modal-body">
-                  <div class="card-header" text='centered'>{{ __('LOGIN') }}</div>
-                      <div class="card-body">
-                       
-                       </div>
-              </div>
-              <div class="modal-footer">
-                  <a class="btn btn-link" id="nouveau_sur_le_site_link" data-toggle="modal" data-target="#registerModal" >Nouveau sur le site ?  Inscrivez-vous</a>
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
-              </div>
-          </div>
-      </div>
-  </div> --}}
 
 </html>
