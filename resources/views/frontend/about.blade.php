@@ -2,11 +2,11 @@
 
 @section('content')
 <!------------------------------Notre histoire---------------------------->
-<section class="about-history"> 
+<section class="container about-history"> 
+  <!-- Title -->
+  <h1 class="font-weight-bold text-center">Notre histoire</h1>
     <!-- Jumbotron -->
     <div class="jumbotron text-center">
-        <!-- Title -->
-        <h2 class="card-title h2 pb-4">NOTRE HISTOIRE</h2>
         <!-- Grid row -->
         <div class="row d-flex justify-content-center">
             <!-- Grid column -->
@@ -26,7 +26,7 @@
 </section>
 <!------------------------------Nos espaces------------------------------->
 <section class="about-espaces"> 
-    <h1 class="text-center mx-auto font-weight-bold mb-4 pb-2">Nos Espaces</h1>
+    <h1 class="text-center mx-auto font-weight-bold mb-4 pb-2">Nos espaces</h1>
     <!--Carousel Wrapper-->
     <div id="carousel-with-lb" class="carousel slide carousel-multi-item" data-ride="carousel">
         <!--Controls-->
@@ -107,9 +107,9 @@
 </section>
 <!------------------------------Notre equipe------------------------------>
 <section class="about-equipe"> 
-    <div class="container pt-5 my-5 z-depth-1">
-        <section class="p-md-3 mx-md-5 text-center text-lg-left">
-    <h1 class="text-center mx-auto font-weight-bold mb-4 pb-2">Notre equipe</h2>
+  <h1 class="text-center mx-auto font-weight-bold pt-4">Notre equipe</h2>
+    <div class="container card my-5 z-depth-1">
+       
     <div class="row d-flex justify-content-center">
       <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
         <div class="p-4">
@@ -273,7 +273,7 @@
         </div>
       </div>
     </div>
-        </section>
+       
     </div>
 </section>
 
