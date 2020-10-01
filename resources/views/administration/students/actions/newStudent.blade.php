@@ -45,9 +45,9 @@
                     <option>5éme</option>
                     <option>4éme</option>
                     <option>3éme</option>
-                    <option>2éme</option>
+                    <option>2nde</option>
                     <option>1ére</option>
-                    <option>Terminal</option>
+                    <option>Terminale</option>
                     <option>Université</option>
                     <option>Cours adultes</option>
                   </select>
