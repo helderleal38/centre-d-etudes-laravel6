@@ -7,9 +7,9 @@
     <!-- Grid row -->
     <div class="row">
     <!-- Grid column -->
-    <div class="col-lg-6 col-md-12 mb-lg-0 mb-4">
+    <div class="col-lg-6 col-md-12 mb-lg-0">
         <!-- Featured image -->
-        <div class="view overlay rounded z-depth-1 mb-lg-0 mb-4">
+        <div class="view overlay rounded z-depth-1 mb-lg-0 mb-1">
         <img class="img-fluid" src="{{asset('assets/cours_prive.jpeg')}}" alt="Sample image">
         <a>
             <div class="mask rgba-white-slight"></div>
@@ -36,7 +36,7 @@
     <!-- Grid row -->
     <div class="row" id="change_order_div">
     <!-- Grid column -->
-    <div class="content col-lg-6 col-md-12 mb-md-0 mb-4 mt-xl-4" id="div1">
+    <div class="content col-lg-6 col-md-12 mb-4 mt-xl-4" id="div1">
         <h3 class="font-weight-normal mb-4">COURS EN GROUPE</h3>
         <p class="text-muted">Option as can distributors. And to suppliers, given a copy the horrible arrange yes, we had hundreds leave was more which a I the king's had the so soon throughout in necessary which at way did phase a young written, descriptions, late uninspired, to times owner themselves them. Get sported uninspired, the a box to an to but on been the succeed have couldn't set.</p>
         <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#loginModal">
@@ -47,7 +47,7 @@
     <!-- Grid column -->
     <div class="col-lg-6 col-md-12 mb-lg-0 mb-4" id="div2">
         <!-- Featured image -->
-        <div class="view overlay rounded z-depth-1 mb-lg-0 mb-4">
+        <div class="view overlay rounded z-depth-1 mb-lg-0 mb-1">
         <img class="img-fluid" src="{{asset('assets/cours_groupe.jpg')}}" alt="Sample image">
         <a>
             <div class="mask rgba-white-slight"></div>
@@ -67,7 +67,7 @@
     <!-- Grid column -->
     <div class="col-lg-6 col-md-12 mb-lg-0 mb-4">
         <!-- Featured image -->
-        <div class="view overlay rounded z-depth-1 mb-lg-0 mb-4">
+        <div class="view overlay rounded z-depth-1 mb-lg-0 mb-1">
         <img class="img-fluid" src="{{asset('assets/cours_visio.jpg')}}" alt="Sample image">
         <a>
             <div class="mask rgba-white-slight"></div>
@@ -104,7 +104,7 @@
     <!-- Grid column -->
     <div class="col-lg-6 col-md-12 mb-lg-0 mb-4" id="div2">
         <!-- Featured image -->
-        <div class="view overlay rounded z-depth-1 mb-lg-0 mb-4">
+        <div class="view overlay rounded z-depth-1 mb-lg-0 mb-1">
         <img class="img-fluid" src="{{asset('assets/stage_vacances.jpg')}}" alt="Sample image">
         <a>
             <div class="mask rgba-white-slight"></div>
