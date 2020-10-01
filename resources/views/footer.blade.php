@@ -11,10 +11,19 @@
       <div class="col-md-4 mx-auto">
 
         <!-- Content -->
-        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Footer Content</h5>
-        <p>Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-          consectetur
-          adipisicing elit.</p>
+        <a class="navbar-brand" href="{{ url('/') }}">
+          <img class ="navbar-brand" src="{{asset('./assets/logo.png')}}" alt="Vasco Soares logo">
+        </a>
+        {{-- <h5 class="font-weight-bold"><span class="fas fa-map-marker-alt"></span></h5> --}}
+            <p class="mb-0"><span class="fas fa-map-marker-alt"></span>20, Rua Principal</p>
+            <p class="mb-0">3105-100 Lourical</p>
+            <p class="pb-1">Pombal - Portugal</p>
+
+            {{-- <h5 class="font-weight-bold"><span class="fas fa-phone"></span></h5> --}}
+            <p class="pb-1"><span class="fas fa-phone">+ 01 234 567 89</p>
+
+            {{-- <h5 class="font-weight-bold"><span class="fas fa-envelope"></span></h5> --}}
+            <p><span class="fas fa-envelope">vasco@gmail.com</p>
 
       </div>
       <!-- Grid column -->
@@ -25,20 +34,38 @@
       <div class="col-md-2 mx-auto">
 
         <!-- Links -->
-        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Nos horaires</h5>
+
+        <p>Du lundi au vendredi</p>
+        <p>09h00 - 12h30</p>
+        <p>14h30 - 19h</p>
+
+      </div>
+      <!-- Grid column -->
+
+      <hr class="clearfix w-100 d-md-none">
+
+      <!-- Grid column -->
+      <div class="col-md-2 mx-auto">
+
+        <!-- Links -->
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Cours tous les niveaux</h5>
 
         <ul class="list-unstyled">
           <li>
-            <a href="#!">Link 1</a>
+            <a href="#!">Primaire</a>
           </li>
           <li>
-            <a href="#!">Link 2</a>
+            <a href="#!">College</a>
           </li>
           <li>
-            <a href="#!">Link 3</a>
+            <a href="#!">Lycée</a>
           </li>
           <li>
-            <a href="#!">Link 4</a>
+            <a href="#!">Université</a>
+          </li>
+          <li>
+            <a href="#!">Cours adultes</a>
           </li>
         </ul>
 
@@ -51,46 +78,17 @@
       <div class="col-md-2 mx-auto">
 
         <!-- Links -->
-        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
+        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Informations</h5>
 
         <ul class="list-unstyled">
           <li>
-            <a href="#!">Link 1</a>
+            <a href="#!">Mentions legales</a>
           </li>
           <li>
-            <a href="#!">Link 2</a>
+            <a href="#!">Confidentialité</a>
           </li>
           <li>
-            <a href="#!">Link 3</a>
-          </li>
-          <li>
-            <a href="#!">Link 4</a>
-          </li>
-        </ul>
-
-      </div>
-      <!-- Grid column -->
-
-      <hr class="clearfix w-100 d-md-none">
-
-      <!-- Grid column -->
-      <div class="col-md-2 mx-auto">
-
-        <!-- Links -->
-        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Links</h5>
-
-        <ul class="list-unstyled">
-          <li>
-            <a href="#!">Link 1</a>
-          </li>
-          <li>
-            <a href="#!">Link 2</a>
-          </li>
-          <li>
-            <a href="#!">Link 3</a>
-          </li>
-          <li>
-            <a href="#!">Link 4</a>
+            <a href="#!">Plan du site</a>
           </li>
         </ul>
 
@@ -108,10 +106,10 @@
   <!-- Call to action -->
   <ul class="list-unstyled list-inline text-center py-2">
     <li class="list-inline-item">
-      <h5 class="mb-1">Register for free</h5>
+      <h5 class="mb-1">Venez aprendre avec nous</h5>
     </li>
     <li class="list-inline-item">
-      <a href="#!" class="btn btn-danger btn-rounded">Sign up!</a>
+      <a href="#!" class="btn btn-danger btn-rounded">Inscription</a>
     </li>
   </ul>
   <!-- Call to action -->
@@ -150,7 +148,7 @@
 
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3">© 2020 Copyright:
-    <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+    <a href="{{url('/')}}"> VascoSoares.com</a>
   </div>
   <!-- Copyright -->
 
