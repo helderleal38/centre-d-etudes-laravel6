@@ -1,5 +1,10 @@
 
-
+h1, h2, h3{
+  color:  rgba(0,65,134);;
+}
+body{
+  background-color: rgb(242, 242, 242);
+}
 /************** NAV BAR *****************/
 
 #app  a:link, #app a:visited{
@@ -34,9 +39,6 @@
 
 .why_choose_us{
   background: white;
-}
-.why_choose_us h1{
-  color: rgba(0,65,134);
 }
 
 /************** SERVICES *****************/
@@ -85,34 +87,34 @@
 
 .matieres-container{
     padding-top: 80px;
-    /*width: 60%;*/ 
+    padding-bottom: 10%;
     margin: 0 auto;
-    /*position :relative;*/
-    height: 100%;
+}
+.matieres-container h5 button:link, .matieres-container h5 button:visited{
+  color: rgba(0,65,134);
+}
+
+.matieres-container h5 button:hover, .matieres-container h5 button:active{
+  color: rgba(7,165,209);
 }
 
 /************** ABOUT *****************/
 
 .about-history{
   padding-top: 80px;
-  width: 80%; 
   margin: 0 auto;
 }
 
-.about-equipe .container{
-  background:white;
-}
-
-.about-testimonials .container{
+.card{
   background:white;
 }
 
 /************** CONTACT *****************/
 
 
-/************** students_index.blade *****************/
+/************** students.blade *****************/
 
-.jumbotron{
+.eleve{
   margin-top: 90px;
 
 }
@@ -161,5 +163,5 @@
   }
 }
 .page-footer{
-  /*background-color:rgba(0,65,134);*/ 
+ 
 }
