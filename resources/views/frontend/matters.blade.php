@@ -2,18 +2,23 @@
 
 @section('content')
 <section class="matieres-container">
-  <div class="row justify-content-center">
+  <div class="row justify-content-center d-flex">
+    <div>
+      <h1 class="title font-weight-bold text-center">Les matiéres enseignés dans notre centre</h1>
+      <h5 class="subTitle text-center mb-5">Deroulez la liste pour voir le contenu</h5>
+    </div>
+    
     <div id="accordion" class="col col-lg-8">
       @foreach($matters as $matter)
       <div class="card">
         <div class="card-header" id="headingOne">
-          <h5 class="mb-0">
+          <h5 class="text-center mb-0">
             <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne{{$matter->id}}" aria-expanded="true" aria-controls="collapseOne">
               {{ $matter->matter }}
             </button>
           </h5>
         </div>
-        <div id="collapseOne{{$matter->id}}" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+        <div id="collapseOne{{$matter->id}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
           <div class="card-body">
             <div class="row">
               <div class="col-lg-6 col-md-12 col-sm-12">
