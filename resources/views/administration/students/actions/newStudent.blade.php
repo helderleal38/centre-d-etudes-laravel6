@@ -28,7 +28,9 @@
               <div class="form-group row">
                 <label for="scoolName" class="col-md-4 col-form-label text-md-right">{{ __('Ecole') }}</label>
                 <div class="col-md-6">
-                    <input id="scoolName" type="text" class="form-control @error('scoolName') is-invalid @enderror" name="scoolName" value="{{ old('scoolName') }}" required autocomplete="scoolName" autofocus>
+                    <input id="scoolName" type="text" class="form-control @error('scoolName') is-invalid @enderror" name="scoolName" 
+                    value="{{ old('scoolName') }}" required autocomplete="scoolName" autofocus>
+                    {!! $errors->first('scoolName', ':message') !!}
                 </div>
               </div>
 
@@ -36,6 +38,7 @@
                 <label for="year" class="col-md-4 col-form-label text-md-right">{{ __('Année scolaire') }}</label>
                 <div class="col-md-6">
                   <select class="form-control" id="year" type="text" name="year" value="{{ old('year') }}">
+                    <option></option>
                     <option>Cp</option>
                     <option>Ce1</option>
                     <option>Ce2</option>
@@ -51,6 +54,7 @@
                     <option>Université</option>
                     <option>Cours adultes</option>
                   </select>
+                  {!! $errors->first('year', ':message') !!}
                 </div>
               </div>
 
@@ -62,20 +66,25 @@
                           <option>{{$matter->matter}}</option>
                       @endforeach
                   </select>
+                  {!! $errors->first('matter', ':message') !!}
                 </div>
               </div>
 
               <div class="form-group row">
                 <label for="responsible" class="col-md-4 col-form-label text-md-right">{{ __('Responsable légal') }}</label>
                 <div class="col-md-6">                   
-                    <input id="responsible" type="text" class="form-control @error('responsible') is-invalid @enderror" name="responsible" value="{{ old('responsible') }}" required autocomplete="responsible" autofocus>
+                    <input id="responsible" type="text" class="form-control @error('responsible') is-invalid @enderror" name="responsible" 
+                    value="{{ old('responsible') }}" required autocomplete="responsible" autofocus>
+                    {!! $errors->first('responsible', ':message') !!}
                 </div>
               </div>
 
               <div class="form-group row">
                 <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Adresse') }}</label>
                 <div class="col-md-6">
-                    <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}" required autocomplete="address" autofocus>
+                    <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" 
+                    value="{{ old('address') }}" required autocomplete="address" autofocus>
+                    {!! $errors->first('address', ':message') !!}
                 </div>
               </div>
 
@@ -83,18 +92,15 @@
                 <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('Email') }}</label>
                 <div class="col-md-6">
                   <input class="form-control" type="text" placeholder="{{ Auth::user()->email }}" readonly>
-                  @error('email')
-                      <span class="invalid-feedback" role="alert">
-                          <strong>{{ $message }}</strong>
-                      </span>
-                  @enderror
                 </div>
               </div>
 
               <div class="form-group row">
                 <label for="phoneNumber" class="col-md-4 col-form-label text-md-right">{{ __('Téléphone') }}</label>
                 <div class="col-md-6">
-                    <input id="phoneNumber" type="text" class="form-control @error('phoneNumber') is-invalid @enderror" name="phoneNumber" value="{{ old('phoneNumber') }}" required autocomplete="phoneNumber" autofocus>
+                    <input id="phoneNumber" type="text" class="form-control @error('phoneNumber') is-invalid @enderror" name="phoneNumber" 
+                    value="{{ old('phoneNumber') }}" required autocomplete="phoneNumber" autofocus>
+                    {!! $errors->first('phoneNumber', ':message') !!}
                 </div>
               </div>
 
