@@ -50,19 +50,19 @@ class TeatchersController extends Controller
      */
     public function store(Request $request)
     {
-        $file = $request->file;
+        $cv = $request->cv;
         $userId = auth()->id();
         // $userName = auth()->getName();
         // dd($userName);
         // $file_complete_name = time() .'_'. $userId . '_' . $userName . '.' .$file->getClientOriginalExtension();
-        $file_complete_name = time() .'_'. $userId . '.' .$file->getClientOriginalExtension();
-        $file->move('uploads/files/', $file_complete_name);
+        $cv_complete_name = time() .'_'. $userId . '.' .$cv->getClientOriginalExtension();
+        $cv->move('uploads/files/', $cv_complete_name);
 
         Teatcher::create([
             'phoneNumber' => Request('phoneNumber'),
             'scoolLevel' => Request('scoolLevel'),
             'matter' => Request('matter'),
-            'cv' => "uploads/files/" . $file_complete_name,
+            'cv' => "uploads/files/" . $cv_complete_name,
             'user_id'=>auth()->id()
         ]);
         
