@@ -52,7 +52,7 @@
             <!--Si l'utilisateur n'est pas connecte affiche l'alert Modal-->
             @if(Auth::guest())
               <li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#alertModal">Recrutement</a></li>
-              <li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#alertModal">Contact</a></li>
+              <li class="nav-item"><a class="nav-link" href="{{ route('frontend_contact')}}">Contact</a></li>
                 <!-- <li class="nav-item"><a class="nav-link" href="{{route('register')}}">Recrutement</a></li> -->
             @else
                 <li class="nav-item"><a class="nav-link" href="{{asset('recrutement')}}">Recrutement</a></li>
@@ -102,9 +102,10 @@
       </div>
     </nav>
     <main class="py-4">
-        <div class="container-fluid">
+        {{-- <div class="container-fluid">
             @yield('content')
-        </div>     
+        </div>      --}}
+        @yield('content')
     </main>
   </div>
   @include('footer')
@@ -137,8 +138,7 @@
             <div class="card-body" text='centered'>Pour pouvoir acceder à cette page veuiller vous inscrire ou connecter d'abord !</div>
         </div>
         <div class="modal-footer">
-           <a class="btn btn-link" href="{{ route('login') }}" data-toggle="modal" style="color: green;">Connection</a>
-            <a class="btn btn-link" href="{{ route('register') }}" data-toggle="modal" style="color: red;">Inscription</a>
+            <a class="btn btn-link" href="{{ route('register') }}" style="color: red;">Inscription</a>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
         </div>
       </div>
