@@ -30,7 +30,7 @@ Auth::routes();
 /* Administrateur */
 
 Route::middleware('auth')->prefix('administration/administrateur')->group(function () {
-	Route::get('/admin', "AdministrateurController@index")->name('administrateur_index');
+	Route::get('/admin/index', "AdministrateurController@index")->name('administrateur_index');
 
 	Route::get('/students/students_list', "StudentsController@studentsList")->name('students_list');
 	Route::delete('/students/delete/{student}', "StudentsController@destroy")->name('student_delete');
@@ -39,6 +39,8 @@ Route::middleware('auth')->prefix('administration/administrateur')->group(functi
 	Route::delete('/teatchers/delete/{teatcher}', "TeatchersController@destroy")->name('teatcher_delete');
 
 	Route::get('/comments', "CommentsController@index")->name('comments_index');
+	Route::delete('/comments/delete/{comment}', "CommentsController@destroy")->name('comment_delete');
+	Route::delete('/comments/validation', "CommentsController@validation")->name('comments_validation');
 
 	Route::get('/matters/list', "MattersController@index")->name('matters_list');
 	Route::get('/matters/create', "MattersController@create")->name('matter_create');
@@ -46,6 +48,9 @@ Route::middleware('auth')->prefix('administration/administrateur')->group(functi
 	Route::get('/matters/edit/{matter}', "MattersController@edit")->name('matter_edit');
 	Route::put('/matters/update/{matter}', "MattersController@update")->name('matter_update');
 	Route::delete('/matters/delete/{matter}', "MattersController@destroy")->name('matter_delete');
+
+	Route::get('/contacts/list', "ContactController@index")->name('contacts_list');
+	Route::delete('/contacts/delete/{contact}', "ContactController@destroy")->name('contact_delete');
 });
 
 
