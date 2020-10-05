@@ -1,20 +1,20 @@
 @extends('layouts.app')
 
 @section('content')
-  <section class="home-image mb-5">
+  <section class="container home-image mb-5">
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-caption">
           <!--Verification de l'authentification avant la pré-inscription-->
           @if(Auth::guest())                     
             <h1 class="h1-responsive">A deux on apprend mieux</h1>
-            <button type="button" class="btn btn-warning btn-responsive" data-toggle="modal" data-target="#loginModal">
+            <button type="button" class="btn btn-success btn-responsive" data-toggle="modal" data-target="#loginModal">
                 Commencez dès maintenant !
             </button>
             {{-- <a class="btn btn-primary" href="{{route('register')}}">Pre-inscription</a> --}}                                    
           @else                      
             <h1 class="h1-responsive">A deux on apprend mieux</h1>
-            <button type="button" class="btn btn-warning btn-responsive" data-toggle="modal" data-target="#preInscriptionModal">
+            <button type="button" class="btn btn-success btn-responsive" data-toggle="modal" data-target="#preInscriptionModal">
                 Commencez dès maintenant !
             </button>
             {{--<a class="btn btn-warning" href="{{route('students_index')}}">Commencez dès maintenant !</a>--}}                     
@@ -34,19 +34,24 @@
         </div>
       </div>
       <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <i style="font-size: 30px" class="fas fa-chevron-left"></i>
         <span class="sr-only">Previous</span>
       </a>
       <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <i style="font-size: 30px" class="fas fa-chevron-right"></i>
         <span class="sr-only">Next</span>
       </a>
     </div>
   </section>
 
   <!-----------------Pouquoi nous choisir------------------>
-  <h1 class="font-weight-bold text-center">Pourquoi nous choisir</h1>
-  <div class="container-fluid why_choose_us py-5 my-5 z-depth-1">
+  <div class="row d-flex justify-content-center">
+    <div class="col">
+      <h1 class="font-weight-bold text-center">Pourquoi nous choisir</h1>
+    </div>
+  </div>
+  
+  <div class="container-fluid why_choose_us py-5 my-5">
     
     <section class="p-md-3 mx-md-5 text-lg-left">
       
@@ -122,12 +127,12 @@
             <!--Controls-->
             <a class="carousel-control-prev left carousel-control" href="#carouselExampleControls" role="button"
               data-slide="prev">
-              <span class="icon-prev" aria-hidden="true"></span>
+              <i style="font-size: 30px" class="fas fa-chevron-left"></i>
               <span class="sr-only">Previous</span>
             </a>
             <a class="carousel-control-next right carousel-control" href="#carouselExampleControls" role="button"
               data-slide="next">
-              <span class="icon-next" aria-hidden="true"></span>
+              <i style="font-size: 30px" class="fas fa-chevron-right"></i>
               <span class="sr-only">Next</span>
             </a>
             <!--Controls-->         
