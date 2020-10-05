@@ -24,10 +24,10 @@ class ContactRequest extends FormRequest
     public function rules()
     {
         return [
-            "name" => "required|alpha_dash", 
+            "name" => "required|regex:/^[\pL\s\-]+$/u", 
             "email" => "required|email:rfc,dns",
-            // "phone" => "",
-            "subject" => "required|alpha_dash",
+            "phone" => "regex:/^[0-9\s\-\+\(\)]{9,20}$/",
+            "subject" => "required|regex:/^[0-9\pL\s\-\']+$/u",
             "message" => "required|min:2|max:300",
         ];
     }
@@ -35,12 +35,16 @@ class ContactRequest extends FormRequest
     public function messages(){
         return [
             "name.required" => "<span style='color:red;'>Le nom est obligatoire</span>",
-            "name.alpha" => "<span style='color:red;'>Veuillez n'entrer que des lettres</span>",
+            "name.regex" => "<span style='color:red;'>Veuillez n'entrer que des lettres</span>",
 
             "email.required" => "<span style='color:red;'>L' email est obligatoire</span>",
-            "email.email" => "<span style='color:red;'>Ceci doit etre un e-mail</span>",
+            "email.email" => "<span style='color:red;'>Ce champ doit être une adresse email valide.</span>",
+
+            "phone.regex" => "<span style='color:red;'>Ceci doit etre un numéro de téléphone valide.</span>",
 
             "subject.required" => "<span style='color:red;'>L'objet est obligatoire</span>",
+            "subject.regex" => "<span style='color:red;'>Veuillez entrer des caractères valides</span>",
+
             "message.required" => "<span style='color:red;'>Le message est obligatoire</span>",
         ];
     }

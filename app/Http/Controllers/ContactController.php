@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Contact;
 use Illuminate\Http\Request;
+use App\Events\WelcomeContactEvent;
 use App\Http\Requests\ContactRequest;
 
 class ContactController extends Controller
@@ -15,17 +17,8 @@ class ContactController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $contacts = Contact::all();
+        return view('administration.administrateur.mails.index', compact('contacts'));
     }
 
     /**
@@ -34,9 +27,16 @@ class ContactController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(ContactRequest $request)
+    public function store(ContactRequest $request)     
     {
+        $contact = Contact::create($request->all());
+        $admin = User::where('state', 'administrateur')->first();
         
+        event(new WelcomeContactEvent($admin, $contact)); 
+
+        return back()->with(array(
+            "success" => "Votre message a été envoyé avec succès",
+        ));
     }
 
     /**
@@ -81,6 +81,8 @@ class ContactController extends Controller
      */
     public function destroy(Contact $contact)
     {
-        //
+        $contact->delete();
+        return back()->with('info', "Ce mail a bien étè supprimé .");
+
     }
 }

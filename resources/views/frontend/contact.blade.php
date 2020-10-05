@@ -5,19 +5,27 @@
 
   <!--Section: Content-->
   <section class="p-5 my-md-5 text-center" 
-    style="background-image: url({{asset('assets/page_contact.jpg')}}); background-size: cover; background-position: center center;">
+    style="background-image: url({{asset('assets/page_contact.jpg')}}); background-size: cover; background-position: center center;
+      "> 
+      
     <h1 class="text-center font-weight-bold text-white mt-5 mb-5">Contactez nous</h3>
-    <form class="mb-5 mx-md-5" action="{{ Route('contact.store') }}" method="post">
+
+      @if(session('success'))
+        <div class="alert alert-success" role="alert">
+          {{ session('success') }} 
+        </div>
+      @endif
+
+    <form class="mb-5 mx-md-5" action="{{ Route('contact_store') }}" method="post">
       @csrf
       <div class="row">
-
         <div class="col-md-4 mb-4">
-          <input type="text" id="name" class="form-control" placeholder="nom" name="name" value="{{old('name')}}">
-          {!! $errors->first('name', ":message") !!}
+          <input type="text" id="name" class="form-control" placeholder="Nom" name="name" value="{{old('name')}}">
+          <div>{!! $errors->first('name', ":message") !!}</div>
         </div>
 
         <div class="col-md-4 mb-4">
-          <input type="email" id="email" class="form-control" placeholder="email" name="email" value="{{old('email')}}">
+          <input type="email" id="email" class="form-control" placeholder="Email" name="email" value="{{old('email')}}">
           {!! $errors->first('email', ":message") !!}
         </div>
 
@@ -78,8 +86,8 @@
           molestiae.</p>
       </div>
     </div>
-    <div class="row">
 
+    <div class="row">
       <!--Grid column-->
       <div class="col-lg-5 col-md-12 mb-0 mb-md-0">
         <!--Google map-->
