@@ -46,7 +46,7 @@
 										</td>
 										<td class="text-right py-0 align-middle">
 											<div class="btn-group btn-group-sm">
-												<form action="{{--route('student_delete', $student)--}}" method="post">
+												<form action="{{route('comment_delete', $comment)}}" method="post">
 													@method('DELETE')
 													@csrf
 													<button class="btn btn-danger" type="submit"><i class="fas fa-trash"></i></button>               
