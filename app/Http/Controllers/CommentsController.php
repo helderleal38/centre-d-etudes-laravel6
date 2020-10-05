@@ -44,9 +44,29 @@ class CommentsController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'avatar' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        $validator = Validator($request->all(), [
+            "comment" => "required|min:20|max:300",
+            "avatar" => "required|image|mimes:jpeg,png,jpg,gif,svg|max:2048",
+        ], [
+            "comment.required" => "<span style='color:red;'>Le commentaire est obligatoire</span>",
+            "comment.min" => "<span style='color:red;'>Commentaire trop court</span>",
+            "comment.max" => "<span style='color:red;'>Commentaire trop long</span>",
+
+            "avatar.required" => "<span style='color:red;'>Un avatar est obligatoire</span>",
+            "avatar.image" => "<span style='color:red;'>Ce champ doit être une image.</span>",
+            "avatar.mimes" => "<span style='color:red;'>Le fichier doit être de type: jpeg,png,jpg,gif,svg.</span>",
+            "avatar.max" => "<span style='color:red;'>La taille de l'image doit être inférieure à 2048 kilo-octets.</span>",
         ]);
+
+        if($validator->fails())
+        {
+            return back()
+            ->with([
+                "errors" => $validator->errors,
+            ]);
+        }
+
+        // dd($request->avatar);
         $avatar = $request->avatar;
         $avatar_name = time() .'_'.$avatar->getClientOriginalExtension();
         $avatar->move('uploads/avatars/', $avatar_name);
@@ -99,8 +119,10 @@ class CommentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Comment $comment)
     {
-        //
+        $comment->delete();
+        return back()->with('info', "Ce commentaire a bien étè supprimé");
     }
+
 }
