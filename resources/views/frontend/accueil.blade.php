@@ -8,16 +8,14 @@
           <!--Verification de l'authentification avant la pré-inscription-->
           @if(Auth::guest())                     
             <h1 class="h1-responsive">A deux on apprend mieux</h1>
-            <button type="button" class="btn btn-success btn-responsive" data-toggle="modal" data-target="#loginModal">
+            <button type="button" class="btn btn-success btn-responsive" data-toggle="modal" data-target="#commencezDesMaintenaintModal">
                 Commencez dès maintenant !
             </button>
-            {{-- <a class="btn btn-primary" href="{{route('register')}}">Pre-inscription</a> --}}                                    
           @else                      
             <h1 class="h1-responsive">A deux on apprend mieux</h1>
-            <button type="button" class="btn btn-success btn-responsive" data-toggle="modal" data-target="#preInscriptionModal">
+            <button type="button" class="btn btn-success btn-responsive disabled">
                 Commencez dès maintenant !
             </button>
-            {{--<a class="btn btn-warning" href="{{route('students_index')}}">Commencez dès maintenant !</a>--}}                     
           @endif
         </div>
         <div class="carousel-item active">
