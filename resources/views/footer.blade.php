@@ -109,7 +109,15 @@
       <h5 class="mb-1">Venez aprendre avec nous</h5>
     </li>
     <li class="list-inline-item">
-      <a href="#!" class="btn btn-danger btn-rounded">Inscription</a>
+      @if(Auth::guest())                     
+        <button type="button" class="btn btn-danger btn-rounded" data-toggle="modal" data-target="#commencezDesMaintenaintModal">
+          Inscription
+        </button>
+      @else                      
+        <button type="button" class="btn btn-danger btn-rounded disabled">
+          Inscription
+        </button>
+      @endif
     </li>
   </ul>
   <!-- Call to action -->
