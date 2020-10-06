@@ -28,7 +28,7 @@
             </div>
             <div class="form-group">
               <label>Contenu</label>
-              <input type="text" class="form-control" name="content" id="content" rows="3" value="{{$matter->content}}" required>
+              <textarea type="text" class="form-control" rows="3" name="content" id="content" required>{{$matter->content}}</textarea>
             </div>
             <div class="form-group">
               <label><img src="{{asset($matter->image)}}" class="img-fluid" width="50" height="50"
