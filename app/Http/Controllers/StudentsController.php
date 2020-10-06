@@ -65,7 +65,7 @@ class StudentsController extends Controller
             'phoneNumber' => Request('phoneNumber'),
             'user_id'=>auth()->id()
         ]);
-        return redirect()->Route('students_index');
+        return back()->width('success', "Votre pré-inscription à bien étè envoyé.<br>Vous allez être contacté au plus vite !");
     }
 
     /**
@@ -105,7 +105,7 @@ class StudentsController extends Controller
     public function update(Request $request, Student $studentId)
     {
         $studentId->update($request->all());
-        return back()->with('info', "Fiche de pré-inscription modifié avec success !");
+        return back()->with('success', "Fiche de pré-inscription modifié avec success !");
 
     }
 
@@ -118,6 +118,6 @@ class StudentsController extends Controller
     public function destroy(Student $student)
     {
         $student->delete();
-        return back()->with('info', "L'élève a bien été supprimé dans la table des élèves, mais sont compte est toujours active sur le site.");
+        return back()->with('success', "L'élève a bien été supprimé dans la table des élèves, mais sont compte est toujours active sur le site.");
     }
 }

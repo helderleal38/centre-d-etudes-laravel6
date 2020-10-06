@@ -66,7 +66,7 @@ class TeatchersController extends Controller
             'user_id'=>auth()->id()
         ]);
         
-        return redirect()->Route('teatchers_index');
+        return back()->with('success', "Votre candidature a bien étè envoyé.<br>On vous contaterai au plus vite !");
     }
 
     /**
