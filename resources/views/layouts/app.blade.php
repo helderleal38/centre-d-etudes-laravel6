@@ -123,7 +123,7 @@
   
 
   <!---------------------------------------------------------------------------------------------------------------->
-  <!-----------------------------------------ALERT MODAL ------------------------------------------------->
+  <!------------------------------------------- MODAL RECRUTEMENT -------------------------------------------------->
   <!---------------------------------------------------------------------------------------------------------------->
   <div class="modal fade" id="alertModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-md">
@@ -135,7 +135,32 @@
           </button>
         </div>
         <div class="modal-body">
-            <div class="card-body" text='centered'>Pour pouvoir acceder à cette page veuiller vous inscrire ou connecter d'abord !</div>
+            <div class="card-body" text='centered'>Pour deposer votre candidature, merci de vous inscrire d'abord !</div>
+        </div>
+        <div class="modal-footer">
+            <a class="btn btn-link" href="{{ route('register') }}" style="color: red;">Inscription</a>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!---------------------------------------------------------------------------------------------------------------->
+  <!-----------------------------------MODAL BUTTON COMMENCEZ DES MAINTENANT --------------------------------------->
+  <!---------------------------------------------------------------------------------------------------------------->
+  <div class="modal fade" id="commencezDesMaintenaintModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md">
+      <div class="modal-content ">
+        <div class="modal-header">
+          <img class ="navbar-brand" src="{{asset('./assets/logo.png')}}" alt="Vasco Soares logo">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="card-body" text='centered'><strong>Vous êtes interessé par un cours?</strong><br> 
+              Veuillez créer une compte pour acceder a votre espace personnel,<br> 
+              où vous pouvez remplir la fiche de pré-inscription !</div>
         </div>
         <div class="modal-footer">
             <a class="btn btn-link" href="{{ route('register') }}" style="color: red;">Inscription</a>
