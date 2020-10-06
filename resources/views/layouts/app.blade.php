@@ -134,7 +134,7 @@
           </button>
         </div>
         <div class="modal-body">
-            <div class="card-body" text='centered'>Pour deposer votre candidature, merci de vous inscrire d'abord !</div>
+            <div class="card-body" text='centered'><strong>Vous voulez enseigner chez nous ?</strong><br>Pour deposer votre candidature, merci de vous inscrire d'abord !</div>
         </div>
         <div class="modal-footer">
             <a class="btn btn-link" href="{{ route('register') }}" style="color: red;">Inscription</a>
