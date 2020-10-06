@@ -21,7 +21,7 @@ class CreateStudentsTable extends Migration
             $table->string('matter');
             $table->string('responsible');
             $table->string('address');
-            $table->integer('phoneNumber');     
+            $table->string('phoneNumber');     
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });

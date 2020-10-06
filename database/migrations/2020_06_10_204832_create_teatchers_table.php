@@ -16,7 +16,7 @@ class CreateTeatchersTable extends Migration
         Schema::create('teatchers', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->bigInteger('user_id')->unsigned();
-            $table->integer('phoneNumber');
+            $table->string('phoneNumber');
             $table->string('scoolLevel');
             $table->string('matter');
             $table->text('cv');
