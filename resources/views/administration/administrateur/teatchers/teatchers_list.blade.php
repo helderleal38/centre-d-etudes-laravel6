@@ -51,7 +51,7 @@
                       <form action="{{route('teatcher_delete', $teatcher)}}" method="post">
                         @method('DELETE')
                         @csrf
-                        <button class="btn btn-danger" type="submit"><i class="fas fa-trash"></i></button>               
+                        <button class="btn btn-danger" type="submit" onclick="return confirm('Vous êtes sur de vouloir supprimer cette candidature ?');"><i class="fas fa-trash"></i></button>               
                       </form>
                     </div>
                   </td>

@@ -25,7 +25,7 @@
                   <form action="{{route('matter_delete', $matter)}}" method="post">
                     @method('DELETE')
                     @csrf
-                    <button class="btn btn-danger" type="submit"><i class="fas fa-trash"></i></button>               
+                    <button class="btn btn-danger" type="submit" onclick="return confirm('Vous êtes sur de vouloir supprimer cette matiére ?');"><i class="fas fa-trash"></i></button>               
                   </form>
                 </div>
               </div>  
