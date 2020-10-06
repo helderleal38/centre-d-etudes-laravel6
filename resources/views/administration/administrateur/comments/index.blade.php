@@ -23,13 +23,13 @@
           <div class="table-responsive">
             <table class="table">
 							<thead>
-									<tr>
-										<th scope="col">ID</th>
-										<th scope="col">Prenom</th>
-										<th scope="col">Nom</th>
-										<th scope="col">Commentaire</th>
-										<th scope="col">Photo/avatar</th>
-									</tr>
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">Prenom</th>
+                  <th scope="col">Nom</th>
+                  <th scope="col">Commentaire</th>
+                  <th scope="col">Photo/avatar</th>
+                </tr>
 							</thead>             
 							<tbody>  
 								@foreach ($comments as $comment)               
@@ -49,7 +49,7 @@
 												<form action="{{route('comment_delete', $comment)}}" method="post">
 													@method('DELETE')
 													@csrf
-													<button class="btn btn-danger" type="submit"><i class="fas fa-trash"></i></button>               
+													<button class="btn btn-danger" type="submit" onclick="return confirm('Vous êtes sur de vouloir supprimer ce commentaire ?');"><i class="fas fa-trash"></i></button>               
 												</form>
 											</div>
 										</td>
