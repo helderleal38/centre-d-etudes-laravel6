@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Matter;
 use App\Teatcher;
 use Illuminate\Http\Request;
+use App\Events\TeatcherEvent;
 
 class TeatchersController extends Controller
 {
@@ -58,7 +60,7 @@ class TeatchersController extends Controller
         $cv_complete_name = time() .'_'. $userId . '.' .$cv->getClientOriginalExtension();
         $cv->move('uploads/files/', $cv_complete_name);
 
-        Teatcher::create([
+        $teatcher = Teatcher::create([
             'phoneNumber' => Request('phoneNumber'),
             'scoolLevel' => Request('scoolLevel'),
             'matter' => Request('matter'),
@@ -66,7 +68,11 @@ class TeatchersController extends Controller
             'user_id'=>auth()->id()
         ]);
         
-        return back()->with('success', "Votre candidature a bien étè envoyé.<br>On vous contaterai au plus vite !");
+        $admin = User::where('state', 'administrateur')->first();
+
+        event(new TeatcherEvent($admin, $teatcher));
+
+        return back()->with('success', "Votre candidature a bien étè envoyé. On vous contactera au plus vite !");
     }
 
     /**

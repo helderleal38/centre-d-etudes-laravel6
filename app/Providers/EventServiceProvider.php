@@ -3,8 +3,10 @@
 namespace App\Providers;
 
 use App\Events\StudentEvent;
+use App\Events\TeatcherEvent;
 use App\Listeners\StudentListener;
 use App\Events\WelcomeContactEvent;
+use App\Listeners\TeatcherListener;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;
 use App\Listeners\WelcomeContactListener;
@@ -24,6 +26,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         StudentEvent::class => [
             StudentListener::class,
+        ],
+        TeatcherEvent::class => [
+            TeatcherListener::class,
         ],
     ];
     
