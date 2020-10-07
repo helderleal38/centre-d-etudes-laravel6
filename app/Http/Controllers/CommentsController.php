@@ -32,9 +32,9 @@ class CommentsController extends Controller
     {
       //dd(Auth::user()->state);
       if(Auth::user()->state === 'eleve'){
-          return view('administration.students.actions.commentStudent');
+        return view('administration.students.actions.commentStudent');
       }else{
-          return view('administration.teatchers.actions.commentTeatcher');
+        return view('administration.teatchers.actions.commentTeatcher');
       }
     }
 
@@ -68,7 +68,6 @@ class CommentsController extends Controller
           ]);
       }
 
-      // dd($request->avatar);
       $avatar = $request->avatar;
       $avatar_name = time() .'_'.$avatar->getClientOriginalExtension();
       $avatar->move('uploads/avatars/', $avatar_name);
@@ -78,10 +77,15 @@ class CommentsController extends Controller
           'avatar' => "uploads/avatars/" . $avatar_name,
           'user_id' => auth()->id()
       ]);
+      
+      $comment_user = Comment::join('users', 'comments.user_id', '=', 'users.id')
+          ->select('users.*', 'comments.*')
+          ->where('comments.user_id', '=', Auth::user()->id)
+          ->firstOrFail();
 
       $admin = User::where('state', 'administrateur')->first();
 
-      event(new CommentEvent($admin, $comment));
+      event(new CommentEvent($admin, $comment_user));
       
       return back()
       ->with('success','Votre commentaire a bien étè envoyé. Il va être visible sur le site aprés la validation de l\'administrateur');

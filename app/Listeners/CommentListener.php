@@ -27,6 +27,6 @@ class CommentListener
      */
     public function handle($event)
     {
-        Mail::to($event->admin->email)->send(new CommentMail($event->admin, $event->comment));
+        Mail::to($event->admin->email)->send(new CommentMail($event->admin, $event->comment_user));
     }
 }

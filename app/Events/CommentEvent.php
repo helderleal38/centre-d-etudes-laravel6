@@ -15,7 +15,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 class CommentEvent
 {
     public $admin;
-    public $comment;
+    public $comment_user;
     
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -24,10 +24,10 @@ class CommentEvent
      *
      * @return void
      */
-    public function __construct(User $admin, Comment $comment)
+    public function __construct(User $admin, Comment $comment_user)
     {
         $this->admin = $admin;
-        $this->comment = $comment;
+        $this->comment_user = $comment_user;
     }
 
     /**

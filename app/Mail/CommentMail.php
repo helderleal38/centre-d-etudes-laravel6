@@ -12,7 +12,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class CommentMail extends Mailable
 {
     public $admin;
-    public $comment;
+    public $comment_user;
     
     use Queueable, SerializesModels;
 
@@ -21,10 +21,10 @@ class CommentMail extends Mailable
      *
      * @return void
      */
-    public function __construct(User $admin, Comment $comment)
+    public function __construct(User $admin, Comment $comment_user)
     {
         $this->admin = $admin;
-        $this->comment = $comment;
+        $this->comment_user = $comment_user;
     }
 
     /**
