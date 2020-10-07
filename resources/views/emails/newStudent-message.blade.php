@@ -1,9 +1,9 @@
 @component('mail::message')
 # Bonjour {{$admin->name}}
 
-{{$student->name}}, viens de vous envoyer une pré-inscription.
+{{$student_user->name}}, viens de vous envoyer une pré-inscription.
 
-Il est interessé par le cours de {{$student->matter}}
+Il est interessé par le cours de {{$student_user->matter}}
 
 
 

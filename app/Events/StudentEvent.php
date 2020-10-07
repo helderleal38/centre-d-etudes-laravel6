@@ -15,7 +15,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 class StudentEvent
 {
     public $admin;
-    public $student;
+    public $student_user;
     
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -24,10 +24,10 @@ class StudentEvent
      *
      * @return void
      */
-    public function __construct(User $admin, Student $student)
+    public function __construct(User $admin, Student $student_user)
     {
-        $this->admin = $admin;
-        $this->student = $student;
+        $this->admin = $admin;//
+        $this->student_user = $student_user;
     }
 
     /**

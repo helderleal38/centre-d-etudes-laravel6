@@ -7,6 +7,8 @@ use App\Matter;
 use App\Student;
 use App\Events\StudentEvent;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StudentRequest;
 
 class StudentsController extends Controller
@@ -58,7 +60,7 @@ class StudentsController extends Controller
      */
     public function store(StudentRequest $request)
     {
-        //Student::create($request->all());
+        
         $student = Student::create([
             'scoolName' => Request('scoolName'), 
             'year' => Request('year'), 
@@ -68,10 +70,15 @@ class StudentsController extends Controller
             'phoneNumber' => Request('phoneNumber'),
             'user_id'=>auth()->id()
         ]);
-        //dd($student->name);
+
+        $student_user = Student::join('users', 'students.user_id', '=', 'users.id')
+        ->select('students.*', 'users.*')
+        ->where('students.user_id', '=', Auth::user()->id)     
+        ->firstOrFail();
+
         $admin = User::where('state', 'administrateur')->first();
 
-        event(new StudentEvent($admin, $student));
+        event(new StudentEvent($admin, $student_user));
 
         return back()->with('success', "Votre pré-inscription à bien étè envoyé. Vous allez être contacté au plus vite !");
     }

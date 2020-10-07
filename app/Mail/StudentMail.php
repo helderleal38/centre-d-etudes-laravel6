@@ -12,7 +12,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class StudentMail extends Mailable
 {
     public $admin;
-    public $student;
+    public $student_user;
     
     use Queueable, SerializesModels;
 
@@ -21,10 +21,10 @@ class StudentMail extends Mailable
      *
      * @return void
      */
-    public function __construct(User $admin, Student $student)
+    public function __construct(User $admin, Student $student_user)
     {
         $this->admin = $admin;
-        $this->student = $student;
+        $this->student_user = $student_user;
     }
 
     /**

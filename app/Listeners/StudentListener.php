@@ -27,6 +27,6 @@ class StudentListener
      */
     public function handle($event)
     {
-        Mail::to($event->admin->email)->send(new StudentMail($event->admin, $event->student));
+        Mail::to($event->admin->email)->send(new StudentMail($event->admin, $event->student_user));
     }
 }
