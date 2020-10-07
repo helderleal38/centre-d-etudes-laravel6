@@ -14,55 +14,40 @@
             <div class="form-group row d-flex justify-content-center">
               <div class="col-md-6">
                 <input id="firstname" type="text" class="form-control @error('firstname') is-invalid @enderror" 
-                name="firstname" value="{{ old('firstname') }}" required autocomplete="firstname" autofocus placeholder="Prenom"> 
-                @error('firstname')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
+                name="firstname" value="{{ old('firstname') }}"  autocomplete="firstname" autofocus placeholder="Prenom"> 
+                {!! $errors->first('firstname', ":message") !!}
               </div>
             </div>
 
             <div class="form-group row d-flex justify-content-center">
               <div class="col-md-6">
                 <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" 
-                value="{{ old('name') }}" required autocomplete="name" autofocus placeholder="Nom">
-                @error('name')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
+                value="{{ old('name') }}"  autocomplete="name" autofocus placeholder="Nom">
+                {!! $errors->first('name', ":message") !!}
               </div>
             </div>
 
             <div class="form-group row d-flex justify-content-center">
               <div class="col-md-6">
                 <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" 
-                value="{{ old('email') }}" required autocomplete="email" placeholder="Adresse mail">
-                @error('email')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
+                value="{{ old('email') }}" autocomplete="email" placeholder="Adresse mail">
+                {!! $errors->first('email', ":message") !!}
               </div>
             </div>
 
             <div class="form-group row d-flex justify-content-center">
               <div class="col-md-6">
                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" 
-                name="password" required autocomplete="new-password" placeholder="Mot de passe">
-                @error('password')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                @enderror
+                name="password"  autocomplete="new-password" placeholder="Mot de passe">
+                {!! $errors->first('password', ":message") !!}
               </div>
             </div>
 
             <div class="form-group row d-flex justify-content-center">
               <div class="col-md-6">
                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" 
-                        required autocomplete="new-password" placeholder="Confirmation du mot de passe">
+                autocomplete="new-password" placeholder="Confirmation du mot de passe">
+                {!! $errors->first('password_confirmation', ":message") !!}
               </div>
             </div>
             
@@ -73,7 +58,8 @@
                   <option value="eleve">Eleve/parent</option>
                   <option value="professeur">Professeur</option>
                 </select>
-              </div>              
+              </div>  
+              {!! $errors->first('state', ":message") !!}            
             </div>
 
             <div class="form-group row d-flex justify-content-center pt-4">
