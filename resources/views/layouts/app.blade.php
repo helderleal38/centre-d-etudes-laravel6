@@ -75,6 +75,7 @@
                   </li>
               @endif
             @else
+              
               <li class="nav-item dropdown">
                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -90,6 +91,9 @@
                   @endif
                   @if(Auth::user()->state == "professeur")
                     <a class="dropdown-item" href="{{ route('teatchers_index') }}">Mon espace</a>
+                  @endif
+                  @if(Auth::user()->state == "administrateur")
+                    <a class="dropdown-item" href="{{ route('administrateur_index') }}">Espace admin</a>
                   @endif
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                       @csrf
