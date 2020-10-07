@@ -2,8 +2,10 @@
 
 namespace App\Providers;
 
+use App\Events\CommentEvent;
 use App\Events\StudentEvent;
 use App\Events\TeatcherEvent;
+use App\Listeners\CommentListener;
 use App\Listeners\StudentListener;
 use App\Events\WelcomeContactEvent;
 use App\Listeners\TeatcherListener;
@@ -29,6 +31,9 @@ class EventServiceProvider extends ServiceProvider
         ],
         TeatcherEvent::class => [
             TeatcherListener::class,
+        ],
+        CommentEvent::class => [
+            CommentListener::class,
         ],
     ];
     
