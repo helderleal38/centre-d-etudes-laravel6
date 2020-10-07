@@ -15,7 +15,7 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 class TeatcherEvent
 {
     public $admin;
-    public $teatcher;
+    public $teatcher_user;
     
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -24,10 +24,10 @@ class TeatcherEvent
      *
      * @return void
      */
-    public function __construct(User $admin, Teatcher $teatcher)
+    public function __construct(User $admin, Teatcher $teatcher_user)
     {
         $this->admin = $admin;
-        $this->teatcher = $teatcher;
+        $this->teatcher_user = $teatcher_user;
     }
 
     /**

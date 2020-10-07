@@ -27,6 +27,6 @@ class TeatcherListener
      */
     public function handle($event)
     {
-        Mail::to($event->admin->email)->send(new TeatcherMail($event->admin, $event->teatcher));
+        Mail::to($event->admin->email)->send(new TeatcherMail($event->admin, $event->teatcher_user));
     }
 }

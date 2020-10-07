@@ -12,7 +12,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 class TeatcherMail extends Mailable
 {
     public $admin;
-    public $teatcher;
+    public $teatcher_user;
     
     use Queueable, SerializesModels;
 
@@ -21,10 +21,10 @@ class TeatcherMail extends Mailable
      *
      * @return void
      */
-    public function __construct(User $admin, Teatcher $teatcher)
+    public function __construct(User $admin, Teatcher $teatcher_user)
     {
         $this->admin = $admin;
-        $this->teatcher = $teatcher;
+        $this->teatcher_user = $teatcher_user;
     }
 
     /**

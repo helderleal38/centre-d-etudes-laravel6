@@ -7,6 +7,7 @@ use App\Matter;
 use App\Teatcher;
 use Illuminate\Http\Request;
 use App\Events\TeatcherEvent;
+use Illuminate\Support\Facades\Auth;
 
 class TeatchersController extends Controller
 {
@@ -54,23 +55,25 @@ class TeatchersController extends Controller
     {
         $cv = $request->cv;
         $userId = auth()->id();
-        // $userName = auth()->getName();
-        // dd($userName);
-        // $file_complete_name = time() .'_'. $userId . '_' . $userName . '.' .$file->getClientOriginalExtension();
         $cv_complete_name = time() .'_'. $userId . '.' .$cv->getClientOriginalExtension();
         $cv->move('uploads/files/', $cv_complete_name);
 
         $teatcher = Teatcher::create([
-            'phoneNumber' => Request('phoneNumber'),
-            'scoolLevel' => Request('scoolLevel'),
-            'matter' => Request('matter'),
-            'cv' => "uploads/files/" . $cv_complete_name,
-            'user_id'=>auth()->id()
+          'phoneNumber' => Request('phoneNumber'),
+          'scoolLevel' => Request('scoolLevel'),
+          'matter' => Request('matter'),
+          'cv' => "uploads/files/" . $cv_complete_name,
+          'user_id'=>auth()->id()
         ]);
         
+        $teatcher_user = Teatcher::join('users', 'teatchers.user_id', '=', 'users.id')
+          ->select('users.*', 'teatchers.*')
+          ->where('teatchers.user_id', '=', Auth::user()->id)
+          ->firstOrFail();
+
         $admin = User::where('state', 'administrateur')->first();
 
-        event(new TeatcherEvent($admin, $teatcher));
+        event(new TeatcherEvent($admin, $teatcher_user));
 
         return back()->with('success', "Votre candidature a bien étè envoyé. On vous contactera au plus vite !");
     }
