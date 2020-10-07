@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Matter;
 use App\Student;
+use App\Events\StudentEvent;
 use Illuminate\Http\Request;
 use App\Http\Requests\StudentRequest;
 
@@ -56,7 +58,8 @@ class StudentsController extends Controller
      */
     public function store(StudentRequest $request)
     {
-        Student::create([
+        //Student::create($request->all());
+        $student = Student::create([
             'scoolName' => Request('scoolName'), 
             'year' => Request('year'), 
             'matter' => Request('matter'), 
@@ -65,7 +68,12 @@ class StudentsController extends Controller
             'phoneNumber' => Request('phoneNumber'),
             'user_id'=>auth()->id()
         ]);
-        return back()->width('success', "Votre pré-inscription à bien étè envoyé.<br>Vous allez être contacté au plus vite !");
+        //dd($student->name);
+        $admin = User::where('state', 'administrateur')->first();
+
+        event(new StudentEvent($admin, $student));
+
+        return back()->with('success', "Votre pré-inscription à bien étè envoyé. Vous allez être contacté au plus vite !");
     }
 
     /**

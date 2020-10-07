@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Events\StudentEvent;
+use App\Listeners\StudentListener;
 use App\Events\WelcomeContactEvent;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Auth\Events\Registered;
@@ -20,7 +22,11 @@ class EventServiceProvider extends ServiceProvider
         WelcomeContactEvent::class => [
             WelcomeContactListener::class,
         ],
+        StudentEvent::class => [
+            StudentListener::class,
+        ],
     ];
+    
 
     /**
      * Register any events for your application.
