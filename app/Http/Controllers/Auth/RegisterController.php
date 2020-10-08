@@ -53,33 +53,33 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
       return Validator::make($data, [
-          "firstname" => "required|regex:/^[\pL\s\-]+$/u", 
-          "name" => "required|regex:/^[\pL\s\-]+$/u",
-          "email" => ["required" ,"email:rfc,dns", Rule::unique('users')],  
-          "password" => ["required", "string", "min:8"],
-          "password_confirmation" => "required|same:password",
-          "state" => "required",
-        ],
-        [
-          "firstname.required" => "<span style='color:red;'>Le prénom est obligatoire</span>",
-          "firstname.regex" => "<span style='color:red;'>Ceci doit etre un prénom valide</span>",
+        "firstname" => "required|regex:/^[\pL\s\-]+$/u", 
+        "name" => "required|regex:/^[\pL\s\-]+$/u",
+        "email" => ["required" ,"email:rfc,dns", Rule::unique('users')],  
+        "password" => ["required", "string", "min:8"],
+        "password_confirmation" => "required|same:password",
+        "state" => "required",
+      ],
+      [
+        "firstname.required" => "<span style='color:red;'>Le prénom est obligatoire</span>",
+        "firstname.regex" => "<span style='color:red;'>Ceci doit être un prénom valide</span>",
 
-          "name.required" => "<span style='color:red;'>Le nom est obligatoire</span>",
-          "name.regex" => "<span style='color:red;'>Ceci doit etre un nom valide</span>",
+        "name.required" => "<span style='color:red;'>Le nom est obligatoire</span>",
+        "name.regex" => "<span style='color:red;'>Ceci doit être un nom valide</span>",
 
-          "email.required" => "<span style='color:red;'>L'email est obligatoire</span>",
-          "email.email" => "<span style='color:red;'>Ceci doit etre un email valide</span>",
-          "email.unique" => "<span style='color:red;'>Ceci e-mail existe déjà, veuillez en chosir un autre</span>",
+        "email.required" => "<span style='color:red;'>L'email est obligatoire</span>",
+        "email.email" => "<span style='color:red;'>Ceci doit être un email valide</span>",
+        "email.unique" => "<span style='color:red;'>Ceci e-mail existe déjà, veuillez en chosir un autre</span>",
 
-          "password.required" => "<span style='color:red;'>Le mot de passe est obligatoire</span>",
-          "password.string" => "<span style='color:red;'>Veuillez un mot de passe valide</span>",
-          "password.min" => "<span style='color:red;'>Veuillez entrer au mnimum 8 caractères.</span>",
+        "password.required" => "<span style='color:red;'>Le mot de passe est obligatoire</span>",
+        "password.string" => "<span style='color:red;'>Mot de passe invalide</span>",
+        "password.min" => "<span style='color:red;'>Veuillez entrer au mnimum 8 caractères.</span>",
 
-          "password_confirmation.required" => "<span style='color:red;'>Veuillez saisir la confirmation du mot de passe.</span>",
-          "password_confirmation.same" => "<span style='color:red;'>Les mots de passe doivent etre identiques.</span>",
+        "password_confirmation.required" => "<span style='color:red;'>Veuillez saisir la confirmation du mot de passe.</span>",
+        "password_confirmation.same" => "<span style='color:red;'>Les mots de passe doivent être identiques.</span>",
 
-          "state.required" => "<span style='color:red;'>Veuillez remplir champs</span>",
-        ] 
+        "state.required" => "<span style='color:red;'>Le statut est obligatoire</span>",
+      ] 
       );
     }
 
@@ -91,33 +91,31 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-
-        return User::create([
-            'firstname' => $data['firstname'],
-            'name' => $data['name'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-            'state' => $data['state'],
-        ]);
+      return User::create([
+          'firstname' => $data['firstname'],
+          'name' => $data['name'],
+          'email' => $data['email'],
+          'password' => Hash::make($data['password']),
+          'state' => $data['state'],
+      ]);
     }
 
     
     protected function redirectTo()
     {
-
-        if(Auth::user()->state == "administrateur")
-        {
-            return "administration/administrateur/admin";
-        } 
-        else if(Auth::user()->state == "professeur")
-        {
-            return "administration/teatchers/teatcher";
-        } 
-        else if(Auth::user()->state == "eleve")
-        {
-            return "administration/students/student";
-        } else {
-            return "login";
-        }     
+      if(Auth::user()->state == "administrateur")
+      {
+          return "administration/administrateur/admin";
+      } 
+      else if(Auth::user()->state == "professeur")
+      {
+          return "administration/teatchers/teatcher";
+      } 
+      else if(Auth::user()->state == "eleve")
+      {
+          return "administration/students/student";
+      } else {
+          return "login";
+      }     
     }
 }
