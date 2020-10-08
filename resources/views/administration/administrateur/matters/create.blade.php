@@ -8,7 +8,11 @@
         <div class="box-header with-border text-center p-4">
           <h3 class="box-title">Nouvelle matiére</h3>
         </div>
-        
+        @if(session()->has('success'))
+          <div class="alert alert-success mt-2">
+            {{ session('success') }}
+          </div>
+        @endif
         <!-- /.box-header -->
         <!-- form start -->
         <form action="{{ route('matter_store')}} " method="post" enctype="multipart/form-data">
@@ -16,31 +20,44 @@
           <div class="box-body">
             <div class="form-group">
               <label>Matiére</label>
-              <input type="text" class="form-control" name="matter" id="matter" required>
+            <input type="text" class="form-control" name="matter" id="matter" value="{{ old('matter') }}">
+              {!! $errors->first('matter', ':message') !!}
             </div>
+
             <div class="form-group">
               <label>Titre</label>
-              <input type="text" class="form-control" name="title" id="title" required>
+              <input type="text" class="form-control" name="title" id="title" value="{{ old('title') }}">
+              {!! $errors->first('title', ':message') !!}
             </div>
+
             <div class="form-group">
               <label>Contenu</label>
-              <textarea class="form-control" rows="3" name="content" id="content" required></textarea>
+              <textarea class="form-control" rows="3" name="content" id="content">{{ old('content') }}</textarea>
+              {!! $errors->first('content', ':message') !!}
             </div>
+
             <div class="form-group">
               <label for="exampleInputFile">Image</label>
-              <input type="file" id="exampleInputFile" name="image">
+              <input type="file" id="exampleInputFile" name="image" value="{{ old('image') }}">
+              {!! $errors->first('image', ':message') !!}
             </div>
+
             <div class="form-group">
               <label>Prix/heure</label>
-              <input type="number" class="form-control" name="hourPrice" required>
+              <input type="number" class="form-control" name="hourPrice" value="{{ old('hourPrice') }}">
+              {!! $errors->first('hourPrice', ':message') !!}
             </div>
+
             <div class="form-group">
               <label>Reduction en % (forfait anuelle)</label>
-              <input type="number" class="form-control" name="yearReduction" required>
+              <input type="number" class="form-control" name="yearReduction" value="{{ old('yearReduction') }}">
+              {!! $errors->first('yearReduction', ':message') !!}
             </div>
+
             <div class="form-group">
               <label>Reduction en % (si l'élève nous a ramené d'autres élèves)</label>
-              <input type="number" class="form-control" name="extraReduction" required>
+              <input type="number" class="form-control" name="extraReduction" value="{{ old('extraReduction') }}">
+              {!! $errors->first('extraReduction', ':message') !!}
             </div>
           </div>
           <!-- /.box-body -->
