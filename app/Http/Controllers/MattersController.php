@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Matter;
 use Illuminate\Http\Request;
+use App\Http\Requests\MatterRequest;
 
 class MattersController extends Controller
 {
@@ -37,10 +38,38 @@ class MattersController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        $validator = Validator($request->all(), [
+            "matter" => "required|regex:/^[\pL\s\-\']{5,20}+$/u",
+            "title" => "required|regex:/^[0-9\pL\s\-\'\?]{5,50}+$/u",
+            "content" => "required|max:500",
+            "image" => "image|mimes:jpeg,png,jpg,gif,svg|max:2048",
+            "hourPrice" => "required|digits_between:1,3",
+            "yearReduction" => "required|digits_between:1,3",
+            "extraReduction" => "required|digits_between:1,3",
+        ], [
+            "matter.required" => "<span style='color:red;'>Ce champ est obligatoire.</span>",
+            "matter.regex" => "<span style='color:red;'>Ce champ doit avoir des caractéres valides.</span>",
+
+            "title.required" => "<span style='color:red;'>Ce champ est obligatoire.</span>",
+            "title.regex" => "<span style='color:red;'>Ce champ doit avoir des caractéres valides.</span>",
+
+            "content.required" => "<span style='color:red;'>Ce champ est obligatoire.</span>",
+            "content.max" => "<span style='color:red;'>On ne peut pas depasser 500 caractéres.</span>",
+
+            "image.image" => "<span style='color:red;'>Ce fichier ce n'est pas une image</span>",
+            "image.mimes" => "<span style='color:red;'>L'image doit être du type: jpeg,png,jpg,gif,svg.</span>",
+            "image.max" => "<span style='color:red;'>La taille de l'image doit être inférieure à 2048 kilo-octets.</span>",
+
+            "hourPrice.required" => "<span style='color:red;'>Ce champ est obligatoire.</span>",
+            "hourPrice.digits_between" => "<span style='color:red;'>Ce champ doit contenir entre 1 et 3 chiffres.</span>",
+
+            "yearReduction.required" => "<span style='color:red;'>Ce champ est obligatoire.</span>",
+            "yearReduction.digits_between" => "<span style='color:red;'>Ce champ doit contenir entre 1 et 3 chiffres.</span>",
+
+            "extraReduction.required" => "<span style='color:red;'>Ce champ est obligatoire.</span>",
+            "extraReduction.digits_between" => "<span style='color:red;'>Ce champ doit contenir entre 1 et 3 chiffres.</span>",
         ]);
-        
+
         $image = $request->image;
         $image_name = time() .'_'.$image->getClientOriginalExtension();
         $image->move('uploads/matters/', $image_name);
@@ -90,7 +119,65 @@ class MattersController extends Controller
      */
     public function update(Request $request, Matter $matter)
     {
-        $matter->update($request->all());
+        $validator = Validator($request->all(), [
+            "matter" => "required|regex:/^[\pL\s\-\']{5,20}+$/u",
+            "title" => "required|regex:/^[0-9\pL\s\-\'\?]{5,50}+$/u",
+            "content" => "required|max:500",
+            "image" => "image|mimes:jpeg,png,jpg,gif,svg|max:2048",
+            "hourPrice" => "required|digits_between:1,3",
+            "yearReduction" => "required|digits_between:1,3",
+            "extraReduction" => "required|digits_between:1,3",
+        ], [
+            "matter.required" => "<span style='color:red;'>Ce champ est obligatoire.</span>",
+            "matter.regex" => "<span style='color:red;'>Ce champ doit avoir des caractéres valides.</span>",
+
+            "title.required" => "<span style='color:red;'>Ce champ est obligatoire.</span>",
+            "title.regex" => "<span style='color:red;'>Ce champ doit avoir des caractéres valides.</span>",
+
+            "content.required" => "<span style='color:red;'>Ce champ est obligatoire.</span>",
+            "content.max" => "<span style='color:red;'>On ne peut pas depasser 500 caractéres.</span>",
+
+            "image.image" => "<span style='color:red;'>Ce fichier ce n'est pas une image</span>",
+            "image.mimes" => "<span style='color:red;'>L'image doit être du type: jpeg,png,jpg,gif,svg.</span>",
+            "image.max" => "<span style='color:red;'>La taille de l'image doit être inférieure à 2048 kilo-octets.</span>",
+
+            "hourPrice.required" => "<span style='color:red;'>Ce champ est obligatoire.</span>",
+            "hourPrice.digits_between" => "<span style='color:red;'>Ce champ doit contenir entre 1 et 3 chiffres.</span>",
+
+            "yearReduction.required" => "<span style='color:red;'>Ce champ est obligatoire.</span>",
+            "yearReduction.digits_between" => "<span style='color:red;'>Ce champ doit contenir entre 1 et 3 chiffres.</span>",
+
+            "extraReduction.required" => "<span style='color:red;'>Ce champ est obligatoire.</span>",
+            "extraReduction.digits_between" => "<span style='color:red;'>Ce champ doit contenir entre 1 et 3 chiffres.</span>",
+        ]);
+
+        if($request->image){
+            $image = $request->image;
+            $image_name = time() .'_'.$image->getClientOriginalExtension();
+            $image->move('uploads/matters/', $image_name);
+            
+            $matter->update([
+                'matter' => Request('matter'),
+                'title' => Request('title'),
+                'content' => Request('content'),
+                'image' => "uploads/matters/" . $image_name,
+                'hourPrice' => Request('hourPrice'),
+                'yearReduction' => Request('yearReduction'),
+                'extraReduction' => Request('extraReduction')
+            ]);
+        }else{
+            $matter->update([
+                'matter' => Request('matter'),
+                'title' => Request('title'),
+                'content' => Request('content'),
+                'hourPrice' => Request('hourPrice'),
+                'yearReduction' => Request('yearReduction'),
+                'extraReduction' => Request('extraReduction')
+            ]);
+        }
+        
+
+        //$matter->update($request->all());
         return back()->with('success', "Article modifié avec success");
     }
 

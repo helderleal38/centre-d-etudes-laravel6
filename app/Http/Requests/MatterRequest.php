@@ -24,13 +24,13 @@ class MatterRequest extends FormRequest
     public function rules()
     {
         return [
-            "matter" => "required|alpha",
-            "title" => "required|regex:/^[0-9\pL\s\-\']{5,50}+$/u",
+            "matter" => "required|regex:/^[\pL\s\-\']{5,20}+$/u",
+            "title" => "required|regex:/^[0-9\pL\s\-\'\?]{5,50}+$/u",
             "content" => "required|max:500",
             "image" => "required|image|mimes:jpeg,png,jpg,gif,svg|max:2048",
-            "hourPrice" => "required|digits",
-            "yearReduction" => "required|digits",
-            "extraReduction" => "required|digits",
+            "hourPrice" => "required|digits_between:1,3",
+            "yearReduction" => "required|digits_between:1,3",
+            "extraReduction" => "required|digits_between:1,3",
         ];
     }
 
@@ -38,9 +38,10 @@ class MatterRequest extends FormRequest
     {
         return [
         "matter.required" => "<span style='color:red;'>Ce champ est obligatoire.</span>",
-        "matter.alpha" => "<span style='color:red;'>Ce champ doit contenir uniquement des lettres.</span>",
+        "matter.regex" => "<span style='color:red;'>Ce champ doit avoir des caractéres valides.</span>",
 
         "title.required" => "<span style='color:red;'>Ce champ est obligatoire.</span>",
+        "title.regex" => "<span style='color:red;'>Ce champ doit avoir des caractéres valides.</span>",
 
         "content.required" => "<span style='color:red;'>Ce champ est obligatoire.</span>",
         "content.max" => "<span style='color:red;'>On ne peut pas depasser 500 caractéres.</span>",
@@ -51,13 +52,13 @@ class MatterRequest extends FormRequest
         "image.max" => "<span style='color:red;'>La taille de l'image doit être inférieure à 2048 kilo-octets.</span>",
 
         "hourPrice.required" => "<span style='color:red;'>Ce champ est obligatoire.</span>",
-        "hourPrice.digits" => "<span style='color:red;'>Ce champ doit contenir des chiffres.</span>",
+        "hourPrice.digits_between" => "<span style='color:red;'>Ce champ doit contenir entre 1 et 3 chiffres.</span>",
 
         "yearReduction.required" => "<span style='color:red;'>Ce champ est obligatoire.</span>",
-        "yearReduction.digits" => "<span style='color:red;'>Ce champ doit contenir uniquement des chiffres.</span>",
+        "yearReduction.digits_between" => "<span style='color:red;'>Ce champ doit contenir entre 1 et 3 chiffres.</span>",
 
         "extraReduction.required" => "<span style='color:red;'>Ce champ est obligatoire.</span>",
-        "extraReduction.digits" => "<span style='color:red;'>Ce champ doit contenir des chiffres.</span>",
+        "extraReduction.digits_between" => "<span style='color:red;'>Ce champ doit contenir entre 1 et 3 chiffres.</span>",
         ];
     }
 }

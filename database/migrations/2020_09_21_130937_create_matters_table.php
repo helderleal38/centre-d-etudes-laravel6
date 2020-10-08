@@ -18,7 +18,7 @@ class CreateMattersTable extends Migration
             $table->string('matter');
             $table->string('title');
             $table->text('content');
-            $table->string('image');
+            $table->string('image')->nullable();
             $table->integer('hourPrice');
             $table->integer('yearReduction');
             $table->integer('extraReduction');
