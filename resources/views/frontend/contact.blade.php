@@ -1,12 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container z-depth-1 my-5 px-0 pt-3"> 
+<div class="container contact z-depth-1 px-0"> 
 
   <!--Section: Content-->
-  <section class="p-5 my-md-5 text-center" 
+  {{-- <section class="contact p-5 my-md-5 text-center" 
     style="background-image: url({{asset('assets/page_contact.jpg')}}); background-size: cover; background-position: center center;
-      "> 
+      ">  --}}
+  <section class="image p-5 my-md-5 text-center"> 
       
     <h1 class="text-center font-weight-bold text-white mt-5 mb-5">Contactez nous</h3>
 
@@ -30,7 +31,7 @@
         </div>
 
         <div class="col-md-4 mb-4">
-          <input type="text" id="phone" class="form-control" placeholder="Telephone (optional)" name="phone" value="{{old('phone')}}">
+          <input type="text" id="phone" class="form-control" placeholder="Téléphone" name="phone" value="{{old('phone')}}">
           {!! $errors->first('phone', ":message") !!}
         </div>
       </div>

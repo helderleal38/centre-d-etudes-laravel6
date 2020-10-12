@@ -7,12 +7,10 @@
         <div class="carousel-caption">
           <!--Verification de l'authentification avant la pré-inscription-->
           @if(Auth::guest())                     
-            <h1 class="h1-responsive">A deux on apprend mieux</h1>
             <button type="button" class="btn btn-success btn-responsive" data-toggle="modal" data-target="#commencezDesMaintenaintModal">
                 Commencez dès maintenant !
             </button>
           @else                      
-            <h1 class="h1-responsive">A deux on apprend mieux</h1>
             <button type="button" class="btn btn-success btn-responsive disabled">
                 Commencez dès maintenant !
             </button>
@@ -58,22 +56,32 @@
           <i class="fas fa-balance-scale fa-3x indigo-text mb-4"></i>
           <h4 class="font-weight-bold mb-4">SUR MESURE</h4>
           <p class="text-muted px-2 mb-lg-0">
-            Tous les apprenants sont différents. Nos solutions d’accompagnement personnalisées tiennent compte de la diversité des rythmes, des styles d’apprentissage, des forces et faiblesses dans les savoirs acquis. Cette approche individualisée est garante des progrès les plus solides, dans la compréhension des matières et dans l’organisation du travail. Et nous nous adapterons non seulement à votre profil cognitif mais aussi à votre emploi du temps pour vous fournir le service le plus ajusté possible.
+            Tous les apprenants sont différents. Nos solutions d’accompagnement personnalisées tiennent compte de la diversité 
+            des rythmes, des styles d’apprentissage, des forces et faiblesses dans les savoirs acquis. Cette approche 
+            individualisée est garante des progrès les plus solides, dans la compréhension des matières et dans l’organisation 
+            du travail. Et nous nous adapterons non seulement à votre profil cognitif mais aussi à votre emploi du temps pour 
+            vous fournir le service le plus ajusté possible.
           </p>
         </div>
         <div class="col-lg-3 col-md-6 mb-lg-0 mb-5">
           <i class="fas fa-home fa-3x mb-4"></i>
           <h4 class="font-weight-bold mb-4">CHEZ VOUS</h4>
           <p class="text-muted px-2 mb-lg-0">
-            Etudier dans son environnement de travail familier et sans la contrainte de déplacements supplémentaires. Notre expertise vient jusqu’à votre porte (ou jusque sur votre écran) pour vous permettre d’accéder à l’ensemble de vos ressources pédagogiques habituelles. Le service à domicile ouvre à d’autres bénéfices comme le crédit d’impôt ou la possibilité pour votre coach scolaire d’offrir des conseils pertinents au sujet de votre espace de travail.
+            Etudier dans son environnement de travail familier et sans la contrainte de déplacements supplémentaires. 
+            Notre expertise vient jusqu’à votre porte (ou jusque sur votre écran) pour vous permettre d’accéder à l’ensemble 
+            de vos ressources pédagogiques habituelles. Le service à domicile ouvre à d’autres bénéfices comme le crédit d’impôt 
+            ou la possibilité pour votre coach scolaire d’offrir des conseils pertinents au sujet de votre espace de travail.
           </p>
         </div>
         <div class="col-lg-3 col-md-6 mb-md-0 mb-5">
           <i class="fas fa-user-graduate fa-3x amber-text mb-4"></i>
           <h4 class="font-weight-bold mb-4">PAR DES PROS</h4>
           <p class="text-muted px-2 mb-md-0">
-            C’est parce qu’ils/elles ont vu passer des milliers de cas singuliers dans leurs classes que nos enseignant(e)s de l’Education Nationale seront les mieux à même d’adapter leur soutien à la personnalité de votre enfant.
-            Dans nos séances de diagnostic, au moment de la correction des copies ou lors des sessions régulières de tutorat en tête-à-tête, ils/elles sauront repérer les principaux champs de progression et préparer des stratégies calquées sur les besoins uniques de l’élève.
+            C’est parce qu’ils/elles ont vu passer des milliers de cas singuliers dans leurs classes que nos enseignant(e)s de 
+            l’Education Nationale seront les mieux à même d’adapter leur soutien à la personnalité de votre enfant.
+            Dans nos séances de diagnostic, au moment de la correction des copies ou lors des sessions régulières de tutorat en 
+            tête-à-tête, ils/elles sauront repérer les principaux champs de progression et préparer des stratégies calquées sur 
+            les besoins uniques de l’élève.
           </p>
         </div>
         <div class="col-lg-3 col-md-6 mb-md-0 mb-5">
@@ -81,7 +89,10 @@
           {{-- <i class="fas fa-chart-line"></i> --}}
           <h4 class="font-weight-bold mb-4">REUSSITE GARANTIE</h4>
           <p class="text-muted px-2 mb-md-0">
-            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. 
+            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin 
+            literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney 
+            College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going 
+            through the cites of the word in classical literature, discovered the undoubtable source. 
           </p>
         </div>
       </div>

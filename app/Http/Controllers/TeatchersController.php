@@ -51,31 +51,31 @@ class TeatchersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TeatcherRequest $request)
     {
-        $cv = $request->cv;
-        $userId = auth()->id();
-        $cv_complete_name = time() .'_'. $userId . '.' .$cv->getClientOriginalExtension();
-        $cv->move('uploads/files/', $cv_complete_name);
+      $cv = $request->cv;
+      $userId = auth()->id();
+      $cv_complete_name = time() .'_'. $userId . '.' .$cv->getClientOriginalExtension();
+      $cv->move('uploads/files/', $cv_complete_name);
 
-        $teatcher = Teatcher::create([
-          'phoneNumber' => Request('phoneNumber'),
-          'scoolLevel' => Request('scoolLevel'),
-          'matter' => Request('matter'),
-          'cv' => "uploads/files/" . $cv_complete_name,
-          'user_id'=>auth()->id()
-        ]);
-        
-        $teatcher_user = Teatcher::join('users', 'teatchers.user_id', '=', 'users.id')
-          ->select('users.*', 'teatchers.*')
-          ->where('teatchers.user_id', '=', Auth::user()->id)
-          ->firstOrFail();
+      $teatcher = Teatcher::create([
+        'phoneNumber' => Request('phoneNumber'),
+        'scoolLevel' => Request('scoolLevel'),
+        'matter' => Request('matter'),
+        'cv' => "uploads/files/" . $cv_complete_name,
+        'user_id'=>auth()->id()
+      ]);
+      
+      $teatcher_user = Teatcher::join('users', 'teatchers.user_id', '=', 'users.id')
+        ->select('users.*', 'teatchers.*')
+        ->where('teatchers.user_id', '=', Auth::user()->id)
+        ->firstOrFail();
 
-        $admin = User::where('state', 'administrateur')->first();
+      $admin = User::where('state', 'administrateur')->first();
 
-        event(new TeatcherEvent($admin, $teatcher_user));
+      event(new TeatcherEvent($admin, $teatcher_user));
 
-        return back()->with('success', "Votre candidature a bien étè envoyé. On vous contactera au plus vite !");
+      return back()->with('success', "Votre candidature a bien étè envoyé. On vous contactera au plus vite !");
     }
 
     /**

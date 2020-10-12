@@ -39,17 +39,12 @@
                   <div class="col-lg-6 col-md-12 col-sm-12">
                     <h2 class="title text-center pb-2">{{ $matter->title }}</h2>
                     <h5 class="content pb-2">{{ $matter->content }}</h5>
-                    <div class="col-md-6 offset-md-4">
-                      <button type="button" class="btn btn-warning btn-md">
-                        Commencez dès maintenant !
-                      </button>
-                    </div>
                   </div>
                 </div>
                 <h2 class="title text-center pb-2 pt-2">Nos tarifs</h2>
                 <h4>Prix de base : {{$matter->hourPrice}} euros/heure</h4>
-                <h4>Forfait à l'année : -{{$matter->yearReduction}}% REDUCTION</h4>
-                <h4>Tu nous a ramene d'autres élèves ? -{{$matter->extraReduction}}% REDUCTION sur t'on forfait anuelle</h4>
+                <h4>Forfait à l'année : {{$matter->yearReduction}}% REDUCTION</h4>
+                <h4>En cas de parrainage : {{$matter->extraReduction}}% REDUCTION sur t'on forfait anuelle</h4>
               </div>
             </div>
           </div>

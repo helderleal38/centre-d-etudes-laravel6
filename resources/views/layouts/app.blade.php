@@ -53,8 +53,6 @@
             <!--Si l'utilisateur n'est pas connecte affiche l'alert Modal-->
             @if(Auth::guest())
               <li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#alertModal">Recrutement</a></li>
-            @else
-                <li class="nav-item"><a class="nav-link" href="{{asset('recrutement')}}">Recrutement</a></li>
             @endif 
           </ul>
 
@@ -78,11 +76,6 @@
                     {{ Auth::user()->name }} <span class="caret"></span>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="{{ route('logout') }}"
-                  onclick="event.preventDefault();
-                  document.getElementById('logout-form').submit();">
-                      {{ __('Logout') }}
-                  </a>
                   @if(Auth::user()->state == "eleve")
                     <a class="dropdown-item" href="{{ route('students_index') }}">Espace élève</a>
                   @endif
@@ -92,6 +85,11 @@
                   @if(Auth::user()->state == "administrateur")
                     <a class="dropdown-item" href="{{ route('administrateur_index') }}">Espace admin</a>
                   @endif
+                  <a class="dropdown-item" href="{{ route('logout') }}"
+                  onclick="event.preventDefault();
+                  document.getElementById('logout-form').submit();">
+                      {{ __('Déconnexion') }}
+                  </a>
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                       @csrf
                   </form>
@@ -135,7 +133,7 @@
           </button>
         </div>
         <div class="modal-body">
-            <div class="card-body" text='centered'><strong>Vous voulez enseigner chez nous ?</strong><br>Pour deposer votre candidature, merci de vous inscrire d'abord !</div>
+            <div class="card-body" text='centered'><strong>Vous voulez enseigner chez nous ?</strong><br>Pour déposer votre candidature, merci de vous inscrire d'abord !</div>
         </div>
         <div class="modal-footer">
             <a class="btn btn-link" href="{{ route('register') }}" style="color: red;">Inscription</a>
