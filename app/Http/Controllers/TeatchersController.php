@@ -8,6 +8,7 @@ use App\Teatcher;
 use Illuminate\Http\Request;
 use App\Events\TeatcherEvent;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Requests\TeatcherRequest;
 
 class TeatchersController extends Controller
 {
