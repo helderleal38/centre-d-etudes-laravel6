@@ -36,7 +36,7 @@
                 <label for="phoneNumber" class="col-md-4 col-form-label text-md-right">{{ __('Téléphone') }}</label>
                 <div class="col-md-6">
                     <input id="phoneNumber" type="text" class="form-control @error('phoneNumber') is-invalid @enderror" 
-                    name="phoneNumber" value="{{ old('phoneNumber') }}" required autocomplete="phoneNumber" autofocus>
+                    name="phoneNumber" value="{{ old('phoneNumber') }}" autocomplete="phoneNumber" autofocus>
                     {!! $errors ->first("phoneNumber", ":message") !!}
                 </div>
               </div>
@@ -44,7 +44,7 @@
               <div class="form-group row">
                 <label for="scoolLevel" class="col-md-4 col-form-label text-md-right">{{ __('Cycle à enseigner') }}</label>
                 <div class="col-md-6">
-                  <select class="form-control" id="scoolLevel" type="text" name="scoolLevel" value="{{ old('scoolLevel') }}">
+                  <select class="form-control @error('scoolLevel') is-invalid @enderror" id="scoolLevel" type="text" name="scoolLevel" value="{{ old('scoolLevel') }}">
                     <option></option>
                     <option>Cycle 2 (cp, ce1, ce2)</option>
                     <option>Cycle 3 (cm1, cm2, 6éme)</option>
@@ -60,8 +60,9 @@
               <div class="form-group row">
                 <label for="matter" class="col-md-4 col-form-label text-md-right">{{ __('Matière à enseigner') }}</label>
                 <div class="col-md-6">
-                  <select class="form-control" id="matter" type="text" name="matter" value="{{ old('matter') }}">
+                  <select class="form-control @error('matter') is-invalid @enderror" id="matter" type="text" name="matter" value="{{ old('matter') }}">
                     @foreach($matters as $matter)
+                        <option disabled selected></option>
                         <option>{{$matter->matter}}</option>
                     @endforeach
                   </select>

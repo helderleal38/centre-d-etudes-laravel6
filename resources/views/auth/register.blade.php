@@ -38,28 +38,28 @@
             <div class="form-group row d-flex justify-content-center">
               <div class="col-md-6">
                 <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" 
-                name="password"  autocomplete="new-password" placeholder="Mot de passe">
+                value="{{ old('password') }}" name="password"  autocomplete="new-password" placeholder="Mot de passe">
                 {!! $errors->first('password', ":message") !!}
               </div>
             </div>
 
             <div class="form-group row d-flex justify-content-center">
               <div class="col-md-6">
-                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" 
-                autocomplete="new-password" placeholder="Confirmation du mot de passe">
+                <input id="password-confirm" type="password" class="form-control @error('password_confirmation') is-invalid @enderror" name="password_confirmation" 
+                value="{{ old('password_confirmation') }}" autocomplete="new-password" placeholder="Confirmation du mot de passe">
                 {!! $errors->first('password_confirmation', ":message") !!}
               </div>
             </div>
             
             <div class="form-group row d-flex justify-content-center">
               <div class="col-md-6">
-                <select name="state" class="form-control">
+                <select name="state" class="form-control @error('state') is-invalid @enderror">
                   <option disabled selected>Votre statut</option>
                   <option value="eleve">Eleve/parent</option>
                   <option value="professeur">Professeur</option>
                 </select>
-              </div>  
-              {!! $errors->first('state', ":message") !!}            
+                {!! $errors->first('state', ":message") !!}
+              </div>              
             </div>
 
             <div class="form-group row d-flex justify-content-center pt-4">
