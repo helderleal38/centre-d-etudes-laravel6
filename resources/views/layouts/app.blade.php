@@ -27,7 +27,13 @@
 
     <!-- Styles -->
     {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
-    <link href ="{{ asset('css/aditional.css') }}" rel="stylesheet">
+    <link href ="{{ asset('css/about.css') }}" rel="stylesheet">
+    <link href ="{{ asset('css/accueil.css') }}" rel="stylesheet">
+    <link href ="{{ asset('css/contact.css') }}" rel="stylesheet">
+    <link href ="{{ asset('css/matters.css') }}" rel="stylesheet">
+    <link href ="{{ asset('css/services.css') }}" rel="stylesheet">
+    <link href ="{{ asset('css/student.css') }}" rel="stylesheet">
+    <link href ="{{ asset('css/teatcher.css') }}" rel="stylesheet">
 </head>
 <body>
   <div id="app">
