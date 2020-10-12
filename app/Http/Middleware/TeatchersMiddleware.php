@@ -3,8 +3,9 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
-class ProfesseursMiddleware
+class TeatchersMiddleware
 {
     /**
      * Handle an incoming request.
@@ -15,6 +16,11 @@ class ProfesseursMiddleware
      */
     public function handle($request, Closure $next)
     {
-        return $next($request);
+      if(Auth::user()->state == "professeur")
+      {
+          return $next($request);
+      } else {
+          return redirect()->Route('login');
+      }
     }
 }

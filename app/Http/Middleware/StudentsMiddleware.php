@@ -5,7 +5,7 @@ namespace App\Http\Middleware;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
-class AdministrateurMiddleware
+class StudentsMiddleware
 {
   /**
    * Handle an incoming request.
@@ -16,11 +16,11 @@ class AdministrateurMiddleware
    */
   public function handle($request, Closure $next)
   {
-    if(Auth::user()->state == "administrateur")
+    if(Auth::user()->state == "eleve")
     {
         return $next($request);
     } else {
         return redirect()->Route('login');
-    }    
-  }
+    }
+  }    
 }
