@@ -8,7 +8,7 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>LISTE DES MAILSS</h1>
+              <h1>LISTE DES MESSAGES</h1>
             </div>
           </div>
         </div>
@@ -31,7 +31,7 @@
                     <th scope="row">{{$contact->id}}</th>                 
                     <td>{{$contact->name}}</td>
                     <td>{{$contact->subject}}</td>
-                    <td><button class="btn btn-link" data-toggle="modal" data-target="#mailModal"><i class="fas fa-envelope-open-text"></i></button></td>
+                  <td><button class="btn btn-link" data-toggle="modal" data-target="#mailModal{{$contact->id}}"><i class="fas fa-envelope-open-text"></i></button></td>
                     <td class="text-right py-0 align-middle">
                       <div class="btn-group btn-group-sm">
                         <form action="{{ route('contact_delete', $contact) }}" method="post">
@@ -42,11 +42,8 @@
                       </div>
                     </td>
                   </tr>
-
-                  <!---------------------------------------------------------------------------------------------------------------->
                   <!------------------------------------------------- MAIL MODAL ------------------------------------------------------>
-                  <!---------------------------------------------------------------------------------------------------------------->
-                  <div class="modal fade" id="mailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal fade" id="mailModal{{$contact->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                       <div class="modal-content ">
                         <div class="modal-header">
