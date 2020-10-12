@@ -9,7 +9,7 @@
             <h2>Pré-inscription<h2>
           </div>
           <div class="card-body">
-            <form method="post" action="{{ Route('students_store') }}">
+            <form method="post" action="{{ Route('pre_registration_store') }}">
               @csrf
               <div class="form-group row">
                 <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nom') }}</label>
@@ -26,18 +26,18 @@
               </div>
 
               <div class="form-group row">
-                <label for="scoolName" class="col-md-4 col-form-label text-md-right">{{ __('Ecole') }}</label>
+                <label for="scoolName" class="col-md-4 col-form-label text-md-right">{{ __('École fréquenté') }}</label>
                 <div class="col-md-6">
                     <input id="scoolName" type="text" class="form-control @error('scoolName') is-invalid @enderror" name="scoolName" 
-                    value="{{ old('scoolName') }}" required autocomplete="scoolName" autofocus>
+                    value="{{ old('scoolName') }}" autocomplete="scoolName" autofocus>
                     {!! $errors->first('scoolName', ':message') !!}
                 </div>
               </div>
 
               <div class="form-group row">
-                <label for="year" class="col-md-4 col-form-label text-md-right">{{ __('Année scolaire') }}</label>
+                <label for="year" class="col-md-4 col-form-label text-md-right">{{ __('Niveau scolaire') }}</label>
                 <div class="col-md-6">
-                  <select class="form-control" id="year" type="text" name="year" value="{{ old('year') }}">
+                  <select class="form-control @error('scoolName') is-invalid @enderror" id="year" type="text" name="year" value="{{ old('year') }}">
                     <option></option>
                     <option>Cp</option>
                     <option>Ce1</option>
@@ -61,8 +61,9 @@
               <div class="form-group row">
                 <label for="matter" class="col-md-4 col-form-label text-md-right">{{ __('Matière souhaité') }}</label>
                 <div class="col-md-6">
-                  <select class="form-control" id="matter" type="text" name="matter" value="{{ old('matter') }}">
+                  <select class="form-control @error('scoolName') is-invalid @enderror" id="matter" type="text" name="matter" value="{{ old('matter') }}">
                       @foreach($matters as $matter)
+                          <option disabled selected></option>
                           <option>{{$matter->matter}}</option>
                       @endforeach
                   </select>
@@ -74,7 +75,7 @@
                 <label for="responsible" class="col-md-4 col-form-label text-md-right">{{ __('Responsable légal') }}</label>
                 <div class="col-md-6">                   
                     <input id="responsible" type="text" class="form-control @error('responsible') is-invalid @enderror" name="responsible" 
-                    value="{{ old('responsible') }}" required autocomplete="responsible" autofocus>
+                    value="{{ old('responsible') }}" autocomplete="responsible" autofocus>
                     {!! $errors->first('responsible', ':message') !!}
                 </div>
               </div>
@@ -83,7 +84,7 @@
                 <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Adresse') }}</label>
                 <div class="col-md-6">
                     <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" 
-                    value="{{ old('address') }}" required autocomplete="address" autofocus>
+                    value="{{ old('address') }}" autocomplete="address" autofocus>
                     {!! $errors->first('address', ':message') !!}
                 </div>
               </div>
@@ -99,7 +100,7 @@
                 <label for="phoneNumber" class="col-md-4 col-form-label text-md-right">{{ __('Téléphone') }}</label>
                 <div class="col-md-6">
                     <input id="phoneNumber" type="text" class="form-control @error('phoneNumber') is-invalid @enderror" name="phoneNumber" 
-                    value="{{ old('phoneNumber') }}" required autocomplete="phoneNumber" autofocus>
+                    value="{{ old('phoneNumber') }}" autocomplete="phoneNumber" autofocus>
                     {!! $errors->first('phoneNumber', ':message') !!}
                 </div>
               </div>

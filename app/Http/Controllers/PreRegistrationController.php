@@ -4,16 +4,15 @@ namespace App\Http\Controllers;
 
 use App\User;
 use App\Matter;
-use App\Student;
+use App\PreRegistration;
 use App\Events\StudentEvent;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
-use App\Http\Requests\StudentRequest;
+use App\Http\Requests\PreRegistrationRequest;
 
-class StudentsController extends Controller
+class PreRegistrationController extends Controller
 {
-    /**
+     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -21,10 +20,11 @@ class StudentsController extends Controller
     public function index()
     {   
         $auth = auth()->user()->id;
-        $studentId = Student::where('students.user_id', '=', $auth)
-        ->select('students.*')  
+        $pre_registration = PreRegistration::where('pre_registrations.user_id', '=', $auth)
+        ->select('pre_registrations.*')  
         ->get();
-        return view('administration.students.student', compact('studentId'));
+        
+        return view('administration.students.student', compact('pre_registration'));
     }
 
     /**
@@ -32,12 +32,12 @@ class StudentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function studentsList()
+    public function PreRegistrationList()
     {
-        $students = Student::join('users', 'students.user_id', '=', 'users.id')
-        ->select('students.*', 'users.firstname', 'users.name', 'users.email')     
+        $pre_registrations = PreRegistration::join('users', 'pre_registrations.user_id', '=', 'users.id')
+        ->select('pre_registrations.*', 'users.firstname', 'users.name', 'users.email')     
         ->get();
-        return view('administration.administrateur.students.students_list', array('students' => $students)); 
+        return view('administration.administrateur.students.pre_registrations_list', array('pre_registrations' => $pre_registrations)); 
         
     }
 
@@ -49,7 +49,7 @@ class StudentsController extends Controller
     public function create()
     {
         $matters = Matter::all();
-        return view('administration.students.actions.newStudent', compact('matters'));
+        return view('administration.students.actions.new_pre_registrations', compact('matters'));
     }
 
     /**
@@ -58,10 +58,10 @@ class StudentsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StudentRequest $request)
+    public function store(PreRegistrationRequest $request)
     {
         
-        $student = Student::create([
+        $pre_registrations = PreRegistration::create([
             'scoolName' => Request('scoolName'), 
             'year' => Request('year'), 
             'matter' => Request('matter'), 
@@ -71,16 +71,17 @@ class StudentsController extends Controller
             'user_id'=>auth()->id()
         ]);
 
-        $student_user = Student::join('users', 'students.user_id', '=', 'users.id')
-        ->select('students.*', 'users.*')
-        ->where('students.user_id', '=', Auth::user()->id)     
+        $student_user = PreRegistration::join('users', 'pre_registrations.user_id', '=', 'users.id')
+        ->select('pre_registrations.*', 'users.*')
+        ->where('pre_registrations.user_id', '=', Auth::user()->id)     
         ->firstOrFail();
 
-        $admin = User::where('state', 'administrateur')->first();
+        $admin = User::where('state', 'administrateur')->firstOrFail();
 
         event(new StudentEvent($admin, $student_user));
 
-        return back()->with('success', "Votre pré-inscription à bien étè envoyé. Vous allez être contacté au plus vite !");
+        return back()->with('success', "Votre pré-inscription à bien étè envoyé. Vous allez être contacté au plus vite ! 
+        <br>Faites une nouvelle pré-inscription si vous souhaité un deuxiéme cours");
     }
 
     /**
@@ -100,14 +101,14 @@ class StudentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Student $studentId)
+    public function edit(PreRegistration $pre_registration) 
     {
         
         $auth = auth()->user()->id;
-        $studentId = Student::where('students.user_id', '=', $auth)
-        ->select('students.*')  
-        ->get();
-        return view('administration.students.actions.editStudent', compact('studentId'));
+        $pre_registration = PreRegistration::where('pre_registrations.user_id', '=', $auth)
+        ->select('pre_registrations.*')  
+        ->firstOrFail();
+        return view('administration.students.actions.pre_registrations_edit', compact('pre_registration'));
     }
 
     /**
@@ -117,9 +118,9 @@ class StudentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Student $studentId)
+    public function update(Request $request, PreRegistration $pre_registration)
     {
-        $studentId->update($request->all());
+        $pre_registration->update($request->all());
         return back()->with('success', "Fiche de pré-inscription modifié avec success !");
 
     }
@@ -130,9 +131,9 @@ class StudentsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Student $student)
+    public function destroy(PreRegistration $pre_registration)
     {
-        $student->delete();
-        return back()->with('success', "L'élève a bien été supprimé dans la table des élèves, mais sont compte est toujours active sur le site.");
+        $pre_registration->delete();
+        return back()->with('success', "La pré-inscription a bien été supprimé.");
     }
 }

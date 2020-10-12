@@ -69,12 +69,12 @@ Route::middleware('auth')->prefix('administration/teatchers')->group(function ()
 
 /* Students */
 
-Route::middleware('auth')->prefix('administration/students')->group(function () {
-	Route::get('/student', "StudentsController@index")->name('students_index');
-	Route::get('/actions/create', "StudentsController@create")->name('student_create');
-	Route::post('/store', "StudentsController@store")->name('students_store'); 
-	Route::get('/actions/edit', "StudentsController@edit")->name('student_edit'); 
-	Route::put('/actions/update/{studentId}', "StudentsController@update")->name('student_update'); 
+Route::middleware('auth', 'eleve')->prefix('administration/students')->group(function () {
+	Route::get('/student', "PreRegistrationController@index")->name('students_index');
+	Route::get('/actions/create', "PreRegistrationController@create")->name('pre_registration_create');
+	Route::post('/store', "PreRegistrationController@store")->name('pre_registration_store'); 
+	Route::get('/actions/edit/', "PreRegistrationController@edit")->name('pre_registration_edit'); 
+	Route::put('/actions/update/{pre_registration}', "PreRegistrationController@update")->name('pre_registration_update'); 
 	
 	/* comments */
 

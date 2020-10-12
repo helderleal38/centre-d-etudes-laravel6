@@ -3,7 +3,7 @@
 namespace App\Mail;
 
 use App\User;
-use App\Student;
+use App\PreRegistration;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
@@ -21,7 +21,7 @@ class StudentMail extends Mailable
      *
      * @return void
      */
-    public function __construct(User $admin, Student $student_user)
+    public function __construct(User $admin, PreRegistration $student_user)
     {
         $this->admin = $admin;
         $this->student_user = $student_user;

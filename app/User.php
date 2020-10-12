@@ -2,8 +2,8 @@
 
 namespace App;
 
-use App\Student;
 use App\Teatcher;
+use App\PreRegistration;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -43,27 +43,27 @@ class User extends Authenticatable
     //     return "toto";
     // }
 
-    public function isAdmin()
-    {
-        return $this->where('state', "administrateur")->first();
-    }
+    // public function isAdmin()
+    // {
+    //     return $this->where('state', "administrateur")->first();
+    // }
 
-    public function isProf()
-    {
-        return $this->where('state', "professeur")->first();
-    }
+    // public function isProf()
+    // {
+    //     return $this->where('state', "professeur")->first();
+    // }
 
 
-    public function isEleve()
-    {
-        return $this->where('state', "eleve")->first();
-    }
+    // public function isEleve()
+    // {
+    //     return $this->where('state', "eleve")->first();
+    // }
 
     /**
-    * Relation ONE to ONE
+    * Relation ONE to MANY
     */
-    public function students(){
-        return $this->hasOne(Student::class);
+    public function preRegistration(){
+        return $this->hasMany(PreRegistration::class);
     }
 
     /**

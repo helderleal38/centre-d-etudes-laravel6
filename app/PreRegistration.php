@@ -4,12 +4,9 @@ namespace App;
 
 use App\User;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Notifications\Notifiable;
 
-class Student extends Model
+class PreRegistration extends Model
 {
-    use Notifiable;
-    
     /**
      * The attributes that are mass assignable.
      *
@@ -20,7 +17,7 @@ class Student extends Model
     ];
 
     /**
-    * Relation ONE to ONE
+    * Relation ONE to MANY
     */
     
     public function users(){

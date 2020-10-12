@@ -3,7 +3,7 @@
 namespace App\Events;
 
 use App\User;
-use App\Student;
+use App\PreRegistration;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
@@ -24,9 +24,9 @@ class StudentEvent
      *
      * @return void
      */
-    public function __construct(User $admin, Student $student_user)
+    public function __construct(User $admin, PreRegistration $student_user)
     {
-        $this->admin = $admin;//
+        $this->admin = $admin;
         $this->student_user = $student_user;
     }
 
