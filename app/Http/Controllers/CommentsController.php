@@ -30,7 +30,6 @@ class CommentsController extends Controller
      */
     public function create()
     {
-      //dd(Auth::user()->state);
       if(Auth::user()->state === 'eleve'){
         return view('administration.students.actions.commentStudent');
       }else{
@@ -47,17 +46,17 @@ class CommentsController extends Controller
     public function store(Request $request)
     {
       $validator = Validator($request->all(), [
-          "comment" => "required|min:20|max:300",
-          "avatar" => "required|image|mimes:jpeg,png,jpg,gif,svg|max:2048",
+        "comment" => "required|min:20|max:300",
+        "avatar" => "required|image|mimes:jpeg,png,jpg,gif,svg|max:2048",
       ], [
-          "comment.required" => "<span style='color:red;'>Le commentaire est obligatoire</span>",
-          "comment.min" => "<span style='color:red;'>Commentaire trop court</span>",
-          "comment.max" => "<span style='color:red;'>Commentaire trop long</span>",
+        "comment.required" => "<span style='color:red;'>Le commentaire est obligatoire</span>",
+        "comment.min" => "<span style='color:red;'>Commentaire trop court</span>",
+        "comment.max" => "<span style='color:red;'>Commentaire trop long</span>",
 
-          "avatar.required" => "<span style='color:red;'>Un avatar est obligatoire</span>",
-          "avatar.image" => "<span style='color:red;'>Ce champ doit être une image.</span>",
-          "avatar.mimes" => "<span style='color:red;'>Le fichier doit être de type: jpeg,png,jpg,gif,svg.</span>",
-          "avatar.max" => "<span style='color:red;'>La taille de l'image doit être inférieure à 2048 kilo-octets.</span>",
+        "avatar.required" => "<span style='color:red;'>Un avatar est obligatoire</span>",
+        "avatar.image" => "<span style='color:red;'>Ce champ doit être une image.</span>",
+        "avatar.mimes" => "<span style='color:red;'>Le fichier doit être de type: jpeg,png,jpg,gif,svg.</span>",
+        "avatar.max" => "<span style='color:red;'>La taille de l'image doit être inférieure à 2048 kilo-octets.</span>",
       ]);
 
       if($validator->fails())

@@ -27,7 +27,6 @@ class MattersController extends Controller
     public function create()
     {
         return view('administration.administrateur.matters.create');
-
     }
 
     /**
@@ -177,7 +176,6 @@ class MattersController extends Controller
         }
         
 
-        //$matter->update($request->all());
         return back()->with('success', "Article modifié avec success");
     }
 
@@ -190,7 +188,6 @@ class MattersController extends Controller
     public function destroy(Matter $matter)
     {
         $matter->delete();
-        return back()->with('success', "L'article a bien étè suprimmé !");
-
+        return back()->with('success', "La matiére a bien étè suprimmé !");
     }
 }
