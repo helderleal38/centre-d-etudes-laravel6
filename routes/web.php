@@ -29,11 +29,11 @@ Auth::routes();
 
 /* Administrateur */
 
-Route::middleware('auth')->prefix('administration/administrateur')->group(function () {
+Route::middleware('auth','administrateur')->prefix('administration/administrateur')->group(function () {
 	Route::get('/admin/index', "AdministrateurController@index")->name('administrateur_index');
 
-	Route::get('/students/students_list', "StudentsController@studentsList")->name('students_list');
-	Route::delete('/students/delete/{student}', "StudentsController@destroy")->name('student_delete');
+	Route::get('/students/pre_registration_list', "PreRegistrationController@PreRegistrationList")->name('pre_registration_list');
+	Route::delete('/students/delete/{pre_registration}', "PreRegistrationController@destroy")->name('pre_registration_delete');
 
 	Route::get('/teatchers/teatchers_list', "TeatchersController@teatchersList")->name('teatchers_list');
 	Route::delete('/teatchers/delete/{teatcher}', "TeatchersController@destroy")->name('teatcher_delete');
@@ -56,7 +56,7 @@ Route::middleware('auth')->prefix('administration/administrateur')->group(functi
 
 /* Teatchers */
 
-Route::middleware('auth')->prefix('administration/teatchers')->group(function () {
+Route::middleware('auth','professeur')->prefix('administration/teatchers')->group(function () {
 	Route::get('/teatcher', "TeatchersController@index")->name('teatchers_index');
 	Route::get('/actions/create', "TeatchersController@create")->name('teatcher_create');
 	Route::post('/store', "TeatchersController@store")->name('teatchers_store');
