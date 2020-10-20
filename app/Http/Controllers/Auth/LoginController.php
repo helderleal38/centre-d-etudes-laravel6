@@ -21,15 +21,6 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
-    //
-    //**
-    //* Where to redirect users after login.
-    // *
-    // * @var string
-    // */
-    //protected $redirectTo = RouteServiceProvider::HOME;
-
-
     /**
      * Create a new controller instance.
      *
@@ -37,28 +28,32 @@ class LoginController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest')->except('logout');
+      $this->middleware('guest')->except('logout');
     }
+
+    /*
+    * Where to redirect users after login.
+    */
 
     protected function redirectTo()
     {
-        // dd(Auth::user()->state);
-        $state = trim(Auth::user()->state); //TRIM pour eviter les erreurs des espaces
-        if($state == "administrateur")
-        {
-            return "administration/administrateur/admin/index";
-        } 
-        else if($state== "professeur")
-        {
-            return "administration/teatchers/teatcher";
-        } 
-        else if($state== "eleve")
-        {
-            return "administration/students/student";
-        } 
-        else 
-        {
-            return "login";
-        }
+      $state = trim(Auth::user()->state); //TRIM pour eviter les erreurs des espaces
+      
+      if($state == "administrateur")
+      {
+        return "administration/administrateur/admin/index";
+      } 
+      else if($state== "professeur")
+      {
+        return "administration/teatchers/teatcher";
+      } 
+      else if($state== "eleve")
+      {
+        return "administration/students/student";
+      } 
+      else 
+      {
+        return "login";
+      }
     }
 }
