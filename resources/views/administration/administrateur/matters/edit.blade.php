@@ -6,7 +6,7 @@
     <div class="col-md-8">        
       <div class="box box-primary">
         <div class="box-header with-border text-center p-4">
-          <h3 class="box-title">Modifier les données de la matiére</h3>
+          <h3 class="box-title">Modifier les données de la matière</h3>
         </div>
         @if(session()->has('success'))
           <div class="alert alert-success mt-2">
@@ -19,7 +19,7 @@
           @method('PUT')
           <div class="box-body">
             <div class="form-group">
-              <label>Matiére</label>
+              <label>Matière</label>
               <input type="text" class="form-control" name="matter" id="matter" value="{{$matter->matter}}">
               {!! $errors->first('matter', ':message') !!}
             </div>
@@ -32,7 +32,7 @@
 
             <div class="form-group">
               <label>Contenu</label>
-              <textarea type="text" class="form-control" rows="3" name="content" id="content">{{$matter->content}}</textarea>
+              <textarea class="form-control" rows="3" name="content" id="content">{{$matter->content}}</textarea>
               {!! $errors->first('content', ':message') !!}
             </div>
 
@@ -54,13 +54,13 @@
             </div>
 
             <div class="form-group">
-              <label>Reduction en % (forfait anuelle)</label>
+              <label>Reduction en % (forfait annuel)</label>
               <input type="number" class="form-control" name="yearReduction" id="yearReduction" value="{{$matter->yearReduction}}">
               {!! $errors->first('yearReduction', ':message') !!}
             </div>
 
             <div class="form-group">
-              <label>Reduction en % (si l'élève nous a ramené d'autres élèves)</label>
+              <label>Reduction en % (en cas de parrainage)</label>
               <input type="number" class="form-control" name="extraReduction" id="extraReduction" value="{{$matter->extraReduction}}">
               {!! $errors->first('extraReduction', ':message') !!}
             </div>

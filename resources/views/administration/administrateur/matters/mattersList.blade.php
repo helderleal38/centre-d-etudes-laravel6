@@ -44,7 +44,7 @@
                 <h2 class="title text-center pb-2 pt-2">Nos tarifs</h2>
                 <h4>Prix de base : {{$matter->hourPrice}} euros/heure</h4>
                 <h4>Forfait à l'année : {{$matter->yearReduction}}% REDUCTION</h4>
-                <h4>En cas de parrainage : {{$matter->extraReduction}}% REDUCTION sur t'on forfait anuelle</h4>
+                <h4>En cas de parrainage : {{$matter->extraReduction}}% REDUCTION sur ton forfait annuel</h4>
               </div>
             </div>
           </div>
