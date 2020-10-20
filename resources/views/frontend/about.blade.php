@@ -29,12 +29,12 @@
   <!--Carousel Wrapper-->
   <div id="carousel-with-lb" class="carousel slide carousel-multi-item" data-ride="carousel">
     <!--Controls-->
-    <div class="controls-top">
+    {{-- <div class="controls-top">
       <a class="btn-floating btn-secondary" href="#carousel-with-lb" data-slide="prev"><i
       class="fas fa-chevron-left"></i></a>
       <a class="btn-floating btn-secondary" href="#carousel-with-lb" data-slide="next"><i
       class="fas fa-chevron-right"></i></a>
-    </div>
+    </div> --}}
     <!--Indicators-->
     <ol class="carousel-indicators">
       <li data-target="#carousel-with-lb" data-slide-to="0" class="active secondary-color"></li>
@@ -53,34 +53,34 @@
         </figure>
 
         <figure class="col-md-3 d-md-inline-block">
-          <a href="{{asset('assets/spaces/room2.jpg')}}" data-size="1600x1067">
-            <img src="{{asset('assets/spaces/room2.jpg')}}" class="img-fluid">
+          <a href="{{asset('assets/spaces/room3.jpg')}}" data-size="1600x1067">
+            <img src="{{asset('assets/spaces/room3.jpg')}}" class="img-fluid">
           </a>
         </figure>
 
         <figure class="col-md-3 d-md-inline-block">
-          <a href="{{asset('assets/spaces/room3.jpg')}}" data-size="1600x1067">
-            <img src="{{asset('assets/spaces/room3.jpg')}}" class="img-fluid">
+          <a href="{{asset('assets/spaces/room4.jpg')}}" data-size="1600x1067">
+            <img src="{{asset('assets/spaces/room4.jpg')}}" class="img-fluid">
           </a>
         </figure>
       </div>
       <!--Second slide-->
       <div class="carousel-item text-center">
         <figure class="col-md-3 d-md-inline-block">
-          <a href="{{asset('assets/spaces/living-room.jpg')}}" data-size="1600x1067">
-            <img src="{{asset('assets/spaces/living-room.jpg')}}" class="img-fluid">
+          <a href="{{asset('assets/spaces/room5.jpg')}}" data-size="1600x1067">
+            <img src="{{asset('assets/spaces/room5.jpg')}}" class="img-fluid">
           </a>
         </figure>
 
         <figure class="col-md-3 d-md-inline-block">
-          <a href="{{asset('assets/spaces/kitchen.jpg')}}" data-size="1600x1067">
-            <img src="{{asset('assets/spaces/kitchen.jpg')}}" class="img-fluid">
+          <a href="{{asset('assets/spaces/room6.jpg')}}" data-size="1600x1067">
+            <img src="{{asset('assets/spaces/room6.jpg')}}" class="img-fluid">
           </a>
         </figure>
 
         <figure class="col-md-3 d-md-inline-block">
-          <a href="{{asset('assets/spaces/bathroom.jpg')}}" data-size="1600x1067">
-            <img src="{{asset('assets/spaces/bathroom.jpg')}}" class="img-fluid">
+          <a href="{{asset('assets/spaces/room7.jpg')}}" data-size="1600x1067">
+            <img src="{{asset('assets/spaces/room7.jpg')}}" class="img-fluid">
           </a>
         </figure>
       </div>
@@ -95,7 +95,7 @@
       <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
         <div class="p-4">
           <div class="avatar w-100 white d-flex justify-content-center align-items-center">
-            <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(9).jpg"
+            <img src="{{ asset('assets/users/admin.jpg') }}"
               class="img-fluid rounded-circle z-depth-1"/>
           </div>
           <div class="text-center mt-3">
@@ -110,11 +110,11 @@
         <div class="p-4">
           <div
             class="avatar w-100 white d-flex justify-content-center align-items-center">
-            <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(32).jpg"
+            <img src="{{ asset('assets/users/profAnglais.jpg') }}"
               class="img-fluid rounded-circle z-depth-1"/>
           </div>
           <div class="text-center mt-3">
-            <h6 class="font-weight-bold pt-2">Tom Johnson</h6>
+            <h6 class="font-weight-bold pt-2">Nathalie Fry</h6>
             <p class="text-muted">
               <small><i>Professeur d'anglais.</i></small>
             </p>
@@ -124,8 +124,8 @@
       <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
         <div class="p-4">
           <div class="avatar w-100 white d-flex justify-content-center align-items-center">
-            <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(3).jpg"
-              class="img-fluid rounded-circle z-depth-1"/>
+            <img src="{{ asset('assets/users/profTechnologies.jpg') }}"
+              class="img-fluid rounded-circle z-depth-1" />
           </div>
           <div class="text-center mt-3">
             <h6 class="font-weight-bold pt-2">Alex Laurie</h6>
@@ -138,13 +138,27 @@
       <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
         <div class="p-4">
           <div class="avatar w-100 white d-flex justify-content-center align-items-center">
-            <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(2).jpg"
+            <img src="{{ asset('assets/users/profHistoire.jpg') }}"
               class="img-fluid rounded-circle z-depth-1"/>
           </div>
           <div class="text-center mt-3">
-            <h6 class="font-weight-bold pt-2">Nathalie Fry</h6>
+            <h6 class="font-weight-bold pt-2">Tom Johnson</h6>
             <p class="text-muted">
               <small><i>Professeur de histoire.</i></small>
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="p-4">
+          <div class="avatar w-100 white d-flex justify-content-center align-items-center">
+            <img src="{{ asset('assets/users/profPhysiqueChimie.jpg') }}"
+              class="img-fluid rounded-circle z-depth-1"/>
+          </div>
+          <div class="text-center mt-3">
+            <h6 class="font-weight-bold pt-2">Laura Dupont</h6>
+            <p class="text-muted">
+              <small><i>Professeur de physique chimie.</i></small>
             </p>
           </div>
         </div>
