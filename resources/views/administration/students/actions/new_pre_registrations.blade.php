@@ -19,14 +19,14 @@
               </div>
 
               <div class="form-group row">
-                <label for="firstName" class="col-md-4 col-form-label text-md-right">{{ __('Prénom') }}</label>
+                <label for="firstName" class="col-md-4 col-form-label text-md-right">{{ __('Prenom') }}</label>
                 <div class="col-md-6">
                     <input class="form-control" type="text" placeholder="{{ Auth::user()->firstname }}" readonly>
                 </div>
               </div>
 
               <div class="form-group row">
-                <label for="scoolName" class="col-md-4 col-form-label text-md-right">{{ __('École fréquenté') }}</label>
+                <label for="scoolName" class="col-md-4 col-form-label text-md-right">{{ __('Ècole fréquentée') }}</label>
                 <div class="col-md-6">
                     <input id="scoolName" type="text" class="form-control @error('scoolName') is-invalid @enderror" name="scoolName" 
                     value="{{ old('scoolName') }}" autocomplete="scoolName" autofocus>
@@ -59,7 +59,7 @@
               </div>
 
               <div class="form-group row">
-                <label for="matter" class="col-md-4 col-form-label text-md-right">{{ __('Matière souhaité') }}</label>
+                <label for="matter" class="col-md-4 col-form-label text-md-right">{{ __('Matière souhaitée') }}</label>
                 <div class="col-md-6">
                   <select class="form-control @error('scoolName') is-invalid @enderror" id="matter" type="text" name="matter" value="{{ old('matter') }}">
                       @foreach($matters as $matter)

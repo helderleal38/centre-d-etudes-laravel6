@@ -83,7 +83,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
           with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview menu-open">
+          <li class="nav-item has-treeview">
           <a href="{{ Route('administrateur_index') }}" class="nav-link">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
@@ -149,7 +149,7 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-book-open"></i>
               <p>
-                Matiéres
+                Matières
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
@@ -157,13 +157,13 @@
               <li class="nav-item">
                 <a href="{{ route('matters_list') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Voir les matiéres</p>
+                  <p>Voir les matières</p>
                 </a>
               </li>
               <li class="nav-item">
                 <a href="{{ route('matter_create') }}" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>New matiére</p>
+                  <p>Créer une matière</p>
                 </a>
               </li>
             </ul>
