@@ -12,7 +12,9 @@
 */
 
 
-/* Frontend */
+/* 
+* FRONTEND 
+*/
 
 Route::group([], function(){
 	Route::get('/', "FrontendController@index")->name('frontend_accueil');
@@ -23,25 +25,33 @@ Route::group([], function(){
 	Route::post('/contact/store', "ContactController@store")->name('contact_store'); 
 });
 
+/* 
+* AUTH 
+*/
+
 Auth::routes(); 
 
-/*middleware('auth') --> seules les personnes authentifiés peuvent acceder*/
-
-/* Administrateur */
+/* 
+* ADMINISTRATEUR 
+*/
 
 Route::middleware('auth','administrateur')->prefix('administration/administrateur')->group(function () {
 	Route::get('/admin/index', "AdministrateurController@index")->name('administrateur_index');
 
+	/* students */
 	Route::get('/students/pre_registration_list', "PreRegistrationController@PreRegistrationList")->name('pre_registration_list');
 	Route::delete('/students/delete/{pre_registration}', "PreRegistrationController@destroy")->name('pre_registration_delete');
 
+	/* teatchers */
 	Route::get('/teatchers/teatchers_list', "TeatchersController@teatchersList")->name('teatchers_list');
 	Route::delete('/teatchers/delete/{teatcher}', "TeatchersController@destroy")->name('teatcher_delete');
 
+	/* comments */
 	Route::get('/comments', "CommentsController@index")->name('comments_index');
 	Route::delete('/comments/delete/{comment}', "CommentsController@destroy")->name('comment_delete');
 	Route::delete('/comments/validation', "CommentsController@validation")->name('comments_validation');
 
+	/* matters */
 	Route::get('/matters/list', "MattersController@index")->name('matters_list');
 	Route::get('/matters/create', "MattersController@create")->name('matter_create');
 	Route::post('/matters/store', "MattersController@store")->name('matter_store');
@@ -49,12 +59,15 @@ Route::middleware('auth','administrateur')->prefix('administration/administrateu
 	Route::put('/matters/update/{matter}', "MattersController@update")->name('matter_update');
 	Route::delete('/matters/delete/{matter}', "MattersController@destroy")->name('matter_delete');
 
+	/* messages */
 	Route::get('/contacts/list', "ContactController@index")->name('contacts_list');
 	Route::delete('/contacts/delete/{contact}', "ContactController@destroy")->name('contact_delete');
 });
 
 
-/* Teatchers */
+/* 
+* TEATCHERS 
+*/
 
 Route::middleware('auth','professeur')->prefix('administration/teatchers')->group(function () {
 	Route::get('/teatcher', "TeatchersController@index")->name('teatchers_index');
@@ -67,7 +80,9 @@ Route::middleware('auth','professeur')->prefix('administration/teatchers')->grou
 });
 
 
-/* Students */
+/* 
+* STUDENTS 
+*/
 
 Route::middleware('auth', 'eleve')->prefix('administration/students')->group(function () {
 	Route::get('/student', "PreRegistrationController@index")->name('students_index');
