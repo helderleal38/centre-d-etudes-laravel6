@@ -82,9 +82,7 @@
     <!--Grid row-->
     <div class="row d-flex justify-content-center">
       <div class="col-md-6 text-center">
-        <h1 class="font-weight-bold">Ou sommes nous</h1>
-        <p class="text-muted">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id quam sapiente
-          molestiae.</p>
+        <h1 class="font-weight-bold">Où sommes nous</h1>
       </div>
     </div>
 
