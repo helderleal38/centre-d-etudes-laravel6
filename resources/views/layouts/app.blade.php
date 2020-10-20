@@ -106,7 +106,7 @@
         </div>
       </div>
     </nav>
-    <main class="py-4">
+    <main class="container-fluid w-100 py-4">
 
         @yield('content')
         
