@@ -39,3 +39,8 @@ h1, h2, h3{
   .why_choose_us{
     background: white;
   }
+
+  .avatar img{
+    width: 250px;
+    height: 250px;
+  }

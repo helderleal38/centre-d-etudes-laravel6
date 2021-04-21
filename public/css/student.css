@@ -1,5 +1,10 @@
 
 .eleve{
   margin-top: 90px;
+  background-color:  #343A40;
+  
+}
 
+.eleve h1{
+  color:white;
 }
