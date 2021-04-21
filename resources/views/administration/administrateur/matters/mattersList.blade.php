@@ -41,10 +41,10 @@
                     <h5 class="content pb-2">{{ $matter->content }}</h5>
                   </div>
                 </div>
-                <h2 class="title text-center pb-2 pt-2">Nos tarifs</h2>
-                <h4>Prix de base : {{$matter->hourPrice}} euros/heure</h4>
-                <h4>Forfait à l'année : {{$matter->yearReduction}}% REDUCTION</h4>
-                <h4>En cas de parrainage : {{$matter->extraReduction}}% REDUCTION sur ton forfait annuel</h4>
+                <h2 class="title text-center pb-2 pt-2">Os nossos preços</h2>
+                <h4>Preço de hora : {{$matter->hourPrice}} euros</h4>
+                <h4>Contrato anual : {{$matter->yearReduction}}% REDUÇÃO</h4>
+                <h4>Em caso de referenciação : {{$matter->extraReduction}}% REDUÇÃO sobre o contrato anual</h4>
               </div>
             </div>
           </div>

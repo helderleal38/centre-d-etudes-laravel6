@@ -1,12 +1,10 @@
 @component('mail::message')
-# Bonjour {{$admin->name}}
 
-{{$student_user->name}}, viens de vous envoyer une pré-inscription.
+  # Olá {{$admin->name}}
 
-Il est interessé par le cours de {{$student_user->matter}}
+  {{$student_user->name}}, enviou uma pré-inscrição, para aulas de {{$student_user->matter}}
 
-
-
-Thanks,<br>
-{{ config('app.name') }}
+  Obrigado,<br>
+  {{ config('app.name') }}
+  
 @endcomponent

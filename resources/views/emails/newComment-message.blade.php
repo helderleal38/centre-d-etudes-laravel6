@@ -1,9 +1,11 @@
 @component('mail::message')
-# Bonjour {{$admin->name}}
 
-{{$comment_user->name}}, vous avez laissez un commentaire.
+  # Olá {{$admin->name}}
+
+  {{$comment_user->name}}, deixou um comentário de satisfação.
 
 
-Thanks,<br>
-{{ config('app.name') }}
+  Obrigado,<br>
+  {{ config('app.name') }}
+  
 @endcomponent

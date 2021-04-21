@@ -35,7 +35,7 @@ class ContactController extends Controller
         event(new WelcomeContactEvent($admin, $contact)); 
 
         return back()->with(array(
-            "success" => "Votre message a été envoyé avec succès",
+            "success" => "A sua mensagem foi enviada com sucesso!",
         ));
     }
 
@@ -82,7 +82,7 @@ class ContactController extends Controller
     public function destroy(Contact $contact)
     {
         $contact->delete();
-        return back()->with('info', "Ce mail a bien étè supprimé .");
+        return back()->with('info', "A mensagem foi apagada com sucesso!");
 
     }
 }

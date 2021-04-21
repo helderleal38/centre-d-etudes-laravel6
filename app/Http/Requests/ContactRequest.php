@@ -34,20 +34,20 @@ class ContactRequest extends FormRequest
 
     public function messages(){
         return [
-            "name.required" => "<span style='color:red;'>Ce champ est obligatoire.</span>",
-            "name.regex" => "<span style='color:red;'>Veuillez entrer des caractères valides.</span>",
+            "name.required" => "<span style='color:red;'>O nome é obrigatório.</span>",
+            "name.regex" => "<span style='color:red;'>Insira um nome válido.</span>",
 
-            "email.required" => "<span style='color:red;'>Ce champ est obligatoire</span>",
-            "email.email" => "<span style='color:red;'>Veuillez entrer une adresse email valide.</span>",
+            "email.required" => "<span style='color:red;'>O mail é obrigatório.</span>",
+            "email.email" => "<span style='color:red;'>Insira um endereço mail válido.</span>",
 
-            "phone.required" => "<span style='color:red;'>Ce champ est obligatoire</span>",
-            "phone.regex" => "<span style='color:red;'>Veuillez entrer un numéro de téléphone valide.</span>",
+            "phone.required" => "<span style='color:red;'>O número de telefone é obrigatório.</span>",
+            "phone.regex" => "<span style='color:red;'>Insira um número de telefone válido.</span>",
 
-            "subject.required" => "<span style='color:red;'>Ce champ est obligatoire</span>",
-            "subject.regex" => "<span style='color:red;'>Veuillez entrer des caractères valides</span>",
+            "subject.required" => "<span style='color:red;'>O assunto é obrigatório.</span>",
+            "subject.regex" => "<span style='color:red;'>Insira caracteres válidos.</span>",
 
-            "message.required" => "<span style='color:red;'>Ce champ est obligatoire</span>",
-            "message.between" => "<span style='color:red;'>Le message doit contenir entre :min et :max caractères.</span>",
+            "message.required" => "<span style='color:red;'>A mensagem é obrigatória.</span>",
+            "message.between" => "<span style='color:red;'>A sua mensagem deve ter entre :min e :max caracteres.</span>",
         ];
     }
 }

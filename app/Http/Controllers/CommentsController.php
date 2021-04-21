@@ -49,26 +49,24 @@ class CommentsController extends Controller
         "comment" => "required|min:20|max:300",
         "avatar" => "required|image|mimes:jpeg,png,jpg,gif,svg|max:2048",
       ], [
-        "comment.required" => "<span style='color:red;'>Le commentaire est obligatoire</span>",
-        "comment.min" => "<span style='color:red;'>Commentaire trop court</span>",
-        "comment.max" => "<span style='color:red;'>Commentaire trop long</span>",
+        "comment.required" => "<span style='color:red;'>O comentário é obrigatório.</span>",
+        "comment.min" => "<span style='color:red;'>O comentário é muito curto.</span>",
+        "comment.max" => "<span style='color:red;'>O comentário é muito longo.</span>",
 
-        "avatar.required" => "<span style='color:red;'>Un avatar est obligatoire</span>",
-        "avatar.image" => "<span style='color:red;'>Ce champ doit être une image.</span>",
-        "avatar.mimes" => "<span style='color:red;'>Le fichier doit être de type: jpeg,png,jpg,gif,svg.</span>",
-        "avatar.max" => "<span style='color:red;'>La taille de l'image doit être inférieure à 2048 kilo-octets.</span>",
+        "avatar.required" => "<span style='color:red;'>Uma foto é obrigatória.</span>",
+        "avatar.image" => "<span style='color:red;'>O ficheiro deve ser uma imagem.</span>",
+        "avatar.mimes" => "<span style='color:red;'>O ficheiro deve ser do tipo: jpeg,png,jpg,gif,svg.</span>",
+        "avatar.max" => "<span style='color:red;'>O tamanho da imagem deve ser inferior a 2048 kilo-octets.</span>",
       ]);
 
-      if($validator->fails())
-      {
-          return back()
-          ->with([
-              "errors" => $validator->errors,
-          ]);
-      }
+      if ($validator->fails()) {
+        return back()
+            ->withErrors($validator)
+            ->withInput();
+    }
 
       $avatar = $request->avatar;
-      $avatar_name = time() .'_'.$avatar->getClientOriginalExtension();
+      $avatar_name = time() .'_'.$avatar->getClientOriginalName();
       $avatar->move('uploads/avatars/', $avatar_name);
 
       $comment = Comment::create([
@@ -87,7 +85,7 @@ class CommentsController extends Controller
       event(new CommentEvent($admin, $comment_user));
       
       return back()
-      ->with('success','Votre commentaire a bien étè envoyé. Il va être visible sur le site aprés la validation de l\'administrateur');
+      ->with('success','O teu comentário foi enviado com sucesso. Obrigado! Poderás vê-lo na página inicial do site, após aprovação do administrador.');
     }
 
     /**
@@ -133,7 +131,7 @@ class CommentsController extends Controller
     public function destroy(Comment $comment)
     {
         $comment->delete();
-        return back()->with('info', "Ce commentaire a bien étè supprimé");
+        return back()->with('info', "O comentário foi apagado com sucesso!");
     }
 
 }

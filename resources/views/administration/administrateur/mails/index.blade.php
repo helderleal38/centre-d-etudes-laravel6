@@ -8,7 +8,7 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>LISTE DES MESSAGES</h1>
+              <h1>LISTA DAS MENSAGENS</h1>
             </div>
           </div>
         </div>
@@ -20,9 +20,10 @@
               <thead>
                 <tr>
                   <th scope="col">ID</th>
-                  <th scope="col">Nom</th>
-                  <th scope="col">Object</th>
-                  <th scope="col">Message</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Assunto</th>
+                  <th scope="col">Mensagem</th>
+                  <th scope="col">OPÇÕES</th>
                 </tr>
               </thead>             
               <tbody>  
@@ -37,7 +38,8 @@
                         <form action="{{ route('contact_delete', $contact) }}" method="post">
                           @method('DELETE')
                           @csrf
-                          <button class="btn btn-danger" type="submit"><i class="fas fa-trash"></i></button>               
+                          <button class="btn btn-danger" type="submit" onclick="return confirm('Tem a certeza que quer apagar esta mensagem ?');">
+                            <i class="fas fa-trash"></i></button>               
                         </form>
                       </div>
                     </td>
@@ -53,10 +55,10 @@
                           </button>
                         </div>
                         <div class="card-body">
-                          <p>DE : {{$contact->name}}</p>
+                          <p>Email enviado por : {{$contact->name}}</p>
                         </div>
                         <div class="modal-body">
-                          <div class="card-body" text='centered' style="background-color: #f4f6f9">{{$contact->message}}</div>
+                          <div class="card-body" text='centered'>{{$contact->message}}</div>
                         </div>
                         <div class="card-body">
                           <p>{{$contact->name}}</p>

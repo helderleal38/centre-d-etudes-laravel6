@@ -8,7 +8,7 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>LISTE DES ELEVES</h1>
+              <h1>LISTA DAS PRÉ-INSCRIÇÕES</h1>
             </div>
           </div>
         </div>
@@ -25,16 +25,12 @@
               <thead>
                 <tr>
                   <th scope="col">ID</th>
-                  <th scope="col">Prenom</th>
-                  <th scope="col">Nom</th>
-                  <th scope="col">Ecole</th>
-                  <th scope="col">Année scolaire</th>
-                  <th scope="col">Matière souhaité</th>
-                  <th scope="col">Responsable legal</th>
-                  <th scope="col">Adresse</th>
-                  <th scope="col">Email</th>
-                  <th scope="col">Téléphone</th>
-                  <th scope="col">ACTION</th>
+                  <th scope="col">Nome</th>
+                  <th scope="col">Apelidos</th>
+                  <th scope="col">Ano escolar</th>
+                  <th scope="col">Disciplina</th>
+                  <th scope="col">Ficha completa</th>
+                  <th scope="col">OPÇÕES</th>
                 </tr>
               </thead>             
               <tbody>  
@@ -43,23 +39,97 @@
                   <th scope="row">{{$pre_registration->id}}</th>                 
                   <td>{{$pre_registration->firstname}}</td>
                   <td>{{$pre_registration->name}}</td>
-                  <td>{{$pre_registration->scoolName}}</td>
                   <td>{{$pre_registration->year}}</td>
                   <td>{{$pre_registration->matter}}</td>
-                  <td>{{$pre_registration->responsible}}</td>
-                  <td>{{$pre_registration->address}}</td>
-                  <td>{{$pre_registration->email}}</td>
-                  <td>{{$pre_registration->phoneNumber}}</td>
-                  <td class="text-right py-0 align-middle">
+                  <td><button class="btn btn-link" data-toggle="modal" data-target="#studentModal{{$pre_registration->id}}"><i class="fas fa-envelope-open-text"></i></button></td>
+                  <td class="py-0 align-middle">
                     <div class="btn-group btn-group-sm">
                       <form action="{{route('pre_registration_delete', $pre_registration)}}" method="post">
                         @method('DELETE')
                         @csrf
-                        <button class="btn btn-danger" type="submit" onclick="return confirm('Vous êtes sur de vouloir supprimer cette pré-inscription ?');"><i class="fas fa-trash"></i></button>               
+                        <button class="btn btn-danger" type="submit" onclick="return confirm('Tem a certeza que quer apagar esta pré-inscrição ?');">
+                          <i class="fas fa-trash"></i></button>               
                       </form>
                     </div>
                   </td>
                 </tr>
+
+                <!------------------------------------------------- STUDENT MODAL ------------------------------------------------------>
+
+                <div class="modal fade" id="studentModal{{$pre_registration->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog modal-lg">
+                    <div class="modal-content ">
+                      <div class="modal-header">
+                      <h2>Ficha de pré-inscrição de {{$pre_registration->firstname}}</h2>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+
+                        <div class="form-group row">
+                          <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nome completo') }}</label>
+                          <div class="col-md-6">
+                              <span class="form-control">{{ $pre_registration->firstname }} {{ $pre_registration->name }}</span>
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
+                          <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Ano escolar') }}</label>
+                          <div class="col-md-6">
+                              <span class="form-control">{{ $pre_registration->year }}</span>
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
+                          <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Disciplina') }}</label>
+                          <div class="col-md-6">
+                              <span class="form-control">{{ $pre_registration->matter }}</span>
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
+                          <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Escola frequentada') }}</label>
+                          <div class="col-md-6">
+                              <span class="form-control">{{ $pre_registration->scoolName }}</span>
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
+                          <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Responsável') }}</label>
+                          <div class="col-md-6">
+                              <span class="form-control">{{ $pre_registration->responsible }}</span>
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
+                          <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Morada') }}</label>
+                          <div class="col-md-6">
+                              <span class="form-control">{{ $pre_registration->address }}</span>
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
+                          <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('E-mail') }}</label>
+                          <div class="col-md-6">
+                              <span class="form-control">{{ $pre_registration->email }}</span>
+                          </div>
+                        </div>
+
+                        <div class="form-group row">
+                          <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Telefone') }}</label>
+                          <div class="col-md-6">
+                              <span class="form-control">{{ $pre_registration->phoneNumber }}</span>
+                          </div>
+                        </div>
+
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 @endforeach
               </tbody>            
             </table>

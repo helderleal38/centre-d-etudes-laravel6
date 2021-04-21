@@ -52,11 +52,36 @@ class TeatchersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(TeatcherRequest $request)
+    public function store(Request $request)
     {
+      $validator = Validator($request->all(), [
+        "phoneNumber" => "required|regex:/^[0-9\s\-\+\(\)]{9,20}$/",
+        "scoolLevel" => "required",
+        "matter" => "required",
+        "cv" => "required|file|mimes:pdf,doc,docx,pptx",
+      ],[
+        "phoneNumber.required" => "<span style='color:red;'>Insira um número de telefone.</span>",
+        "phoneNumber.regex" => "<span style='color:red;'>Insira um número de telefone válido.</span>",
+
+        "scoolLevel.required" => "<span style='color:red;'>Insira o nível escolar preferencial.</span>",
+
+        "matter.required" => "<span style='color:red;'>Insira uma disciplina.</span>",
+
+        "cv.required" => "<span style='color:red;'>O cv é obrigatório.</span>",
+        "cv.file" => "<span style='color:red;'>O cv deve ser um ficheiro.</span>",
+        "cv.mimes" => "<span style='color:red;'>O ficheiro deve ser do tipo: pdf, doc, pptx.</span>",
+        "cv.max" => "<span style='color:red;'>O tamanho do ficheiro deve ser inferior a 2048 kilo-octets.</span>",
+      ]);
+
+      if ($validator->fails()) {
+        return back()
+                ->withErrors($validator)
+                ->withInput();
+      }
+        
       $cv = $request->cv;
       $userId = auth()->id();
-      $cv_complete_name = time() .'_'. $userId . '.' .$cv->getClientOriginalExtension();
+      $cv_complete_name = time() .'_'. $userId . '.' .$cv->getClientOriginalName();
       $cv->move('uploads/files/', $cv_complete_name);
 
       $teatcher = Teatcher::create([
@@ -76,7 +101,7 @@ class TeatchersController extends Controller
 
       event(new TeatcherEvent($admin, $teatcher_user));
 
-      return back()->with('success', "Votre candidature a bien étè envoyé. On vous contactera au plus vite !");
+      return back()->with('success', "A sua candidatura foi enviada com sucesso. Você será contactado/a brevemente !");
     }
 
     /**
@@ -122,7 +147,7 @@ class TeatchersController extends Controller
     public function destroy(Teatcher $teatcher)
     {
         $teatcher->delete();
-        return back()->with('info', "Le professeur a bien été supprimé dans la table des professeurs, mais sont compte est toujours active sur le site.");
+        return back()->with('info', "A candidatura foi apagada com sucesso.");
 
     }
 }

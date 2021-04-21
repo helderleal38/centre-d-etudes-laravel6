@@ -1,13 +1,13 @@
 @component('mail::message')
-# Bonjour {{ $admin->name }}, vous avez un message de {{ $contact->name }}
 
---------------------------------Contenu du message-----------------------------
+  # Olá {{ $admin->name }}, recebeu uma mensagem de {{ $contact->name }}
 
-{{ $contact->subject }}
+  -------------------------------- Mensagem -----------------------------
 
-{{ $contact->message }}
+  {{ $contact->subject }}
 
+  {{ $contact->message }}
 
+  Obrigado,<br>
 
-Thanks,<br>
 @endcomponent

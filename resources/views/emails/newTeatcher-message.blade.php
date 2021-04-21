@@ -1,9 +1,10 @@
 @component('mail::message')
-# Bonjour {{$admin->name}}
 
-{{$teatcher_user->firstname}}, professeur de {{$teatcher_user->matter}}, vous a envoyé une candidature.
+  # Olá {{$admin->name}}
 
+  {{$teatcher_user->firstname}}, professor/a de {{$teatcher_user->matter}}, enviou-te uma candidatura.
 
-Thanks,<br>
-{{ config('app.name') }}
+  Obrigado,<br>
+  {{ config('app.name') }}
+
 @endcomponent

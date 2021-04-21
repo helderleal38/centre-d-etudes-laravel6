@@ -54,24 +54,24 @@ class RegisterController extends Controller
         "state" => "required",
       ],
       [
-        "firstname.required" => "<span style='color:red;'>Le prénom est obligatoire</span>",
-        "firstname.regex" => "<span style='color:red;'>Veuillez entrer un prénom valide</span>",
+        "firstname.required" => "<span style='color:red;'>O nome é obrigatório.</span>",
+        "firstname.regex" => "<span style='color:red;'>Insira um nome válido!</span>",
 
-        "name.required" => "<span style='color:red;'>Le nom est obligatoire</span>",
-        "name.regex" => "<span style='color:red;'>Veuillez entrer un nom valide</span>",
+        "name.required" => "<span style='color:red;'>O apelido é obrigatório.</span>",
+        "name.regex" => "<span style='color:red;'>Insira um apelido válido!</span>",
 
-        "email.required" => "<span style='color:red;'>L'email est obligatoire</span>",
-        "email.email" => "<span style='color:red;'>Veuillez entrer un email valide</span>",
-        "email.unique" => "<span style='color:red;'>Ce e-mail existe déjà, veuillez en chosir un autre</span>",
+        "email.required" => "<span style='color:red;'>O e-mail é obrigatório.</span>",
+        "email.email" => "<span style='color:red;'>Insira um e-mail válido!</span>",
+        "email.unique" => "<span style='color:red;'>Este e-mail já existe! Escolha outro por favor.</span>",
 
-        "password.required" => "<span style='color:red;'>Le mot de passe est obligatoire</span>",
-        "password.string" => "<span style='color:red;'>Mot de passe invalide</span>",
-        "password.min" => "<span style='color:red;'>Veuillez entrer au mnimum 8 caractères.</span>",
+        "password.required" => "<span style='color:red;'>A palavra-passe é obrigatória.</span>",
+        "password.string" => "<span style='color:red;'>Insira uma palavra-passe válida!</span>",
+        "password.min" => "<span style='color:red;'>Insira no mínimo 8 caractéres!</span>",
 
-        "password_confirmation.required" => "<span style='color:red;'>La confirmation du mot de passe est obligatoire.</span>",
-        "password_confirmation.same" => "<span style='color:red;'>Les mots de passe doivent être identiques.</span>",
+        "password_confirmation.required" => "<span style='color:red;'>A confirmação da palavra-passe é obrigatória.</span>",
+        "password_confirmation.same" => "<span style='color:red;'>As palavras-passe devem ser idênticas.</span>",
 
-        "state.required" => "<span style='color:red;'>Le statut est obligatoire</span>",
+        "state.required" => "<span style='color:red;'>O estatuto do utilisador é obrigatório.</span>",
       ] 
       );
     }

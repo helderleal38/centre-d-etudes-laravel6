@@ -13,8 +13,8 @@ class MatterTableSeeder extends Seeder
     public function run()
     {
         $matter = Matter::create([
-            "matter" => "Mathématique" ,
-            "title" => "Venez jouer avec les nombres !" ,
+            "matter" => "Matemática" ,
+            "title" => "Aprenda a jogar com os números !" ,
             "content" => "Les mathématiques (ou la mathématique) sont un ensemble de connaissances abstraites 
             résultant de raisonnements logiques appliqués à des objets divers tels que les ensembles mathématiques, 
             les nombres, les formes, les structures, les transformations, etc. ; ainsi qu'aux relations et opérations mathématiques 

@@ -80,8 +80,8 @@ class PreRegistrationController extends Controller
 
         event(new StudentEvent($admin, $student_user));
 
-        return back()->with('success', "Votre pré-inscription à bien étè envoyé. Vous allez être contacté au plus vite ! 
-        <br>Faites une nouvelle pré-inscription si vous souhaité un deuxiéme cours");
+        return back()->with('success', "A tua pré-inscrição foi enviada com sucesso. Serás contactado/a brevemente ! 
+        Se desejares explicações noutra disciplina, faz uma nova pré-inscrição !");
     }
 
     /**
@@ -121,7 +121,7 @@ class PreRegistrationController extends Controller
     public function update(Request $request, PreRegistration $pre_registration)
     {
         $pre_registration->update($request->all());
-        return back()->with('success', "Fiche de pré-inscription modifié avec success !");
+        return back()->with('success', "A pré-inscrição foi modificada com sucesso !");
 
     }
 
@@ -134,6 +134,6 @@ class PreRegistrationController extends Controller
     public function destroy(PreRegistration $pre_registration)
     {
         $pre_registration->delete();
-        return back()->with('success', "La pré-inscription a bien été supprimé.");
+        return back()->with('success', "A pré-inscrição foi apagada com sucesso.");
     }
 }

@@ -8,7 +8,7 @@
         <div class="container-fluid">
           <div class="row mb-2">
             <div class="col-sm-6">
-              <h1>LISTE DES PROFESSEURS</h1>
+              <h1>LISTA DAS CANDIDATURAS</h1>
             </div>
           </div>
         </div>
@@ -25,14 +25,14 @@
               <thead>
                 <tr>
                   <th scope="col">ID</th>
-                  <th scope="col">Prenom</th>
-                  <th scope="col">Nom</th>
-                  <th scope="col">Matière à enseigner</th>
-                  <th scope="col">Cycle scolaire</th>
-                  <th scope="col">Téléphone</th>                
-                  <th scope="col">Email</th>                 
+                  <th scope="col">Nome</th>
+                  <th scope="col">Apelidos</th>
+                  <th scope="col">Disciplinas</th>
+                  <th scope="col">Ciclo preferencial</th>
+                  <th scope="col">Telefone</th>                
+                  <th scope="col">E-mail</th>                 
                   <th scope="col">Cv</th>                 
-                  <th scope="col">ACTION</th>
+                  <th scope="col">OPÇÕES</th>
                 </tr>
               </thead>             
               <tbody>  
@@ -51,7 +51,8 @@
                       <form action="{{route('teatcher_delete', $teatcher)}}" method="post">
                         @method('DELETE')
                         @csrf
-                        <button class="btn btn-danger" type="submit" onclick="return confirm('Vous êtes sur de vouloir supprimer cette candidature ?');"><i class="fas fa-trash"></i></button>               
+                        <button class="btn btn-danger" type="submit" onclick="return confirm('Tem a certeza que quer apagar esta candidatura ?');">
+                          <i class="fas fa-trash"></i></button>               
                       </form>
                     </div>
                   </td>

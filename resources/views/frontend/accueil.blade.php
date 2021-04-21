@@ -8,11 +8,11 @@
           <!--Verification de l'authentification avant la pré-inscription-->
           @if(Auth::guest())                     
             <button type="button" class="btn btn-success btn-responsive" data-toggle="modal" data-target="#commencezDesMaintenaintModal">
-                Commencez dès maintenant !
+                Inscreve-te já !
             </button>
           @else                      
             <button type="button" class="btn btn-success btn-responsive disabled">
-                Commencez dès maintenant !
+              Inscreve-te já !
             </button>
           @endif
         </div>
@@ -40,10 +40,11 @@
     </div>
   </section>
 
-  <!-----------------Pouquoi nous choisir------------------>
+  <!----------------- Porquê escolher a nossa escola ? ------------------>
+
   <div class="row d-flex justify-content-center">
     <div class="col">
-      <h1 class="font-weight-bold text-center">Pourquoi nous choisir</h1>
+      <h1 class="text-center">Porquê escolher a nossa escola ?</h1>
     </div>
   </div>
   
@@ -54,57 +55,56 @@
       <div class="row text-center d-flex justify-content-center">
         <div class="col-lg-3 col-md-6 mb-lg-0 mb-5">
           <i class="fas fa-balance-scale fa-3x indigo-text mb-4"></i>
-          <h4 class="font-weight-bold mb-4">SUR MESURE</h4>
+          <h4 class="font-weight-bold mb-4">À medida</h4>
           <p class="text-muted px-2 mb-lg-0">
-            Tous les apprenants sont différents. Nos solutions d’accompagnement personnalisées tiennent compte de la diversité 
-            des rythmes, des styles d’apprentissage, des forces et faiblesses dans les savoirs acquis. Cette approche 
-            individualisée est garante des progrès les plus solides, dans la compréhension des matières et dans l’organisation 
-            du travail. Et nous nous adapterons non seulement à votre profil cognitif mais aussi à votre emploi du temps pour 
-            vous fournir le service le plus ajusté possible.
+            Todos os alunos são diferentes. Nossas soluções de suporte personalizado levam á diversidade tendo em consideração
+            ritmos, estilos de aprendizagem, pontos fortes e fracos nos conhecimentos adquiridos. Esta abordagem
+            dá uma garantia individualizada e um progresso mais sólido, na compreensão dos assuntos e na organização
+            trabalhos. Adaptamo-nos não apenas ao seu perfil cognitivo, mas também aos seus horários para
+            fornecer-lhe o serviço mais personalizado possível.
           </p>
         </div>
         <div class="col-lg-3 col-md-6 mb-lg-0 mb-5">
           <i class="fas fa-home fa-3x mb-4"></i>
-          <h4 class="font-weight-bold mb-4">CHEZ VOUS</h4>
+          <h4 class="font-weight-bold mb-4">Em sua casa</h4>
           <p class="text-muted px-2 mb-lg-0">
-            Etudier dans son environnement de travail familier et sans la contrainte de déplacements supplémentaires. 
-            Notre expertise vient jusqu’à votre porte (ou jusque sur votre écran) pour vous permettre d’accéder à l’ensemble 
-            de vos ressources pédagogiques habituelles. Le service à domicile ouvre à d’autres bénéfices comme le crédit d’impôt 
-            ou la possibilité pour votre coach scolaire d’offrir des conseils pertinents au sujet de votre espace de travail.
+            Estude em um ambiente de trabalho familiar e sem a restrição de viagens adicionais.
+            A nossa experiência chega à sua porta para dar-lhe acesso a todos
+            os seus recursos de ensino usuais. O serviço ao domicílio oferece outros benefícios, como crédito fiscal
+            ou a possibilidade de o treinador da escola oferecer conselhos relevantes sobre o seu espaço de trabalho.
           </p>
         </div>
         <div class="col-lg-3 col-md-6 mb-md-0 mb-5">
           <i class="fas fa-user-graduate fa-3x amber-text mb-4"></i>
-          <h4 class="font-weight-bold mb-4">PAR DES PROS</h4>
+          <h4 class="font-weight-bold mb-4">Profissionalismo</h4>
           <p class="text-muted px-2 mb-md-0">
-            C’est parce qu’ils/elles ont vu passer des milliers de cas singuliers dans leurs classes que nos enseignant(e)s de 
-            l’Education Nationale seront les mieux à même d’adapter leur soutien à la personnalité de votre enfant.
-            Dans nos séances de diagnostic, au moment de la correction des copies ou lors des sessions régulières de tutorat en 
-            tête-à-tête, ils/elles sauront repérer les principaux champs de progression et préparer des stratégies calquées sur 
-            les besoins uniques de l’élève.
+            É porque viram milhares de casos únicos em suas salas de aula que nossos professores de
+            A Educação Nacional estará em melhor posição para adaptar seu apoio à personalidade de seu filho.
+            Em nossas sessões de diagnóstico, ao corrigir cópias ou durante as sessões de tutoria regulares em
+            um a um, eles saberão como identificar as principais áreas de progresso e preparar estratégias com base em
+            as necessidades únicas do aluno.
           </p>
         </div>
         <div class="col-lg-3 col-md-6 mb-md-0 mb-5">
           <i class="fas fa-chart-line fa-3x green-text mb-4"></i>
-          {{-- <i class="fas fa-chart-line"></i> --}}
-          <h4 class="font-weight-bold mb-4">REUSSITE GARANTIE</h4>
+          <h4 class="font-weight-bold mb-4">Sucesso garantido</h4>
           <p class="text-muted px-2 mb-md-0">
-            Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin 
-            literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney 
-            College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going 
-            through the cites of the word in classical literature, discovered the undoubtable source. 
+            Ao contrário da crença popular, Lorem Ipsum não é simplesmente um texto aleatório. Tem raízes em um pedaço de latim clássico
+            literatura de 45 aC, com mais de 2.000 anos. Richard McClintock, professor de latim em Hampden-Sydney
+            College na Virgínia, procurei uma das palavras latinas mais obscuras, consectetur, de uma passagem de Lorem Ipsum, e indo
+            através das citações da palavra na literatura clássica, descobriu a fonte indiscutível.
           </p>
         </div>
       </div>
     </section>
   </div>
 
-  <!------------------------------Testimonials------------------------------>
-  <div class="container mt-5">
+  <!------------------------------ O que eles dizem de nós ? ------------------------------>
+
     <!--Section: Content-->
-    <section class="text-center dark-grey-text">
+    <section class="text-center">
       <!-- Section heading -->
-      <h1 class="font-weight-bold mb-4 pb-4">Ce qu'ils disent de nous</h1>
+      <h1 class="font-weight-bold mb-4 pb-4">O que eles dizem de nós ?</h1>
       <div class="wrapper-carousel-fix">
         <!-- Carousel Wrapper -->      
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
@@ -115,14 +115,14 @@
                 <div class="testimonial">
                   <!--Avatar-->
                   <div class="avatar mx-auto mb-4">
-                    <img src="{{asset($comment->avatar)}}" class="rounded-circle img-fluid" width="250" height="250"
+                    <img src="{{asset($comment->avatar)}}" class="rounded-circle img-fluid"
                       alt="First sample avatar image">
                   </div>
                   <!--Content-->
                   <p>
                     <i class="fas fa-quote-left"></i>{{$comment->comment}}
                   </p>
-                  <h4 class="font-weight-bold">{{$comment->name}} {{$comment->firstname}}</h4>
+                  <h4 class="font-weight-bold">{{$comment->firstname}} {{$comment->name}}</h4>
                   <!--Review-->
                   <i class="fas fa-star blue-text"> </i>
                   <i class="fas fa-star blue-text"> </i>
@@ -151,5 +151,5 @@
       </div>
     </section>
     <!--Section: Content-->
-  </div>
+  
 @endsection
