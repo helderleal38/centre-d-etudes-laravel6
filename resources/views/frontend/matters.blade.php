@@ -4,11 +4,11 @@
 <section class="matieres">
   <div class="row justify-content-center d-flex">
     <div>
-      <h1 class="title font-weight-bold text-center">Aqui encontras as matérias que ensinamos !</h1>
+      <h1 class="title font-weight-normal text-center">Aqui encontras as matérias que ensinamos !</h1>
       <h5 class="subTitle text-center mb-5">Desenrola a lista e consulta as informações.</h5>
     </div>
     
-    <div id="accordion" class="col col-lg-8">
+    <div id="accordion" class="col col-lg-8 col-md-10">
       @foreach($matters as $matter)
       <div class="card">
 
@@ -32,9 +32,9 @@
               </div>
             </div>
             <h2 class="title text-center pb-2 pt-2">Os nossos preços</h2>
-            <h4>Preço de hora : {{$matter->hourPrice}} euros</h4>
-            <h4>Contrato anual : {{$matter->yearReduction}}% REDUCÃO</h4>
-            <h4>Trouxeste outro aluno ? : {{$matter->extraReduction}}% REDUCÃO sobre o contrato anual</h4>
+            <h5>Preço de hora : {{$matter->hourPrice}} euros</h5>
+            <h5>Contrato anual : {{$matter->yearReduction}}% REDUCÃO</h5>
+            <h5>Trouxeste outro aluno ? : {{$matter->extraReduction}}% REDUCÃO sobre o contrato anual</h5>
           </div>
         </div>
         
