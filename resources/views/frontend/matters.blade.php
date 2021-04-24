@@ -3,12 +3,13 @@
 @section('content')
 <section class="matieres">
   <div class="row justify-content-center d-flex">
-    <div>
+    <div class="col col-lg-8 col-md-12">
       <h1 class="title font-weight-normal text-center">Aqui encontras as matérias que ensinamos !</h1>
-      <h5 class="subTitle text-center mb-5">Desenrola a lista e consulta as informações.</h5>
+      <p class="subTitle text-center mb-5">Desenrola a lista e consulta as informações.</p>
     </div>
-    
-    <div id="accordion" class="col col-lg-8 col-md-10">
+  </div>
+  <div class="row justify-content-center">  
+    <div id="accordion" class="col col-lg-8 col-md-12">
       @foreach($matters as $matter)
       <div class="card">
 
@@ -27,14 +28,14 @@
                 <img class="img-fluid" src="{{asset($matter->image)}}" alt="Sample image">
               </div>
               <div class="col-lg-6 col-md-12 col-sm-12">
-                <h2 class="title text-center pb-2">{{$matter->title}}</h2>
-                <h5 class="content pb-2">{{$matter->content}}</h5>
+                <h4 class="title text-center pb-2">{{$matter->title}}</h4>
+                <p class="content pb-2">{{$matter->content}}</p>
               </div>
             </div>
-            <h2 class="title text-center pb-2 pt-2">Os nossos preços</h2>
-            <h5>Preço de hora : {{$matter->hourPrice}} euros</h5>
-            <h5>Contrato anual : {{$matter->yearReduction}}% REDUCÃO</h5>
-            <h5>Trouxeste outro aluno ? : {{$matter->extraReduction}}% REDUCÃO sobre o contrato anual</h5>
+            <h4 class="title text-center pb-2 pt-2">Os nossos preços</h4>
+            <p>Preço de hora : {{$matter->hourPrice}} euros</p>
+            <p>Contrato anual : {{$matter->yearReduction}}% REDUCÃO</p>
+            <p>Trouxeste outro aluno ? : {{$matter->extraReduction}}% REDUCÃO sobre o contrato anual</p>
           </div>
         </div>
         
