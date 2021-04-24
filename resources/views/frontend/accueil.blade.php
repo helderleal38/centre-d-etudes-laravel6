@@ -44,7 +44,7 @@
 
   <div class="row d-flex justify-content-center">
     <div class="col">
-      <h1 class="text-center">Porquê escolher a nossa escola ?</h1>
+      <h1 class="font-weight-normal text-center">Porquê escolher a nossa escola ?</h1>
     </div>
   </div>
   
@@ -55,7 +55,7 @@
       <div class="row text-center d-flex justify-content-center">
         <div class="col-lg-3 col-md-6 mb-lg-0 mb-5">
           <i class="fas fa-balance-scale fa-3x indigo-text mb-4"></i>
-          <h4 class="font-weight-bold mb-4">À medida</h4>
+          <h4 class="font-weight-normal mb-4">À medida</h4>
           <p class="text-muted px-2 mb-lg-0">
             Todos os alunos são diferentes. Nossas soluções de suporte personalizado levam á diversidade tendo em consideração
             ritmos, estilos de aprendizagem, pontos fortes e fracos nos conhecimentos adquiridos. Esta abordagem
@@ -66,7 +66,7 @@
         </div>
         <div class="col-lg-3 col-md-6 mb-lg-0 mb-5">
           <i class="fas fa-home fa-3x mb-4"></i>
-          <h4 class="font-weight-bold mb-4">Em sua casa</h4>
+          <h4 class="font-weight-normal mb-4">Em sua casa</h4>
           <p class="text-muted px-2 mb-lg-0">
             Estude em um ambiente de trabalho familiar e sem a restrição de viagens adicionais.
             A nossa experiência chega à sua porta para dar-lhe acesso a todos
@@ -76,7 +76,7 @@
         </div>
         <div class="col-lg-3 col-md-6 mb-md-0 mb-5">
           <i class="fas fa-user-graduate fa-3x amber-text mb-4"></i>
-          <h4 class="font-weight-bold mb-4">Profissionalismo</h4>
+          <h4 class="font-weight-normal mb-4">Profissionalismo</h4>
           <p class="text-muted px-2 mb-md-0">
             É porque viram milhares de casos únicos em suas salas de aula que nossos professores de
             A Educação Nacional estará em melhor posição para adaptar seu apoio à personalidade de seu filho.
@@ -87,7 +87,7 @@
         </div>
         <div class="col-lg-3 col-md-6 mb-md-0 mb-5">
           <i class="fas fa-chart-line fa-3x green-text mb-4"></i>
-          <h4 class="font-weight-bold mb-4">Sucesso garantido</h4>
+          <h4 class="font-weight-normal mb-4">Sucesso garantido</h4>
           <p class="text-muted px-2 mb-md-0">
             Ao contrário da crença popular, Lorem Ipsum não é simplesmente um texto aleatório. Tem raízes em um pedaço de latim clássico
             literatura de 45 aC, com mais de 2.000 anos. Richard McClintock, professor de latim em Hampden-Sydney
@@ -104,7 +104,7 @@
     <!--Section: Content-->
     <section class="text-center">
       <!-- Section heading -->
-      <h1 class="font-weight-bold mb-4 pb-4">O que eles dizem de nós ?</h1>
+      <h1 class="font-weight-normal mb-4 pb-4">O que eles dizem de nós ?</h1>
       <div class="wrapper-carousel-fix">
         <!-- Carousel Wrapper -->      
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
