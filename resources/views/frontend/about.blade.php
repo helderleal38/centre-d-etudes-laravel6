@@ -4,7 +4,7 @@
 
   <!------------------------------Notre histoire---------------------------->
   <section class="container about-history"> 
-    <h1 class="font-weight-bold text-center">A nossa história</h1>
+    <h1 class="font-weight-normal text-center mb-4">A nossa história</h1>
     <div class="jumbotron text-center">
       <div class="row d-flex justify-content-center">
         <div class="col-xl-8 pb-4">
@@ -23,7 +23,7 @@
 
   <!------------------------------Nos espaces------------------------------->
   <section class="about-espaces"> 
-    <h1 class="text-center mx-auto font-weight-bold mb-4 pb-2">Os nossos espaços</h1>
+    <h1 class="text-center mx-auto font-weight-normal mb-4 pb-2">Os nossos espaços</h1>
     <!--Carousel Wrapper-->
     <div id="carousel-with-lb" class="carousel slide carousel-multi-item" data-ride="carousel">
       <!--Indicators-->
@@ -81,7 +81,7 @@
   
   <!------------------------------Notre equipe------------------------------>
   <section class="about-equipe"> 
-    <h1 class="text-center mx-auto font-weight-bold pt-4">Os nossos professores</h2>
+    <h1 class="text-center mx-auto font-weight-normal pt-4">Os nossos professores</h2>
     <div class="container card my-5 z-depth-1">   
       <div class="row d-flex justify-content-center">
         <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
