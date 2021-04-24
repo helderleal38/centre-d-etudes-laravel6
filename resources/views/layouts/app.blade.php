@@ -7,40 +7,30 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <!--<title>{{ config('app.name', 'Vasco Soares') }}</title>-->
-    <title>Vasco Soares</title>
+    <title>Centro de explicações</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
     <!-- Google Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500&display=swap" rel="stylesheet">
     <!-- Bootstrap core CSS -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
-        <!-- Scripts -->
-    {{-- <script src="{{ asset('js/app.js') }}" defer></script> --}}
+
+    <!-- Scripts -->
     <script src="{{ asset('js/aditional.js') }}" defer></script>
 
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
     <!-- Styles -->
-    {{-- <link href="{{ asset('css/app.css') }}" rel="stylesheet"> --}}
-    <link href ="{{ asset('css/about.css') }}" rel="stylesheet">
-    <link href ="{{ asset('css/accueil.css') }}" rel="stylesheet">
-    <link href ="{{ asset('css/contact.css') }}" rel="stylesheet">
-    <link href ="{{ asset('css/matters.css') }}" rel="stylesheet">
-    <link href ="{{ asset('css/services.css') }}" rel="stylesheet">
-    <link href ="{{ asset('css/student.css') }}" rel="stylesheet">
-    <link href ="{{ asset('css/teatcher.css') }}" rel="stylesheet">
+    <link href ="{{ asset('css/app.css') }}" rel="stylesheet">
+
 </head>
 <body>
   <div id="app">
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm fixed-top">
       <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-          <img class ="navbar-brand" src="{{asset('./assets/logo.png')}}" alt="Vasco Soares">
+          <img class ="navbar-brand" src="{{asset('./assets/book.png')}}" alt="Centre d'études">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
@@ -51,14 +41,14 @@
             <!-------------------------------------------------------------------------------------->
             <!------------------------------------- MENU LINKS ------------------------------------->
             <!-------------------------------------------------------------------------------------->
-            <li class="nav-item"><a class="nav-link" href="{{ route('frontend_accueil') }}">Accueil</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ route('frontend_services') }}">Services</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ route('frontend_matters') }}">Matières</a></li> 
-            <li class="nav-item"><a class="nav-link" href="{{ route('frontend_about') }}">A propos</a></li>
-            <li class="nav-item"><a class="nav-link" href="{{ route('frontend_contact')}}">Contact</a></li>
+            {{-- <li class="nav-item"><a class="nav-link" href="{{ route('frontend_accueil') }}">Acolho</a></li> --}}
+            <li class="nav-item"><a class="nav-link" href="{{ route('frontend_services') }}">Serviços</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ route('frontend_matters') }}">Matérias</a></li> 
+            <li class="nav-item"><a class="nav-link" href="{{ route('frontend_about') }}">O centro</a></li>
+            <li class="nav-item"><a class="nav-link" href="{{ route('frontend_contact')}}">Contacto</a></li>
             <!--Si l'utilisateur n'est pas connecte affiche l'alert Modal-->
             @if(Auth::guest())
-              <li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#alertModal">Recrutement</a></li>
+              <li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#alertModal">Recrutamento</a></li>
             @endif 
           </ul>
 
@@ -69,11 +59,11 @@
             <!-------------------------------------------------------------------------------------->
             @guest
               <li class="nav-item">
-                  <a class="nav-link" href="{{ route('login') }}">Connection</a>       
+                  <a class="nav-link" href="{{ route('login') }}">Entrar</a>       
                 </li>
               @if (Route::has('register'))
                   <li class="nav-item">
-                      <a class="nav-link" href="{{ route('register') }}">Inscription</a>
+                      <a class="nav-link" href="{{ route('register') }}">Inscrição</a>
                   </li>
               @endif
             @else     
@@ -83,18 +73,18 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                   @if(Auth::user()->state == "eleve")
-                    <a class="dropdown-item" href="{{ route('students_index') }}">Espace élève</a>
+                    <a class="dropdown-item" href="{{ route('students_index') }}">Espaço aluno</a>
                   @endif
                   @if(Auth::user()->state == "professeur")
-                    <a class="dropdown-item" href="{{ route('teatchers_index') }}">Espace professeur</a>
+                    <a class="dropdown-item" href="{{ route('teatchers_index') }}">Espaço professor</a>
                   @endif
                   @if(Auth::user()->state == "administrateur")
-                    <a class="dropdown-item" href="{{ route('administrateur_index') }}">Espace admin</a>
+                    <a class="dropdown-item" href="{{ route('administrateur_index') }}">Espaço administrador</a>
                   @endif
                   <a class="dropdown-item" href="{{ route('logout') }}"
                   onclick="event.preventDefault();
                   document.getElementById('logout-form').submit();">
-                      {{ __('Déconnexion') }}
+                      {{ __('Sair') }}
                   </a>
                   <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                       @csrf
@@ -106,7 +96,7 @@
         </div>
       </div>
     </nav>
-    <main class="container-fluid w-100 py-4">
+    <main class="container-fluid py-4">
 
         @yield('content')
         
@@ -133,17 +123,17 @@
     <div class="modal-dialog modal-md">
       <div class="modal-content ">
         <div class="modal-header">
-          <img class ="navbar-brand" src="{{asset('./assets/logo.png')}}" alt="Vasco Soares logo">
+          <img class ="navbar-brand" src="{{asset('./assets/book.png')}}" alt="Centre d'études">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-            <div class="card-body" text='centered'><strong>Vous voulez enseigner chez nous ?</strong><br>Pour déposer votre candidature, merci de vous inscrire d'abord !</div>
+            <div class="card-body" text='centered'><strong>Gostaria de ensinar no nosso centro ?</strong><br>Para enviar a sua candidatura, basta criar uma conta !</div>
         </div>
         <div class="modal-footer">
-            <a class="btn btn-link" href="{{ route('register') }}" style="color: red;">Inscription</a>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+            <a class="btn btn-link" href="{{ route('register') }}" style="color: red;">Inscrição</a>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
         </div>
       </div>
     </div>
@@ -156,19 +146,19 @@
     <div class="modal-dialog modal-md">
       <div class="modal-content ">
         <div class="modal-header">
-          <img class ="navbar-brand" src="{{asset('./assets/logo.png')}}" alt="Vasco Soares logo">
+          <img class ="navbar-brand" src="{{asset('./assets/book.png')}}" alt="Centre d'études">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-            <div class="card-body" text='centered'><strong>Vous êtes interessé par un cours?</strong><br> 
-              Veuillez créer une compte pour acceder a votre espace personnel,<br> 
-              où vous pouvez remplir la fiche de pré-inscription !</div>
+            <div class="card-body" text='centered'><strong>Estás a precisar de uma aulas ?</strong><br> 
+              Cria uma conta e acede ao teu espaço pessoal,<br> 
+              onde poderás enviar a tua pré-inscrição !</div>
         </div>
         <div class="modal-footer">
-            <a class="btn btn-link" href="{{ route('register') }}" style="color: red;">Inscription</a>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+            <a class="btn btn-link" href="{{ route('register') }}" style="color: red;">Inscrição</a>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
         </div>
       </div>
     </div>
