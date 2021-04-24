@@ -49,5 +49,8 @@
         </div>
       </form>
     </section>
+    <div>
+      <p>Nota: A mensagem terá como destinatário o programador do site.</p>
+    </div>
   </div>
 @endsection
