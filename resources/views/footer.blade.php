@@ -7,16 +7,16 @@
         <a class="navbar-brand" href="{{ url('/') }}">
           <img class ="navbar-brand" src="{{asset('./assets/book.png')}}" alt="Vasco Soares logo">
         </a>
-        <p class="mb-0"><span class="fas fa-map-marker-alt"></span>20, Rua Almeida Garret</p>
-        <p class="mb-0">3100 Pombal</p>
-        <p class="pb-1"><span class="fas fa-phone mr-2"></span>+ 01 000 000 00</p>
-        <p><span class="fas fa-envelope"></span> centreDexplicacoes@gmail.com</p>
+        <p class="mb-0"><span class="fas fa-map-marker-alt mr-2"></span>20, Rua Almeida Garret</p>
+        <p class="mb-0 ml-3">3100 Pombal</p>
+        <p class="pb-1"><span class="fas fa-phone mr-1"></span>+ 01 000 000 00</p>
+        <p><span class="fas fa-envelope mr-1"></span> centreDexplicacoes@gmail.com</p>
       </div>
 
       <hr class="clearfix w-100 d-md-none">
 
       <div class="col-md-2 mx-auto">
-        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Horários</h5>
+        <h5 class="font-weight-normal text-uppercase mt-3 mb-4">Horários</h5>
         <p>De segunda a sábado</p>
         <p>09h00 - 12h30</p>
         <p>14h30 - 19h</p>
@@ -25,7 +25,7 @@
       <hr class="clearfix w-100 d-md-none">
 
       <div class="col-md-2 mx-auto">
-        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Para todos os níveis</h5>
+        <h5 class="font-weight-normal text-uppercase mt-3 mb-4">Para todos os níveis</h5>
         <ul class="list-unstyled">
           <li>
             <a href="#!">Ensino Básico</a>
@@ -45,7 +45,7 @@
       <hr class="clearfix w-100 d-md-none">
 
       <div class="col-md-2 mx-auto">
-        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Informações</h5>
+        <h5 class="font-weight-normal text-uppercase mt-3 mb-4">Informações</h5>
         <ul class="list-unstyled">
           <li>
             <a href="#!">Menções legais</a>
