@@ -1,46 +1,20 @@
 
-h1, h2, h3{
-    color:  rgba(0,65,134);;
-  }
-  body{
-    background-color: rgb(242, 242, 242);
-  }
-  /************** NAV BAR *****************/
-  
-  #app  a:link, #app a:visited{
-    color: rgba(0,65,134);
-  }
-  
-  #app  a:hover, #app a:active{
-    color: rgba(7,165,209);
-  }
-  
-  
-  
-  /************** LOGO *****************/
-  #logo{
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  /************** ACCUEIL *****************/
-  
-  .home-image{
-    padding-top: 80px;
-    margin: 0 auto;
-    position :relative;
-  }
-  
-  .carousel-caption h1{
-    /* color: #d8dd07; */
-    color: rgba(7,165,209);
-  }
-  
-  .why_choose_us{
-    background: white;
-  }
+.home-image{
+  padding-top: 80px;
+  margin: 0 auto;
+  position :relative;
+}
 
-  .avatar img{
-    width: 250px;
-    height: 250px;
-  }
+.carousel-caption h1{
+  /* color: #d8dd07; */
+  color: rgba(7,165,209);
+}
+
+.why_choose_us{
+  background: white;
+}
+
+.avatar img{
+  width: 250px;
+  height: 250px;
+}
