@@ -122,7 +122,7 @@
                   <p>
                     <i class="fas fa-quote-left"></i>{{$comment->comment}}
                   </p>
-                  <h4 class="font-weight-bold">{{$comment->firstname}} {{$comment->name}}</h4>
+                  <h4 class="font-weight-normal">{{$comment->firstname}} {{$comment->name}}</h4>
                   <!--Review-->
                   <i class="fas fa-star blue-text"> </i>
                   <i class="fas fa-star blue-text"> </i>
